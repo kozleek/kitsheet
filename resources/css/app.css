@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom_label {
+    @apply text-sm font-medium text-gray-700 cursor-pointer flex items-center gap-3;
+}
+
+.custom_input {
+    @apply appearance-none p-2 border border-gray-400 rounded-md;
+}
+
+.custom_checkbox {
+    @apply appearance-none w-5 h-5 border border-gray-400 rounded relative text-green-500 active:ring-0 focus:ring-0 active:ring-offset-0 focus:ring-offset-0 focus:checked:bg-orange-400 checked:bg-orange-400 checked:hover:bg-orange-400;
+}
+
+@media print {
+    .print-page {
+        height: A4;
+        page-break-before: always;
+    }
+
+    .print-page-break {
+        break-before: always;
+        /* for firefox */
+        page-break-before: always;
+        /* for webkit */
+        -webkit-column-break-before: always;
+    }
+}
