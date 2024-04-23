@@ -4,8 +4,7 @@
 
 @section('content')
     <x-page.heading>
-        <x-slot:title>Vytvoření nové sady</x-slot:title>
-        <x-slot:description>Vytvoření nové sady pracovních listů, podle vaších požadavků</x-slot:description>
+        <x-slot:title>Nová sada pracovních listů</x-slot:title>
     </x-page.heading>
 
     <livewire:kit-config />
