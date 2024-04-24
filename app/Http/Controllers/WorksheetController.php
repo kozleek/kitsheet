@@ -16,7 +16,7 @@ class WorksheetController extends Controller
     {
         $worksheet = Worksheet::where('id', $id)->firstOrFail();
         $title = 'Pracovní list';
-        return view('worksheets.show', [
+        return view('worksheet.show', [
             'title'     => $title,
             'worksheet' => $worksheet
         ]);

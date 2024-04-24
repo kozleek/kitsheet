@@ -202,7 +202,7 @@ class KitConfig extends Component
         }
 
         // Redirect to the kit
-        return redirect()->route('kits.show', $this->kit);
+        return redirect()->route('kit.show', $this->kit);
     }
 
     /**

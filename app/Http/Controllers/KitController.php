@@ -32,7 +32,7 @@ class KitController extends Controller
 
     public function create()
     {
-        return view('kits.create');
+        return view('kit.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class KitController extends Controller
         $kit->delete();
 
         // redirect to create new kit
-        return redirect()->route('kits.create');
+        return redirect()->route('kit.create');
     }
 
     /**
@@ -69,7 +69,7 @@ class KitController extends Controller
         $canEdit = $this->canEdit($kit);
 
         if ($canEdit) {
-            return view('kits.edit', [
+            return view('kit.edit', [
                 'kit'   => $kit
             ]);
         } else {
@@ -97,7 +97,7 @@ class KitController extends Controller
             $index++;
         }
 
-        return view('kits.print', [
+        return view('kit.print', [
             'kit'   => $kit,
             'results' => $results
         ]);
@@ -112,7 +112,7 @@ class KitController extends Controller
         $kit = Kit::findOrFail($id);
         $canEdit = $this->canEdit($kit);
 
-        return view('kits.show', [
+        return view('kit.show', [
             'kit'   => $kit,
             'canEdit' => $canEdit
         ]);

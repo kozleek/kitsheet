@@ -8,10 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [KitController::class, 'create'])->name('kits.create');
-Route::get('/{id}', [KitController::class, 'show'])->name('kits.show');
-Route::get('/{id}/print', [KitController::class, 'print'])->name('kits.print');
-Route::get('/{id}/edit', [KitController::class, 'edit'])->name('kits.edit');
-Route::get('/{id}/remove', [KitController::class, 'remove'])->name('kits.remove');
+Route::get('/', [KitController::class, 'create'])->name('kit.create');
+Route::get('/kit/{id}', [KitController::class, 'show'])->name('kit.show');
+Route::get('/kit/{id}/print', [KitController::class, 'print'])->name('kit.print');
+Route::get('/kit/{id}/edit', [KitController::class, 'edit'])->name('kit.edit');
+Route::get('/kit/{id}/remove', [KitController::class, 'remove'])->name('kit.remove');
 
-Route::get('/worksheet/{id}', [WorksheetController::class, 'show'])->name('worksheets.show');
+Route::get('/sheet/{id}', [WorksheetController::class, 'show'])->name('worksheet.show');

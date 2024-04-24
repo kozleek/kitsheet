@@ -28,7 +28,7 @@ class SendForChecking extends Component
         $this->worksheet->save();
 
         // redirect to the worksheet
-        $this->redirect(route('worksheets.show', $this->worksheet->id));
+        $this->redirect(route('worksheet.show', $this->worksheet->id));
     }
 
     /**
