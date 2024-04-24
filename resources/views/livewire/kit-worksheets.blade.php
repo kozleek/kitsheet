@@ -1,6 +1,6 @@
 <div class="grid gap-4 {{ count($worksheets) > 1 ? 'grid-cols-2' : 'grid-cols-1' }}" wire:poll.750ms>
     @foreach ($worksheets as $worksheet)
-        <a href="{{ route('worksheet.show', $worksheet->id) }}" class="flex flex-col gap-3 rounded-lg bg-white p-4 lg:p-6 shadow-md hover:shadow-lg">
+        <a href="{{ route('sheet.show', $worksheet->id) }}" class="flex flex-col gap-3 rounded-lg bg-white p-4 lg:p-6 shadow-md hover:shadow-lg">
             <div class="space-y-2">
                 <h3 class="font-semibold">
                     @if ($worksheet->name)
