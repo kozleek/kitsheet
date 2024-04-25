@@ -25,7 +25,7 @@
 
 <body class="min-h-full bg-neutral-100 antialiased" x-data="{modal:null}">
     @yield('announcement')
-    <div class="py-4">
+    <div class="pt-4 pb-12">
         <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
             @yield('content')
         </div>
