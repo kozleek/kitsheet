@@ -32,6 +32,12 @@
 </head>
 
 <body class="min-h-full bg-neutral-100 antialiased" x-data="{modal:null}">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ config('scripts.gtm') }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     @yield('announcement')
     <div class="py-4">
         <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
