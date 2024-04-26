@@ -16,8 +16,6 @@ class KitConfig extends Component
     public $mode;
     public $id;
     public $title;
-    public $heading;
-    public $headingShow;
     public $name;
     public $description;
     public $countWorksheets;
@@ -48,8 +46,6 @@ class KitConfig extends Component
         $this->id                = $this->kit ? $this->kit->id : null;
         $this->title             = $this->kit ? $this->kit->title : '';
         $this->description       = $this->kit ? $this->kit->description : '';
-        $this->heading           = $this->kit ? 'Upravit sadu pracovních listů' : '';
-        $this->headingShow       = $this->kit ? 'false' : 'true';
         $this->countWorksheets   = $this->kit ? intval($this->kit->count_worksheets) : 10;
         $this->countExamples     = $this->kit ? intval($this->kit->count_examples) : 15;
         $this->countNumbers      = $this->kit ? intval($this->kit->count_numbers) : 2;
