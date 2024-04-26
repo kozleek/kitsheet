@@ -20,13 +20,15 @@
         </x-slot:info>
 
         <x-slot:actions>
-            @if ($canEdit)
-                <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['id' => $kit->id]) }}" />
-            @endif
+            <div class="flex gap-2">
+                @if ($canEdit)
+                    <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['id' => $kit->id]) }}" />
+                @endif
 
-            <x-button icon="heroicon-o-link" tooltip="Zkopírovat odkaz na sadu" data-clipboard-text="{{ Request::url() }}" />
-            <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['id' => $kit->id]) }}');" />
-            <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='remove'" />
+                <x-button icon="heroicon-o-link" tooltip="Zkopírovat odkaz na sadu" data-clipboard-text="{{ Request::url() }}" />
+                <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['id' => $kit->id]) }}');" />
+                <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='remove'" />
+            </div>
             <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.create') }}" target="_blank">
                 Vytvořit novou sadu
             </x-button>

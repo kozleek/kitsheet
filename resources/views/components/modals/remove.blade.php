@@ -7,7 +7,6 @@
 
     <x-slot:text>
         <p>Všechny existující pracovní listy a jejich související příklady budou smazány.</p>
-        <p>Tato akce je nevratná!</p>
     </x-slot:text>
 
     <x-slot:actions>

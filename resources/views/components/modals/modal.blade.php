@@ -11,9 +11,9 @@
 >
 
     <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 w-full md:w-auto px-4 md:px-0">
             <div
-                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 min-w-[600px]"
+                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all w-full sm:max-w-lg sm:p-6 md:min-w-[600px]"
                 x-on:click.outside="modal = null"
                 x-show="modal=='{{ $id }}'"
                 x-transition:enter="transition ease-out duration-300"
@@ -24,7 +24,7 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
                 <div class="sm:flex sm:items-start">
-                    <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                    <div class="mt-3 sm:mt-0">
                         <h3 class="text-xl font-semibold leading-6 text-gray-900" id="modal-title">{{ $title }}</h3>
                         <div class="mt-4 space-y-2 text-base text-gray-500">
                             {{ $text }}

@@ -13,7 +13,7 @@
         </x-form.section>
 
         <x-form.section label="Nastavení čísel">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <x-form.number label="Minimum" name="rangeMin" required="true" />
                 <x-form.number label="Maximum" name="rangeMax" required="true" />
                 <x-form.number label="Počet čísel v příkladu" name="countNumbers" min="2" max="5" required="true" />
@@ -22,7 +22,7 @@
         </x-form.section>
 
         <x-form.section label="Matematické operace">
-            <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <x-form.checkbox label="Sčítání" name="operationAdd" />
                 <x-form.checkbox label="Odčítání" name="operationSubtract" />
                 <x-form.checkbox label="Násobení" name="operationMultiply" />
@@ -30,7 +30,7 @@
         </x-form.section>
 
         <x-form.section label="Nastavení příkladů">
-            <div class="grid grid-cols-2 gap-4 md:grid-cols-2">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem (např. při odčítání)" name="settingsExamplesOnlyPositive" />
                 <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky (Beta: pouze k prvním dvěma číslům)" name="settingsExamplesWithParentheses" beta="true" />
             </div>
@@ -40,13 +40,14 @@
     <div class="mt-8 flex items-center gap-4">
         @if ($mode == 'create')
             <x-button icon="heroicon-o-plus" wire:click="store" primary="true" disabled="{{ !$canSave }}">
-                Vytvořit novou sadu pracovních listů
+                <span class="block md:hidden">Vytvořit sadu</span>
+                <span class="hidden md:block">Vytvořit novou sadu pracovních listů</span>
             </x-button>
         @endif
 
         @if ($mode == 'edit')
             <x-button x-on:click="modal='update'" primary="true" disabled="{{ !$canSave }}">
-                Uložit a vytvořit nové pracovní listy
+                Uložit sadu
             </x-button>
 
             <x-modals.update />
