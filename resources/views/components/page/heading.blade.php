@@ -20,7 +20,7 @@
     </div>
 
     @if ($actions)
-        <div class="min-w-1/2 flex-shrink-0 mt-5 flex lg:mt-0 gap-2">
+        <div class="min-w-1/2 flex-shrink-0 mt-5 flex flex-col md:flex-row lg:mt-0 gap-2">
             {{ $actions }}
         </div>
     @endif
