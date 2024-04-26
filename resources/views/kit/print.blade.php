@@ -46,10 +46,10 @@
                         {{ $worksheet->name }}
                     </div>
                 </div>
-                <div class="space-y-12">
+                <div class="grid grid-cols-2 gap-4">
                     <div>
                         <h3 class="text-xl font-bold">Příklady</h3>
-                        <div class="grid gap-4 mt-8 {{ $worksheet->kit->count_numbers > 2 ? 'grid-cols-3' : 'grid-cols-4' }}">
+                        <div class="grid grid-cols-1 gap-4 mt-8">
                             @foreach ($worksheet->examples as $example)
                                 <div class="text-lg font-sometype">{{ $example->specification_formatted}} = </div>
                             @endforeach
@@ -58,8 +58,8 @@
 
                     <div>
                         <h3 class="text-xl font-bold">Možné výsledky</h3>
-                        <p class="text-base mt-2 text-neutral-500">Správné výsledky škrtněte a poslední zbývající číslo zakroužkujte</p>
-                        <div class="grid grid-cols-7 gap-4 mt-8">
+                        <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladu a poslední zbývající číslo zakroužkujte</p>
+                        <div class="grid grid-cols-3 gap-4 mt-8">
                             @foreach ($results[$loop->index] as $result)
                                 <div class="border border-neutral-300 p-2 text-lg font-sometype">{{ $result }}</div>
                             @endforeach

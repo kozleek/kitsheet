@@ -13,7 +13,7 @@
 
     @if ($worksheet->examples->count())
         <x-page.card>
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 gap-4 pt-8">
                 @foreach ($worksheet->examples as $example)
                     <livewire:example :example="$example" key="$example->id" />
                 @endforeach
