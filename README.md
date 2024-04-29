@@ -1,6 +1,7 @@
 # KitSheet
 
-KitSheet - Math generator for kits and sheets
+[KitSheet](https://www.kitsheet.cz) is simple (but powerfull) math generator for kits and sheets.
+
 
 ## About Laravel
 
