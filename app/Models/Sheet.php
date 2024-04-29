@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use App\Observers\SheetObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
