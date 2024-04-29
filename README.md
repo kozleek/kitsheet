@@ -13,16 +13,25 @@ This project will use the following technologies:
 
 Clone this repository
 
-``git clone https://github.com/kozleek/kitsheet.git``
+```shell
+git clone https://github.com/kozleek/kitsheet.git
+```
 
-Install Composer packages
+Install Composer and NPM packages
 
-``composer install``
+```shell
+composer install
+npm install
+```
 
-Install NPM packages packages
+Run PHP migration
 
-``npm install``
+```shell
+php artisan migrate
+```
 
 Run NPM dev script
 
-``npm run dev``
+```shell
+npm run dev
+```
