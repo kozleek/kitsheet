@@ -8,13 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="theme-color" content="#6466F1"/>
 
-    <title>
-        @if (trim($__env->yieldContent('title')) !== '')
-            @yield('title') - {{ config('app.name') }}
-        @else
-            {{ config('app.name') }}
-        @endif
-    </title>
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

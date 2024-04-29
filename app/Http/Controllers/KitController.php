@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kit;
+use App\Support\SeoSupport;
 use Illuminate\Http\Request;
 
 class KitController extends Controller
@@ -32,7 +33,13 @@ class KitController extends Controller
 
     public function create()
     {
-        return view('kit.create');
+        $title = SeoSupport::getPageTitle();
+        $description = SeoSupport::getMetaDescription();
+
+        return view('kit.create', [
+            'title' => $title,
+            'description' => $description
+        ]);
     }
 
     /**
@@ -68,9 +75,14 @@ class KitController extends Controller
         $kit = Kit::findOrFail($id);
         $canEdit = $this->canEdit($kit);
 
+        $title = SeoSupport::getPageTitle($kit->title);
+        $description = SeoSupport::getMetaDescription('Editace sady pracovních listů');
+
         if ($canEdit) {
             return view('kit.edit', [
-                'kit'   => $kit
+                'title' => $title,
+                'description' => $description,
+                'kit' => $kit
             ]);
         } else {
             return abort(404, 'Nelze upravit sadu pracovních listů, protože některé pracovní listy již byly vyplněny.');
@@ -85,6 +97,10 @@ class KitController extends Controller
     public function print($id)
     {
         $kit = Kit::findOrFail($id);
+
+        $title = SeoSupport::getPageTitle($kit->title);
+        $description = SeoSupport::getMetaDescription('Tisková verze sady pracovních listů');
+
         $results = [];
 
         $index = 0;
@@ -98,6 +114,8 @@ class KitController extends Controller
         }
 
         return view('kit.print', [
+            'title' => $title,
+            'description' => $description,
             'kit'   => $kit,
             'results' => $results
         ]);
@@ -112,7 +130,12 @@ class KitController extends Controller
         $kit = Kit::findOrFail($id);
         $canEdit = $this->canEdit($kit);
 
+        $title = SeoSupport::getPageTitle($kit->title);
+        $description = SeoSupport::getMetaDescription('Sada pracovních listů');
+
         return view('kit.show', [
+            'title' => $title,
+            'description' => $description,
             'kit'   => $kit,
             'canEdit' => $canEdit
         ]);

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Nová sada pracovních listů')
+@section('title', $title)
 
 @section('content')
     <x-page.heading>
