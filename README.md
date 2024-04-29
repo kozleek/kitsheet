@@ -8,6 +8,7 @@ This project will use the following technologies:
 - MySQL (MariaDB)
 - [Laravel + Blade](https://laravel.com)
 - [Tailwind CSS](https://tailwindcss.com)
+- [AlpineJS](https://alpinejs.dev)
 
 ## Instalation
 
@@ -35,3 +36,7 @@ Run NPM dev script
 ```shell
 npm run dev
 ```
+
+## Author
+
+Tomáš Musiol (www.musiol.cz)
