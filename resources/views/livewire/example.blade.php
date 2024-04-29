@@ -13,7 +13,11 @@
                         </span>
                     @else
                         <span class="block underline decoration-red-300 decoration-wavy underline-offset-4">
-                            {{ $example->answer }}
+                            @if ($example->answer == '?')
+                                Neodpovězeno
+                            @else
+                                {{ $example->answer }}
+                            @endif
                         </span>
                     @endif
                 </span>

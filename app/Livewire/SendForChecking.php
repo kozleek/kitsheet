@@ -17,7 +17,7 @@ class SendForChecking extends Component
     {
         // save the answers
         foreach ($this->sheet->examples as $example) {
-            $example->answer = isset($example->answer) ? $example->answer : 'Neodpovězeno';
+            $example->answer = isset($example->answer) ? $example->answer : '?';
             $example->is_correct = $example->is_correct ? 1 : 0;
             $example->save();
         }
