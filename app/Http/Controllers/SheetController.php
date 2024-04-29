@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sheet;
+use App\Models\Sheet;
 use Illuminate\Http\Request;
 
 class SheetController extends Controller
