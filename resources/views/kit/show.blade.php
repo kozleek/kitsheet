@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $kit->title)
+@section('title', $title)
+@section('description', $description)
 
 @section('announcement')
     @if (!$canEdit)
