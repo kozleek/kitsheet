@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Observers\WorksheetObserver;
+use App\Observers\sheetObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Worksheet extends Model
+class Sheet extends Model
 {
     use HasFactory;
     use HasUuids;
@@ -21,11 +21,11 @@ class Worksheet extends Model
     protected static function boot(): void
     {
         parent::boot();
-        self::observe(WorksheetObserver::class);
+        self::observe(SheetObserver::class);
     }
 
     /**
-     * Get the kit that owns the worksheet.
+     * Get the kit that owns the sheet.
      */
 
     public function kit()
@@ -34,7 +34,7 @@ class Worksheet extends Model
     }
 
     /**
-     * Get the examples for the worksheet.
+     * Get the examples for the sheet.
      */
 
     public function examples()

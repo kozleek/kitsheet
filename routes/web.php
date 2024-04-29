@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KitController;
-use App\Http\Controllers\WorksheetController;
+use App\Http\Controllers\SheetController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,4 +14,4 @@ Route::get('/kit/{id}/print', [KitController::class, 'print'])->name('kit.print'
 Route::get('/kit/{id}/edit', [KitController::class, 'edit'])->name('kit.edit');
 Route::get('/kit/{id}/remove', [KitController::class, 'remove'])->name('kit.remove');
 
-Route::get('/sheet/{id}', [WorksheetController::class, 'show'])->name('sheet.show');
+Route::get('/sheet/{id}', [SheetController::class, 'show'])->name('sheet.show');

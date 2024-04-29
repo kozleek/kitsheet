@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Worksheet;
+use App\Models\sheet;
 use Illuminate\Http\Request;
 
-class WorksheetController extends Controller
+class SheetController extends Controller
 {
 
     /**
-     * Show the worksheet.
+     * Show the sheet.
      */
 
     public function show($id)
     {
-        $worksheet = Worksheet::where('id', $id)->firstOrFail();
+        $sheet = Sheet::where('id', $id)->firstOrFail();
         $title = 'Pracovní list';
         return view('sheet.show', [
             'title'     => $title,
-            'worksheet' => $worksheet
+            'sheet' => $sheet
         ]);
     }
 }

@@ -11,14 +11,14 @@ class KitController extends Controller
 
     /**
      * Check if the kit can be edited.
-     * The kit can be edited if all worksheets are empty (examples have no answers).
+     * The kit can be edited if all sheets are empty (examples have no answers).
      */
 
     private function canEdit($kit)
     {
         $canEdit = true;
-        foreach ($kit->worksheets as $worksheet) {
-            if ($worksheet->examples()->whereNotNull('answer')->exists()) {
+        foreach ($kit->sheets as $sheet) {
+            if ($sheet->examples()->whereNotNull('answer')->exists()) {
                 $canEdit = false;
                 break;
             }
@@ -43,19 +43,19 @@ class KitController extends Controller
     }
 
     /**
-     * Remove the kit and all its worksheets and examples.
+     * Remove the kit and all its sheets and examples.
      */
 
     public function remove($id)
     {
         $kit = Kit::findOrFail($id);
 
-        // remove all examples and worksheets
-        foreach ($kit->worksheets as $worksheet) {
-            foreach ($worksheet->examples as $example) {
+        // remove all examples and sheets
+        foreach ($kit->sheets as $sheet) {
+            foreach ($sheet->examples as $example) {
                 $example->delete();
             }
-            $worksheet->delete();
+            $sheet->delete();
         }
 
         // remove kit
@@ -67,7 +67,7 @@ class KitController extends Controller
 
     /**
      * Edit the kit.
-     * The kit can be edited if all worksheets are empty (examples have no answers).
+     * The kit can be edited if all sheets are empty (examples have no answers).
      */
 
     public function edit($id)
@@ -104,9 +104,9 @@ class KitController extends Controller
         $results = [];
 
         $index = 0;
-        foreach ($kit->worksheets as $worksheet) {
-            $results[$index][] = $worksheet->result;
-            foreach ($worksheet->examples as $example) {
+        foreach ($kit->sheets as $sheet) {
+            $results[$index][] = $sheet->result;
+            foreach ($sheet->examples as $example) {
                 $results[$index][] = $example->result;
             }
             $results[$index] = collect($results[$index])->shuffle();

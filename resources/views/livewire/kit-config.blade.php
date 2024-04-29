@@ -7,7 +7,7 @@
             </div>
 
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <x-form.number label="Počet pracovních listů / Počet žáků" name="countWorksheets" min="1" max="50" required="true" />
+                <x-form.number label="Počet pracovních listů / Počet žáků" name="countSheets" min="1" max="50" required="true" />
                 <x-form.number label="Počet příkladů v pracovním listu" name="countExamples" min="1" max="50" required="true" />
             </div>
         </x-form.section>

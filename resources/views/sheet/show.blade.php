@@ -7,21 +7,21 @@
         <x-slot:title>{{ $title }}</x-slot:title>
 
         <x-slot:info>
-            <x-page.worksheet-info :kit="$worksheet->kit" />
+            <x-page.sheet-info :kit="$sheet->kit" />
         </x-slot:info>
     </x-page.heading>
 
-    @if ($worksheet->examples->count())
+    @if ($sheet->examples->count())
         <x-page.card>
             <div class="grid grid-cols-1 gap-4 pt-8">
-                @foreach ($worksheet->examples as $example)
+                @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" key="$example->id" />
                 @endforeach
             </div>
 
-            @if (!$worksheet->is_finished)
+            @if (!$sheet->is_finished)
                 <div class="mt-8">
-                    <livewire:send-for-checking :worksheet="$worksheet" />
+                    <livewire:send-for-checking :sheet="$sheet" />
                 </div>
             @endif
         </x-page.card>

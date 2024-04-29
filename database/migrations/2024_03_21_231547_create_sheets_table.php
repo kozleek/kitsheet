@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('worksheets', function (Blueprint $table) {
+        Schema::create('sheets', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignIdFor(Kit::class)->constrained()->cascadeOnDelete();
             $table->string('code')->required();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('worksheets');
+        Schema::dropIfExists('sheets');
     }
 };

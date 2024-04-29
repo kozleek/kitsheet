@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Worksheet;
+use App\Models\Sheet;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('examples', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Worksheet::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Sheet::class)->constrained()->cascadeOnDelete();
             $table->string('specification')->required();
             $table->string('specification_formatted')->nullable();
             $table->string('result')->required();

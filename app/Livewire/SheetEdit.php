@@ -4,28 +4,28 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class WorksheetEdit extends Component
+class SheetEdit extends Component
 {
-    public $worksheet;
+    public $sheet;
     public $name;
 
     /**
      * Mount the component.
      */
 
-    public function mount($worksheet)
+    public function mount($sheet)
     {
-        $this->name = $worksheet->name;
+        $this->name = $sheet->name;
     }
 
     /**
-     * Store the worksheet.
-     * Update the name of the worksheet.
+     * Store the sheet.
+     * Update the name of the sheet.
      */
 
     public function store()
     {
-        $this->worksheet->update([
+        $this->sheet->update([
             'name' => $this->name,
         ]);
     }
@@ -37,6 +37,6 @@ class WorksheetEdit extends Component
     public function render()
     {
         ray($this->name);
-        return view('livewire.worksheet-edit');
+        return view('livewire.sheet-edit');
     }
 }
