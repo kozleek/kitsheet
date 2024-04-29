@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Sheet;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Kit extends Model
 {
@@ -14,11 +15,11 @@ class Kit extends Model
     protected $guarded = [];
 
     /**
-     * Get the worksheets for the kit.
+     * Get the sheets for the kit.
      */
 
-    public function worksheets()
+    public function sheets()
     {
-        return $this->hasMany(Worksheet::class);
+        return $this->hasMany(Sheet::class);
     }
 }

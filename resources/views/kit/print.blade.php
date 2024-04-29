@@ -21,11 +21,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($kit->worksheets as $worksheet)
+                    @foreach ($kit->sheets as $sheet)
                         <tr>
-                            <td class="border border-neutral-200 p-2 text-left">{{ $worksheet->code }}</td>
-                            <td class="border border-neutral-200 p-2 text-left">{{ $worksheet->name }}</td>
-                            <td class="border border-neutral-200 p-2 text-left">{{ $worksheet->result }}</td>
+                            <td class="border border-neutral-200 p-2 text-left">{{ $sheet->code }}</td>
+                            <td class="border border-neutral-200 p-2 text-left">{{ $sheet->name }}</td>
+                            <td class="border border-neutral-200 p-2 text-left">{{ $sheet->result }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -35,22 +35,22 @@
 
 
     <div class="space-y-4 mt-4 divide-y-2 divide-black print:divide-y-0">
-        @foreach ($kit->worksheets as $worksheet)
+        @foreach ($kit->sheets as $sheet)
             <div class="print-page">
                 <div class="flex justify-between items-center mb-8">
                     <div>
-                        <h2 class="font-bold text-2xl">Pracovní list č. {{ $worksheet->code }}</h2>
-                        <x-page.worksheet-info :kit="$worksheet->kit" />
+                        <h2 class="font-bold text-2xl">Pracovní list č. {{ $sheet->code }}</h2>
+                        <x-page.sheet-info :kit="$sheet->kit" />
                     </div>
                     <div class="min-w-[200px] border-b border-neutral-300 pb-2 text-center">
-                        {{ $worksheet->name }}
+                        {{ $sheet->name }}
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <h3 class="text-xl font-bold">Příklady</h3>
                         <div class="grid grid-cols-1 gap-4 mt-8">
-                            @foreach ($worksheet->examples as $example)
+                            @foreach ($sheet->examples as $example)
                                 <div class="text-lg font-sometype">{{ $example->specification_formatted}} = </div>
                             @endforeach
                         </div>

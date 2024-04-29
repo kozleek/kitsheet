@@ -6,29 +6,29 @@ use Livewire\Component;
 
 class SendForChecking extends Component
 {
-    public $worksheet;
+    public $sheet;
 
     /**
-     * Send the worksheet for checking.
-     * Mark the worksheet as finished and save the answers.
+     * Send the sheet for checking.
+     * Mark the sheet as finished and save the answers.
      */
 
     public function store()
     {
         // save the answers
-        foreach ($this->worksheet->examples as $example) {
+        foreach ($this->sheet->examples as $example) {
             $example->answer = isset($example->answer) ? $example->answer : '?';
             $example->is_correct = $example->is_correct ? 1 : 0;
             $example->save();
         }
 
-        // mark the worksheet as finished
-        $this->worksheet->is_finished = true;
-        // save the worksheet
-        $this->worksheet->save();
+        // mark the sheet as finished
+        $this->sheet->is_finished = true;
+        // save the sheet
+        $this->sheet->save();
 
-        // redirect to the worksheet
-        $this->redirect(route('sheet.show', $this->worksheet->id));
+        // redirect to the sheet
+        $this->redirect(route('sheet.show', $this->sheet->id));
     }
 
     /**

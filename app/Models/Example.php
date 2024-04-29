@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Sheet;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,11 +14,11 @@ class Example extends Model
     protected $guarded = [];
 
     /**
-     * Get the worksheet that owns the example.
+     * Get the sheet that owns the example.
      */
 
-    public function worksheet()
+    public function sheet()
     {
-        return $this->belongsTo(Worksheet::class);
+        return $this->belongsTo(Sheet::class);
     }
 }

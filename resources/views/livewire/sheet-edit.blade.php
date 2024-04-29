@@ -1,12 +1,12 @@
 <div>
-    @if (!$worksheet->is_finished)
+    @if (!$sheet->is_finished)
         <div class="mb-8">
             <x-form.text label="Název pracovního listu (např. jméno)" name="name" change="store" />
         </div>
     @else
-        @if ($worksheet->name)
+        @if ($sheet->name)
             <div class="mb-8">
-                <p class="text-lg">Jméno: {{ $worksheet->name }}</p>
+                <p class="text-lg">Jméno: {{ $sheet->name }}</p>
             </div>
         @endif
     @endif

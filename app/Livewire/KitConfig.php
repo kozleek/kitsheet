@@ -18,7 +18,7 @@ class KitConfig extends Component
     public $title;
     public $name;
     public $description;
-    public $countWorksheets;
+    public $countSheets;
     public $countExamples;
     public $countNumbers;
     public $rangeType;
@@ -46,13 +46,13 @@ class KitConfig extends Component
         $this->id                = $this->kit ? $this->kit->id : null;
         $this->title             = $this->kit ? $this->kit->title : '';
         $this->description       = $this->kit ? $this->kit->description : '';
-        $this->countWorksheets   = $this->kit ? intval($this->kit->count_worksheets) : 10;
+        $this->countSheets       = $this->kit ? intval($this->kit->count_sheets) : 10;
         $this->countExamples     = $this->kit ? intval($this->kit->count_examples) : 15;
         $this->countNumbers      = $this->kit ? intval($this->kit->count_numbers) : 2;
         $this->rangeType         = $this->kit ? json_decode($this->kit->range_numbers)->type : 'numbers';
         $this->rangeMin          = $this->kit ? intval(json_decode($this->kit->range_numbers)->min) : 0;
         $this->rangeMax          = $this->kit ? intval(json_decode($this->kit->range_numbers)->max) : 100;
-        $this->rangeDecimals      = $this->kit ? intval(json_decode($this->kit->range_numbers)->decimals) : 0;
+        $this->rangeDecimals     = $this->kit ? intval(json_decode($this->kit->range_numbers)->decimals) : 0;
         $this->operationAdd      = $this->kit ? in_array('add', json_decode($this->kit->range_operations)) : true;
         $this->operationSubtract = $this->kit ? in_array('subtract', json_decode($this->kit->range_operations)) : true;
         $this->operationMultiply = $this->kit ? in_array('multiply', json_decode($this->kit->range_operations)) : false;
@@ -85,7 +85,7 @@ class KitConfig extends Component
         $this->validate([
             'title'                        => 'string|max:255',
             'description'                  => 'string',
-            'countWorksheets'              => 'required|numeric|min:1|max:50',
+            'countSheets'                  => 'required|numeric|min:1|max:50',
             'countExamples'                => 'required|numeric|min:1|max:50',
             'countNumbers'                 => 'required|numeric|min:2|max:5',
             'rangeType'                    => 'required|in:numbers,results',
@@ -126,8 +126,8 @@ class KitConfig extends Component
         // Set settings for kit
         $settingsKit = [];
 
-        // Set settings for worksheets
-        $settingsWorksheets = [];
+        // Set settings for sheets
+        $settingsSheets = [];
 
         // Set settings for examples
         $settingsExamples = [];
@@ -144,31 +144,31 @@ class KitConfig extends Component
         ], [
             'title'               => $this->title,
             'description'         => $this->description,
-            'count_worksheets'    => $this->countWorksheets,
+            'count_sheets'        => $this->countSheets,
             'count_examples'      => $this->countExamples,
             'count_numbers'       => $this->countNumbers,
             'range_numbers'       => json_encode($rangeNumbers),
             'range_operations'    => json_encode($rangeOperations),
             'settings_kit'        => $settingsKit ? json_encode($settingsKit) : null,
-            'settings_worksheets' => $settingsWorksheets ? json_encode($settingsWorksheets) : null,
+            'settings_sheets'     => $settingsSheets ? json_encode($settingsSheets) : null,
             'settings_examples'   => $settingsExamples ? json_encode($settingsExamples) : null,
         ]);
 
-        // Regenerate worksheets
-        // If exists, delete all worksheets...
-        if ($this->kit->worksheets->count() > 0) {
-            $this->kit->worksheets->each->delete();
+        // Regenerate sheets
+        // If exists, delete all sheets...
+        if ($this->kit->sheets->count() > 0) {
+            $this->kit->sheets->each->delete();
         }
 
         // ...and create new ones
-        foreach (range(1, $this->countWorksheets) as $i) {
-            $worksheet = $this->kit->worksheets()->create([
+        foreach (range(1, $this->countSheets) as $i) {
+            $sheet = $this->kit->sheets()->create([
                 'code' => $i,
                 'result' => RandomSupport::getRandomNumber($rangeNumbers),
             ]);
             $examples = [];
 
-            // Create examples for the worksheet
+            // Create examples for the sheet
             foreach (range(1, $this->countExamples) as $j) {
 
                 // create example until it is unique (not exists in the examples array)
@@ -187,7 +187,7 @@ class KitConfig extends Component
 
                 // Save example
                 Example::create([
-                    'worksheet_id'            => $worksheet->id,
+                    'sheet_id'            => $sheet->id,
                     'specification'           => $example['raw'],
                     'specification_formatted' => $example['formatted'],
                     'result'                  => $example['result'],

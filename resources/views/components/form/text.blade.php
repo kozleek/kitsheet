@@ -7,7 +7,7 @@
     >
         <input
             type="text" id="{{ $name }}"
-            wire:model.live="{{ $name }}"
+            wire:model.live.debounce.500ms="{{ $name }}"
             @if ($change)
                 wire:change="{{ $change }}"
             @endif

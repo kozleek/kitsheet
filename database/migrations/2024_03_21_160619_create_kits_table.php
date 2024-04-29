@@ -15,13 +15,13 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->integer('count_worksheets')->nullable();
+            $table->integer('count_sheets')->nullable();
             $table->integer('count_examples')->nullable();
             $table->integer('count_numbers')->nullable();
             $table->json('range_numbers')->nullable();
             $table->json('range_operations')->nullable();
             $table->json('settings_kit')->nullable();
-            $table->json('settings_worksheets')->nullable();
+            $table->json('settings_sheets')->nullable();
             $table->json('settings_examples')->nullable();
             $table->timestamps();
         });

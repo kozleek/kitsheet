@@ -18,7 +18,7 @@ class Example extends Component
     public function mount($example)
     {
         $this->answer = $example->answer;
-        $this->is_finished = $example->worksheet->is_finished;
+        $this->is_finished = $example->sheet->is_finished;
     }
 
     /**
