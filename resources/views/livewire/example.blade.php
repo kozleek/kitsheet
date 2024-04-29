@@ -8,24 +8,28 @@
                 <span>=</span>
                 <span class="flex-1">
                     @if ($example->is_correct)
-                        {{ $example->answer }}
+                        <span class="font-bold underline decoration-green-300 decoration-double underline-offset-4">
+                            {{ $example->answer }}
+                        </span>
                     @else
-                        <span
-                            class="block underline decoration-red-300 decoration-wavy underline-offset-4 cursor-help w-full"
-                            data-tippy-content="Správný výsledek: {{ $example->result }}"
-                        >
+                        <span class="block underline decoration-red-300 decoration-wavy underline-offset-4">
                             {{ $example->answer }}
                         </span>
                     @endif
                 </span>
             </div>
-            <div class="w-6 flex-shrink-0 text-center">
-                @if ($example->is_correct)
-                    <x-heroicon-o-check class="text-green-600" />
-                @else
+            @if ($example->is_correct)
+                <div class="size-6 bg-green-200 flex items-center justify-center flex-shrink-0 text-center border border-green-400 rounded">
+                    <x-heroicon-o-check class="h-4 w-4 text-green-600" />
+                </div>
+            @else
+                <div
+                    class="size-6 bg-red-200 flex items-center justify-center flex-shrink-0 text-center border border-red-400 rounded cursor-help"
+                    data-tippy-content="Správný výsledek: {{ $example->result }}"
+                >
                     <x-heroicon-o-x-mark class="text-red-500" />
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     @else
         <div class="flex items-center gap-2 border border-gray-200 bg-gray-100 py-2 px-4 font-sometype text-xl">
