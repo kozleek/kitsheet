@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sheet')
 
 @section('title', $pageTitle)
 @section('description', $pageDescription)
