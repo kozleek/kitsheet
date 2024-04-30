@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $title)
+@section('title', $pageTitle)
+@section('description', $pageDescription)
 
 @section('content')
     <x-page.heading>
