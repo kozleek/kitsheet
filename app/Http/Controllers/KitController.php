@@ -33,7 +33,7 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = SeoSupport::getPageTitle();
+        $title = SeoSupport::getPageTitle('Nová sada pracovních listů');
         $description = SeoSupport::getMetaDescription();
 
         return view('kit.create', [
@@ -75,7 +75,8 @@ class KitController extends Controller
         $kit = Kit::findOrFail($id);
         $canEdit = $this->canEdit($kit);
 
-        $title = SeoSupport::getPageTitle($kit->title);
+        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = SeoSupport::getPageTitle($titleText);
         $description = SeoSupport::getMetaDescription('Editace sady pracovních listů');
 
         if ($canEdit) {
@@ -98,7 +99,8 @@ class KitController extends Controller
     {
         $kit = Kit::findOrFail($id);
 
-        $title = SeoSupport::getPageTitle($kit->title);
+        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = SeoSupport::getPageTitle($titleText);
         $description = SeoSupport::getMetaDescription('Tisková verze sady pracovních listů');
 
         $results = [];
@@ -130,7 +132,8 @@ class KitController extends Controller
         $kit = Kit::findOrFail($id);
         $canEdit = $this->canEdit($kit);
 
-        $title = SeoSupport::getPageTitle($kit->title);
+        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = SeoSupport::getPageTitle($titleText);
         $description = SeoSupport::getMetaDescription('Sada pracovních listů');
 
         return view('kit.show', [
