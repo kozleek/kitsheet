@@ -59,7 +59,7 @@ class KitController extends Controller
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
-        $pageDescription = SeoSupport::getMetaDescription($description);
+        $pageDescription = SeoSupport::getMetaInfo($kit);
 
         if ($canEdit) {
             return view('kit.edit', [
@@ -86,7 +86,7 @@ class KitController extends Controller
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
-        $pageDescription = SeoSupport::getMetaDescription($description);
+        $pageDescription = SeoSupport::getMetaInfo($kit);
 
         return view('kit.show', [
             'pageTitle' => $pageTitle,
@@ -109,7 +109,8 @@ class KitController extends Controller
 
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
-        $description = SeoSupport::getMetaDescription('Tisková verze sady pracovních listů');
+        $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $pageDescription = SeoSupport::getMetaInfo($kit);
 
         $results = [];
 

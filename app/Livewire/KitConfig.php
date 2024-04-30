@@ -142,7 +142,7 @@ class KitConfig extends Component
         $this->kit = Kit::updateOrCreate([
             'id' => $this->id,  // update by id or create a new one
         ], [
-            'title'               => $this->title,
+            'title'               => ucfirst($this->title),
             'description'         => $this->description,
             'count_sheets'        => $this->countSheets,
             'count_examples'      => $this->countExamples,

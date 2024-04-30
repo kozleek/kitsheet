@@ -16,9 +16,15 @@ class SheetController extends Controller
     public function show($id)
     {
         $sheet = Sheet::where('id', $id)->firstOrFail();
-        $title = SeoSupport::getPageTitle('Pracovní list č. ' . $sheet->code);
+
+        $title = 'Pracovní list č. ' . $sheet->code;
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $pageDescription = SeoSupport::getMetaInfo($sheet->kit);
+
         return view('sheet.show', [
-            'title'     => $title,
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'title' => $title,
             'sheet' => $sheet
         ]);
     }
