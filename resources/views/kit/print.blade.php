@@ -1,6 +1,7 @@
 @extends('layouts.print')
 
-@section('title', $kit->title)
+@section('title', $pageTitle)
+@section('description', $pageDescription)
 
 @section('content')
     <div class="print-page">

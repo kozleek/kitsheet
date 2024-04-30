@@ -33,12 +33,103 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = SeoSupport::getPageTitle('Nová sada pracovních listů');
-        $description = SeoSupport::getMetaDescription();
+        $title = 'Nová sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = 'Vytvoření nové sady pracovních listů podle Vašich požadavků.';
+        $pageDescription = SeoSupport::getMetaDescription($description);
 
         return view('kit.create', [
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
             'title' => $title,
             'description' => $description
+        ]);
+    }
+
+    /**
+     * Edit the kit.
+     * The kit can be edited if all sheets are empty (examples have no answers).
+     */
+
+    public function edit($id)
+    {
+        $kit = Kit::findOrFail($id);
+        $canEdit = $this->canEdit($kit);
+
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
+        $pageDescription = SeoSupport::getMetaDescription($description);
+
+        if ($canEdit) {
+            return view('kit.edit', [
+                'pageTitle' => $pageTitle,
+                'pageDescription' => $pageDescription,
+                'title' => $title,
+                'description' => $description,
+                'kit' => $kit
+            ]);
+        } else {
+            return abort(404, 'Nelze upravit sadu pracovních listů, protože některé pracovní listy již byly vyplněny.');
+        }
+    }
+
+    /**
+     * Show the kit.
+     */
+
+    public function show($id)
+    {
+        $kit = Kit::findOrFail($id);
+        $canEdit = $this->canEdit($kit);
+
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
+        $pageDescription = SeoSupport::getMetaDescription($description);
+
+        return view('kit.show', [
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'title' => $title,
+            'description' => $description,
+            'kit'   => $kit,
+            'canEdit' => $canEdit
+        ]);
+    }
+
+    /**
+     * Print the kit.
+     * Print friendly version of the kit.
+     */
+
+    public function print($id)
+    {
+        $kit = Kit::findOrFail($id);
+
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = SeoSupport::getMetaDescription('Tisková verze sady pracovních listů');
+
+        $results = [];
+
+        $index = 0;
+        foreach ($kit->sheets as $sheet) {
+            $results[$index][] = $sheet->result;
+            foreach ($sheet->examples as $example) {
+                $results[$index][] = $example->result;
+            }
+            $results[$index] = collect($results[$index])->shuffle();
+            $index++;
+        }
+
+        return view('kit.print', [
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'title' => $title,
+            'description' => $description,
+            'kit'   => $kit,
+            'results' => $results
         ]);
     }
 
@@ -63,84 +154,5 @@ class KitController extends Controller
 
         // redirect to create new kit
         return redirect()->route('kit.create');
-    }
-
-    /**
-     * Edit the kit.
-     * The kit can be edited if all sheets are empty (examples have no answers).
-     */
-
-    public function edit($id)
-    {
-        $kit = Kit::findOrFail($id);
-        $canEdit = $this->canEdit($kit);
-
-        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $title = SeoSupport::getPageTitle($titleText);
-        $description = SeoSupport::getMetaDescription('Editace sady pracovních listů');
-
-        if ($canEdit) {
-            return view('kit.edit', [
-                'title' => $title,
-                'description' => $description,
-                'kit' => $kit
-            ]);
-        } else {
-            return abort(404, 'Nelze upravit sadu pracovních listů, protože některé pracovní listy již byly vyplněny.');
-        }
-    }
-
-    /**
-     * Print the kit.
-     * Print friendly version of the kit.
-     */
-
-    public function print($id)
-    {
-        $kit = Kit::findOrFail($id);
-
-        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $title = SeoSupport::getPageTitle($titleText);
-        $description = SeoSupport::getMetaDescription('Tisková verze sady pracovních listů');
-
-        $results = [];
-
-        $index = 0;
-        foreach ($kit->sheets as $sheet) {
-            $results[$index][] = $sheet->result;
-            foreach ($sheet->examples as $example) {
-                $results[$index][] = $example->result;
-            }
-            $results[$index] = collect($results[$index])->shuffle();
-            $index++;
-        }
-
-        return view('kit.print', [
-            'title' => $title,
-            'description' => $description,
-            'kit'   => $kit,
-            'results' => $results
-        ]);
-    }
-
-    /**
-     * Show the kit.
-     */
-
-    public function show($id)
-    {
-        $kit = Kit::findOrFail($id);
-        $canEdit = $this->canEdit($kit);
-
-        $titleText = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $title = SeoSupport::getPageTitle($titleText);
-        $description = SeoSupport::getMetaDescription('Sada pracovních listů');
-
-        return view('kit.show', [
-            'title' => $title,
-            'description' => $description,
-            'kit'   => $kit,
-            'canEdit' => $canEdit
-        ]);
     }
 }
