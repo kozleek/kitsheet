@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.kit')
 
 @section('title', $pageTitle)
 @section('description', $pageDescription)
