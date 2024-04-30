@@ -47,10 +47,10 @@ class SeoSupport
             $countNumbers = $kit->count_numbers . ' čísel';
         }
 
-        $range =  '<' . json_decode($kit->range_numbers)->min . ', ' . json_decode($kit->range_numbers)->max . '>';
+        $range =  'Rozsah: ' . json_decode($kit->range_numbers)->min . ' - ' . json_decode($kit->range_numbers)->max;
 
         // concatenate info
-        return $countSheets . ', ' . $countExamples . ', ' . $countNumbers . ', ' . $range;
+        return $countSheets . ', ' . $countExamples . ', ' . $countNumbers . ', ' . $range . '.';
     }
 
     /**
