@@ -8,8 +8,24 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="theme-color" content="#6466F1"/>
 
-    <title>@yield('title')</title>
-    <meta name="description" content="@yield('description')">
+    <!-- HTML Meta Tags -->
+    <title>{{ $pageTitle }} </title>
+    <meta name="description" content="{{ $pageDescription }}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="kitsheet.cz">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
+
+    <x-open-graph-image::metatags title="{{ $title }}" subtitle="{{ $pageDescription }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

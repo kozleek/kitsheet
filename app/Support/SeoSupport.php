@@ -15,7 +15,7 @@ class SeoSupport
     /**
      * Generate a meta info for the given page.
      */
-    public static function getMetaInfo($kit)
+    public static function getMetaInfo($kit, $showCountSheets = true, $showCountExamples = true, $showCountNumbers = true, $showRange = true)
     {
         $countSheets = '';
         $countExamples = '';
@@ -50,7 +50,22 @@ class SeoSupport
         $range =  'Rozsah: ' . json_decode($kit->range_numbers)->min . ' - ' . json_decode($kit->range_numbers)->max;
 
         // concatenate info
-        return $countSheets . ', ' . $countExamples . ', ' . $countNumbers . ', ' . $range . '.';
+        $info = '';
+
+        if ($showCountSheets) {
+            $info .= $countSheets . ' | ';
+        }
+        if ($showCountExamples) {
+            $info .= $countExamples . ' | ';
+        }
+        if ($showCountNumbers) {
+            $info .= $countNumbers . ' | ';
+        }
+        if ($showRange) {
+            $info .= $range . '.';
+        }
+
+        return $info;
     }
 
     /**
