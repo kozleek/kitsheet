@@ -1,8 +1,5 @@
 @extends('layouts.sheet')
 
-@section('title', $pageTitle)
-@section('description', $pageDescription)
-
 @section('content')
     <x-page.heading>
         <x-slot:title>{{ $title }}</x-slot:title>

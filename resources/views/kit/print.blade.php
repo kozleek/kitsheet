@@ -1,8 +1,5 @@
 @extends('layouts.print')
 
-@section('title', $pageTitle)
-@section('description', $pageDescription)
-
 @section('content')
     <div class="print-page">
         <div class="mb-8">

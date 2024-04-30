@@ -1,8 +1,5 @@
 @extends('layouts.kit')
 
-@section('title', $pageTitle)
-@section('description', $pageDescription)
-
 @section('announcement')
     @if (!$canEdit)
         <x-page.announcement>

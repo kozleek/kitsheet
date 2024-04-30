@@ -33,9 +33,9 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = 'Nová sada pracovních listů';
-        $pageTitle = SeoSupport::getPageTitle($title);
-        $description = 'Vytvoření nové sady pracovních listů podle Vašich požadavků.';
+        $title = 'KitSheet.cz';
+        $pageTitle = SeoSupport::getPageTitle();
+        $description = 'KitSheet je jednoduchý (ale promyšlený) generátor pracovních listů do matematiky.';
         $pageDescription = SeoSupport::getMetaDescription($description);
 
         return view('kit.create', [
