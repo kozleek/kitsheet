@@ -49,8 +49,7 @@
                             </span>
                         @else
                             <span
-                                class="size-6 rounded-sm border border-gray-200 bg-gray-100 text-gray-500 flex items-center justify-center text-xs"
-                                data-tippy-content="{{ $example->specification_formatted }}"
+                                class="size-5 rounded-sm border border-gray-200 bg-gray-100 text-gray-500 flex items-center justify-center text-xs"
                             >
                                 ?
                             </span>
