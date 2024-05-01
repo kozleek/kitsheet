@@ -33,9 +33,9 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = 'KitSheet.cz';
+        $title = config('kitsheet.name');
         $pageTitle = SeoSupport::getPageTitle();
-        $description = 'KitSheet je jednoduchý (ale promyšlený) generátor pracovních listů do matematiky.';
+        $description = config('kitsheet.description');
         $pageDescription = SeoSupport::getMetaDescription($description);
 
         return view('kit.create', [
