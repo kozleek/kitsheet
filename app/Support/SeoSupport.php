@@ -9,7 +9,7 @@ class SeoSupport
      */
     public static function getPageTitle($title = '')
     {
-        return $title != '' ? ucfirst($title) . ' - ' . config('app.name') : config('app.name');
+        return $title != '' ? ucfirst($title) . ' - ' . config('kitsheet.name') : config('kitsheet.name');
     }
 
     /**
@@ -73,6 +73,6 @@ class SeoSupport
      */
     public static function getMetaDescription($description = '')
     {
-        return $description != '' ? $description : 'KitSheet je jednoduchý (ale promyšlený) generátor pracovních listů do matematiky';
+        return $description != '' ? $description : config('kitsheet.description');
     }
 }
