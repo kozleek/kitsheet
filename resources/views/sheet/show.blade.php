@@ -17,7 +17,7 @@
                 @endforeach
             </div>
 
-            @if (!$sheet->is_finished)
+            @if ($sheet->is_finished == false)
                 <div class="mt-8">
                     <livewire:send-for-checking :sheet="$sheet" />
                 </div>
