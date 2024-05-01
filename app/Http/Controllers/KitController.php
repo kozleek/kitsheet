@@ -10,24 +10,6 @@ class KitController extends Controller
 {
 
     /**
-     * Check if the kit can be edited.
-     * The kit can be edited if all sheets are empty (examples have no answers).
-     */
-
-    private function canEdit($kit)
-    {
-        $canEdit = true;
-        foreach ($kit->sheets as $sheet) {
-            if ($sheet->examples()->whereNotNull('answer')->exists()) {
-                $canEdit = false;
-                break;
-            }
-        }
-
-        return $canEdit;
-    }
-
-    /**
      * Create a new kit.
      */
 
@@ -54,14 +36,13 @@ class KitController extends Controller
     public function edit($id)
     {
         $kit = Kit::findOrFail($id);
-        $canEdit = $this->canEdit($kit);
 
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
         $pageDescription = SeoSupport::getMetaInfo($kit);
 
-        if ($canEdit) {
+        if ($kit->canEdit) {
             return view('kit.edit', [
                 'pageTitle' => $pageTitle,
                 'pageDescription' => $pageDescription,
@@ -81,7 +62,6 @@ class KitController extends Controller
     public function show($id)
     {
         $kit = Kit::findOrFail($id);
-        $canEdit = $this->canEdit($kit);
 
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
@@ -94,7 +74,6 @@ class KitController extends Controller
             'title' => $title,
             'description' => $description,
             'kit'   => $kit,
-            'canEdit' => $canEdit
         ]);
     }
 

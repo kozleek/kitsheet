@@ -7,7 +7,7 @@ class SeoSupport
     /**
      * Generate a title for the given page.
      */
-    public static function getPageTitle($title = '')
+    public static function getPageTitle($title = ''): string
     {
         return $title != '' ? ucfirst($title) . ' - ' . config('kitsheet.name') : config('kitsheet.name');
     }
@@ -15,7 +15,7 @@ class SeoSupport
     /**
      * Generate a meta info for the given page.
      */
-    public static function getMetaInfo($kit, $showCountSheets = true, $showCountExamples = true, $showCountNumbers = true, $showRange = true)
+    public static function getMetaInfo($kit, $showCountSheets = true, $showCountExamples = true, $showCountNumbers = true, $showRange = true): string
     {
         $countSheets = '';
         $countExamples = '';
@@ -71,7 +71,7 @@ class SeoSupport
     /**
      * Generate a meta description for the given page.
      */
-    public static function getMetaDescription($description = '')
+    public static function getMetaDescription($description = ''): string
     {
         return $description != '' ? $description : config('kitsheet.description');
     }
