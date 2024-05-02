@@ -17,7 +17,7 @@
                 <x-form.number label="Minimum" name="rangeMin" required="true" />
                 <x-form.number label="Maximum" name="rangeMax" required="true" />
                 <x-form.number label="Počet čísel v příkladu" name="countNumbers" min="2" max="5" required="true" />
-                <x-form.number label="Počet desetinných míst" name="rangeDecimals" required="true" />
+                <x-form.number label="Počet desetinných míst" name="rangeDecimals" min="0" max="3" required="true" />
             </div>
         </x-form.section>
 
@@ -33,7 +33,7 @@
         <x-form.section label="Nastavení příkladů">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem. Např. při odčítání" name="settingsExamplesOnlyPositive" />
-                <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky. Např.: (1 + 2) + (3 + 4) + 5 = ?" name="settingsExamplesWithParentheses" />
+                <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojce čísel. Např.: (1 + 2) + (3 + 4) + 5 = ?" name="settingsExamplesWithParentheses" />
             </div>
         </x-form.section>
     </div>
