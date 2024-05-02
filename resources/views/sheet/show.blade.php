@@ -11,13 +11,13 @@
 
     @if ($sheet->examples->count())
         <x-page.card>
-            <div class="grid grid-cols-1 gap-4 pt-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:pt-8">
                 @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" key="$example->id" />
                 @endforeach
             </div>
 
-            @if (!$sheet->is_finished)
+            @if ($sheet->is_finished == false)
                 <div class="mt-8">
                     <livewire:send-for-checking :sheet="$sheet" />
                 </div>

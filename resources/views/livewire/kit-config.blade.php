@@ -39,14 +39,14 @@
 
     <div class="mt-8 flex items-center gap-4">
         @if ($mode == 'create')
-            <x-button icon="heroicon-o-plus" wire:click="store" primary="true" disabled="{{ !$canSave }}">
+            <x-button icon="heroicon-o-plus" wire:click="store" primary="true" disabled="{{ $canSave == false }}">
                 <span class="block md:hidden">Vytvořit sadu</span>
                 <span class="hidden md:block">Vytvořit novou sadu pracovních listů</span>
             </x-button>
         @endif
 
         @if ($mode == 'edit')
-            <x-button x-on:click="modal='update'" primary="true" disabled="{{ !$canSave }}">
+            <x-button x-on:click="modal='update'" primary="true" disabled="{{ $canSave == false }}">
                 Uložit sadu
             </x-button>
 

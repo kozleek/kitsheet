@@ -25,8 +25,6 @@
     <meta name="twitter:title" content="{{ $pageTitle }}">
     <meta name="twitter:description" content="{{ $pageDescription }}">
 
-    <x-open-graph-image::metatags title="{{ $title }}" subtitle="{{ $pageDescription }}" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -40,11 +38,7 @@
         <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
             @yield('content')
         </div>
-        <footer class="mt-8 text-sm text-neutral-400 container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
-            <div class="space-y-1">
-                <p>KitSheet &copy; 2021 - {{ now()->year }} <a href="https://www.musiol.cz" target="_blank" class="underline hover:no-underline text-neutral-600">Tomáš Musiol</a>. Všechna práva vyhrazena.</p>
-            </div>
-        </div>
+        <x-page.footer />
     </div>
     @yield('modals')
 </body>

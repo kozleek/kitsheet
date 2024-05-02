@@ -1,5 +1,5 @@
 <div>
-    @if (!$sheet->is_finished)
+    @if ($sheet->is_finished == false)
         <div class="mb-8">
             <x-form.text label="Název pracovního listu (např. jméno)" name="name" change="store" />
         </div>
