@@ -60,6 +60,11 @@ class ExampleSupport
             // get the result of the specification
             // eval() is used to calculate the result of the specification
             $result = $specification != '' ? eval('return ' . $specification . ';') : '';
+
+            // if result is float, fix the number of decimals
+            if (is_float($result)) {
+                $result = number_format($result, 2, ',', '');
+            }
         } while ($onlyPositiveValues && $result < 0);
 
         return [
@@ -83,7 +88,7 @@ class ExampleSupport
         // add space before and after the operators
         $format = preg_replace('/([+\-\/*^])/', ' $1 ', $specification);
         // replace multiplication and division operators with their symbols
-        $format = Str::replace(['*', '/'], ['×', '÷'], $format);
+        $format = Str::replace(['*', '/'], ['×', ':'], $format);
         // replace decimal point with comma
         $format = Str::replace('.', ',', $format);
 
@@ -100,21 +105,30 @@ class ExampleSupport
     {
         // Split the string into individual operands and operators
         $operands = preg_split('/\s*([-+*\/])\s*/', $expression, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $operandsCount = count($operands);
 
         // If the number of operands is 1 (only single operation), no parentheses need to be added
-        if ($operationsCount <= 1) {
+        if ($operandsCount < 3) {
             return $expression;
         }
 
         // Initialize the resulting expression with the first two operands and the operator
-        $expression_with_parentheses = '(' . $operands[0] . $operands[1] . $operands[2] . ')';
-
-        // Iterate over the remaining operands and operators
-        for ($i = 3; $i < count($operands); $i += 2) {
-            // Add the next operator and operand to the resulting expression
-            $expression_with_parentheses .= ' ' . $operands[$i] . ' ' . $operands[$i + 1];
+        if ($operandsCount >= 3) {
+            $expressionWithParentheses = '(' . $operands[0] . $operands[1] . $operands[2] . ')';
+            $remainingStart = 3;
         }
 
-        return $expression_with_parentheses;
+        if ($operandsCount >= 6) {
+            $expressionWithParentheses = '(' . $operands[0] . $operands[1] . $operands[2] . ')' . $operands[3] . '(' . $operands[4] . $operands[5] . $operands[6] . ')';
+            $remainingStart = 7;
+        }
+
+        // Iterate over the remaining operands and operators
+        for ($i = $remainingStart; $i < $operandsCount; $i += 2) {
+            // Add the next operator and operand to the resulting expression
+            $expressionWithParentheses .= ' ' . $operands[$i] . ' ' . $operands[$i + 1];
+        }
+
+        return $expressionWithParentheses;
     }
 }

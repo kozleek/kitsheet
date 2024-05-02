@@ -22,17 +22,18 @@
         </x-form.section>
 
         <x-form.section label="Matematické operace">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
                 <x-form.checkbox label="Sčítání" name="operationAdd" />
                 <x-form.checkbox label="Odčítání" name="operationSubtract" />
                 <x-form.checkbox label="Násobení" name="operationMultiply" />
+                <x-form.checkbox label="Dělení" name="operationDivide" beta="true" />
             </div>
         </x-form.section>
 
         <x-form.section label="Nastavení příkladů">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem (např. při odčítání)" name="settingsExamplesOnlyPositive" />
-                <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky (Beta: pouze k prvním dvěma číslům)" name="settingsExamplesWithParentheses" beta="true" />
+                <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem. Např. při odčítání" name="settingsExamplesOnlyPositive" />
+                <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky. Např.: (1 + 2) + (3 + 4) + 5 = ?" name="settingsExamplesWithParentheses" />
             </div>
         </x-form.section>
     </div>
