@@ -11,7 +11,7 @@
 
     @if ($sheet->examples->count())
         <x-page.card>
-            <div class="grid grid-cols-1 gap-4 pt-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:pt-8">
                 @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" key="$example->id" />
                 @endforeach
