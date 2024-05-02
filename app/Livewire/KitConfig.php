@@ -91,7 +91,7 @@ class KitConfig extends Component
             'rangeType'                    => 'required|in:numbers,results',
             'rangeMin'                     => 'required|numeric',
             'rangeMax'                     => 'required|numeric|gte:rangeMin',
-            'rangeDecimals'                => 'required|numeric|min:0|max:5',
+            'rangeDecimals'                => 'required|numeric|min:0|max:3',
             'operationAdd'                 => 'boolean',
             'operationSubtract'            => 'boolean',
             'operationMultiply'            => 'boolean',

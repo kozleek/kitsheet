@@ -23,6 +23,7 @@ jobs:
           git pull
           php artisan down
           composer install
+          php artisan migrate
           npm install
           npm run build
           php artisan up
