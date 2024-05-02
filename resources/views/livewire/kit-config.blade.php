@@ -26,7 +26,7 @@
                 <x-form.checkbox label="Sčítání" name="operationAdd" />
                 <x-form.checkbox label="Odčítání" name="operationSubtract" />
                 <x-form.checkbox label="Násobení" name="operationMultiply" />
-                <x-form.checkbox label="Dělení" name="operationDivide" beta="true" />
+                <x-form.checkbox label="Dělení" name="operationDivide" />
             </div>
         </x-form.section>
 

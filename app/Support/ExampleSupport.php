@@ -21,6 +21,11 @@ class ExampleSupport
         // generate with parentheses
         $withParentheses = in_array('withParentheses', $settings) ? true : false;
 
+        // check if divide operation is allowed
+        $isDivideAllowed = in_array('divide', $rangeOperations) ? true : false;
+        // if isDivideAllowed is trus, set the minimum value to 1 (min is 1 not 0)
+        $range['min'] = $isDivideAllowed && $range['min'] == 0 ? 1 : $range['min'];
+
         do {
             $numbers  = [];
             $operations = [];
@@ -30,20 +35,20 @@ class ExampleSupport
 
             $specification = '';
 
-            // generate random numbers
-            for ($i = 0; $i <= $maxNumbers; $i++) {
-                // generate a random number
-                $number = RandomSupport::getRandomNumber($range, $level);
-                // add the number to the array
-                $numbers[] = $number;
-            }
-
             // generate a random operation
             for ($j = 0; $j <= $maxOperations; $j++) {
                 // generate a random operation
                 $operation = RandomSupport::getRandomSign($rangeOperations);
                 // add the operation to the array
                 $operations[] = $operation['sign'];
+            }
+
+            // generate random numbers
+            for ($i = 0; $i <= $maxNumbers; $i++) {
+                // generate a random number
+                $number = RandomSupport::getRandomNumber($range, $level);
+                // add the number to the array
+                $numbers[] = $number;
             }
 
             // create a specification
