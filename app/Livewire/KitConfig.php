@@ -59,7 +59,7 @@ class KitConfig extends Component
         $this->operationDivide   = $this->kit ? in_array('divide', json_decode($this->kit->range_operations)) : false;
         $this->canSave           = $this->canSave();
 
-        $this->settingsExamplesOnlyPositive    = $this->kit ? ($this->kit->settings_examples ? in_array('onlyPositive', json_decode($this->kit->settings_examples)) : false) : false;
+        $this->settingsExamplesOnlyPositive    = $this->kit ? ($this->kit->settings_examples ? in_array('onlyPositive', json_decode($this->kit->settings_examples)) : false) : true;
         $this->settingsExamplesWithParentheses = $this->kit ? ($this->kit->settings_examples ? in_array('withParentheses', json_decode($this->kit->settings_examples)) : false) : false;
     }
 
