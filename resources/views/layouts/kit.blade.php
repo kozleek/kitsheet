@@ -9,23 +9,21 @@
     <meta name="theme-color" content="#6466F1"/>
 
     <!-- HTML Meta Tags -->
-    <title>@yield('title')</title>
-    <meta name="description" content="@yield('description')">
+    <title>{{ $pageTitle }} </title>
+    <meta name="description" content="{{ $pageDescription }}">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="@yield('title')">
-    <meta property="og:description" content="@yield('description')">
-    <meta property="og:image" content="">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="kitsheet.cz">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="@yield('title')">
-    <meta name="twitter:description" content="@yield('description')">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,12 +52,8 @@
         <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
             @yield('content')
         </div>
-        <footer class="mt-8 text-sm text-neutral-400 container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
-            <div class="space-y-1">
-                <p>KitSheet je jednoduchý (ale promyšlený) generátor pracovních listů do matematiky.</p>
-                <p>&copy; 2021 - {{ now()->year }} <a href="https://www.musiol.cz" target="_blank" class="underline hover:no-underline text-neutral-600">Tomáš Musiol</a>. Všechna práva vyhrazena.</p>
-            </div>
-        </div>
+
+        <x-page.footer />
     </div>
     @yield('modals')
 </body>

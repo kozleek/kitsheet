@@ -22,4 +22,21 @@ class Kit extends Model
     {
         return $this->hasMany(Sheet::class);
     }
+
+    /**
+     * Can the kit be edited? The kit can be edited if all sheets are empty (examples have no answers).
+     */
+
+    public function getCanEditAttribute()
+    {
+        $canEdit = true;
+        foreach ($this->sheets as $sheet) {
+            if ($sheet->examples()->whereNotNull('answer')->exists()) {
+                $canEdit = false;
+                break;
+            }
+        }
+
+        return $canEdit;
+    }
 }

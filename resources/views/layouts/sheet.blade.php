@@ -9,23 +9,21 @@
     <meta name="theme-color" content="#6466F1"/>
 
     <!-- HTML Meta Tags -->
-    <title>@yield('title')</title>
-    <meta name="description" content="@yield('description')">
+    <title>{{ $pageTitle }} </title>
+    <meta name="description" content="{{ $pageDescription }}">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="@yield('title')">
-    <meta property="og:description" content="@yield('description')">
-    <meta property="og:image" content="">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="kitsheet.cz">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="@yield('title')">
-    <meta name="twitter:description" content="@yield('description')">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

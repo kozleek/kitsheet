@@ -1,8 +1,5 @@
 @extends('layouts.print')
 
-@section('title', $pageTitle)
-@section('description', $pageDescription)
-
 @section('content')
     <div class="print-page">
         <div class="mb-8">
@@ -52,7 +49,7 @@
                         <h3 class="text-xl font-bold">Příklady</h3>
                         <div class="grid grid-cols-1 gap-4 mt-8">
                             @foreach ($sheet->examples as $example)
-                                <div class="text-lg font-sometype">{{ $example->specification_formatted}} = </div>
+                                <div class="text-base font-sometype">{{ $example->specification_formatted}} = </div>
                             @endforeach
                         </div>
                     </div>
@@ -60,9 +57,9 @@
                     <div>
                         <h3 class="text-xl font-bold">Možné výsledky</h3>
                         <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladu a poslední zbývající číslo zakroužkujte</p>
-                        <div class="grid grid-cols-3 gap-4 mt-8">
+                        <div class="grid grid-cols-4 gap-4 mt-8">
                             @foreach ($results[$loop->index] as $result)
-                                <div class="border border-neutral-300 p-2 text-lg font-sometype">{{ $result }}</div>
+                                <div class="border border-neutral-300 p-2 text-base font-sometype">{{ $result }}</div>
                             @endforeach
                         </div>
                     </div>
