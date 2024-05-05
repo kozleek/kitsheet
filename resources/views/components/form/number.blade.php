@@ -4,6 +4,7 @@
     <label for="{{ $name }}" class="relative block rounded-md border border-neutral-300 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
         <input
             type="number"
+            id="{{ $name }}"
             wire:model="{{ $name }}"
             @if ($change)
                 wire:change="{{ $change }}"
