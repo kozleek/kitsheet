@@ -2,7 +2,7 @@
     <div class="space-y-4">
         <x-form.section label="Nastavení sady">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-8">
-                <x-form.text label="Název sady" name="title" />
+                <x-form.text label="Název sady" name="title" focus="true" />
                 <x-form.text label="Stručný popis sady" name="description" />
             </div>
 

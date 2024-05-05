@@ -1,4 +1,4 @@
-@props(['name', 'label' => '', 'placeholder' => '', 'class' => '', 'change' => '', 'required' => false, 'disabled' => false])
+@props(['name', 'label' => '', 'placeholder' => '', 'class' => '', 'change' => '', 'required' => false, 'disabled' => false, 'focus' => false])
 
 <div class="{{ $disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }} flex flex-col gap-2">
     <label
@@ -12,6 +12,7 @@
             @if ($change)
                 wire:change="{{ $change }}"
             @endif
+            {{ $focus ? 'autofocus' : '' }}
             {{ $required ? 'reguired' : '' }} {{ $disabled ? 'disabled' : '' }}
             class="peer w-full border-none bg-transparent p-3 placeholder-transparent text-inherit focus:border-transparent focus:outline-none focus:ring-0  {{ $class }}"
             @if ($placeholder)
