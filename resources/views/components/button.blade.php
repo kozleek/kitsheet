@@ -3,7 +3,7 @@
 @if ($disabled)
     <span
         class="
-            inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 opacity-50 cursor-not-allowed
+            inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 opacity-50 cursor-not-allowed transition duration-200 ease-in-out
             {{ $small ? 'px-6 py-2' : 'px-4 py-3' }}
 
             @if ($primary)

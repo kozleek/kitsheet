@@ -4,10 +4,11 @@
             <div class="">
                 <div class="flex items-center gap-3">
                     <div
-                        class="size-5 bg-orange-100 border border-orange-200 rounded flex items-center justify-center cursor-pointer"
+                        class="size-7 bg-sky-100 rounded flex items-center justify-center cursor-pointer hover:bg-sky-200 transition duration-200 ease-in-out"
                         data-clipboard-text="{{ route('sheet.show', ['id' => $sheet->id]) }}"
+                        data-tippy-content="Zkopírovat odkaz pracovního listu"
                     >
-                        <x-heroicon-o-link class="h-3.5 w-3.5 text-orange-400" />
+                        <x-heroicon-o-link class="!h-3.5 !w-3.5 text-sky-500" />
                     </div>
 
                     <h3 class="font-semibold">

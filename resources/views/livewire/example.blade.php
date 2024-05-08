@@ -1,6 +1,6 @@
 <div>
     @if ($is_finished)
-        <div class="flex items-center gap-2 border border-gray-200 bg-gray-100 py-2 px-4 font-sometype text-xl">
+        <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl">
             <div class="flex items-center gap-2 flex-1">
                 <span>
                     {{ $example->specification_formatted }}
@@ -36,7 +36,7 @@
             @endif
         </div>
     @else
-        <div class="flex items-center gap-2 border border-gray-200 bg-gray-100 py-2 px-4 font-sometype text-xl">
+        <label class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl cursor-pointer">
             <span>
                 {{ $example->specification_formatted }}
             </span>
@@ -44,6 +44,6 @@
             <span class="flex-1">
                 <x-form.text name="answer" change="saveAnswer" class="font-sometype text-xl" />
             </span>
-        </div>
+        </label>
     @endif
 </div>

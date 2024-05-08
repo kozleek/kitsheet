@@ -23,7 +23,7 @@
                     <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['id' => $kit->id]) }}" />
                 @endif
 
-                <x-button icon="heroicon-o-link" tooltip="Zkopírovat odkaz na sadu" data-clipboard-text="{{ Request::url() }}" />
+                <x-button icon="heroicon-o-link" tooltip="Zkopírovat odkaz" data-clipboard-text="{{ Request::url() }}" />
                 <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['id' => $kit->id]) }}');" />
                 <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='remove'" />
             </div>
