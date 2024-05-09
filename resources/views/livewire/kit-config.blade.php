@@ -33,7 +33,7 @@
         <x-form.section label="Nastavení">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem." name="settingsExamplesOnlyPositive" />
-                <x-form.checkbox label="Písemné počitání" description="Příklady se zapisují pod sebe." name="settingsSheetsWritten" />
+                {{-- <x-form.checkbox label="Písemné počitání" description="Příklady se zapisují pod sebe." name="settingsSheetsWritten" /> --}}
                 <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojce čísel." name="settingsExamplesWithParentheses" />
             </div>
         </x-form.section>
