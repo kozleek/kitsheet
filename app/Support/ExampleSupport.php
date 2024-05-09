@@ -23,7 +23,8 @@ class ExampleSupport
 
         // check if divide operation is allowed
         $isDivideAllowed = in_array('divide', $rangeOperations) ? true : false;
-        // if isDivideAllowed is trus, set the minimum value to 1 (min is 1 not 0)
+
+        // if isDivideAllowed is true, set the minimum value to 1 (min is 1 not 0)
         $range['min'] = $isDivideAllowed && $range['min'] == 0 ? 1 : $range['min'];
 
         do {
@@ -46,7 +47,11 @@ class ExampleSupport
             // generate random numbers
             for ($i = 0; $i <= $maxNumbers; $i++) {
                 // generate a random number
-                $number = RandomSupport::getRandomNumber($range, $level);
+                // if isDivideAllowed is true, disable 0 as a number
+                do {
+                    $number = RandomSupport::getRandomNumber($range, $level);
+                } while ($isDivideAllowed && $number == 0);
+
                 // add the number to the array
                 $numbers[] = $number;
             }
@@ -68,12 +73,13 @@ class ExampleSupport
 
             // if result is float, fix the number of decimals
             if (is_float($result)) {
-                $result = number_format($result, 2, ',', '');
+                $result = number_format($result, $range['decimals'], ',', '');
             }
         } while ($onlyPositiveValues && $result < 0);
 
         return [
-            'raw' => $specification,
+            'specification' => $specification,
+            'json' => self::getSpecificationJSON($specification),
             'formatted' => self::getSpecificationFormatted($specification),
             'result' => $result,
         ];
@@ -88,7 +94,7 @@ class ExampleSupport
      * Decimal point is replaced with a comma
      */
 
-    public static function getSpecificationFormatted($specification): string
+    private static function getSpecificationFormatted($specification): string
     {
         // add space before and after the operators
         $format = preg_replace('/([+\-\/*^])/', ' $1 ', $specification);
@@ -98,6 +104,26 @@ class ExampleSupport
         $format = Str::replace('.', ',', $format);
 
         return $format;
+    }
+
+    /**
+     * Get specification JSON
+     * This method converts the specification to a JSON array
+     */
+
+    private static function getSpecificationJSON($specification): array
+    {
+        $json = [];
+
+        // find all numbers and operators in the specification
+        preg_match_all('/\d+|[\+\-\*\/\(\)]/', $specification, $matches);
+
+        // add each match to the array
+        foreach ($matches[0] as $match) {
+            $json[] = $match;
+        }
+
+        return $json;
     }
 
     /**
@@ -131,7 +157,7 @@ class ExampleSupport
         // Iterate over the remaining operands and operators
         for ($i = $remainingStart; $i < $operandsCount; $i += 2) {
             // Add the next operator and operand to the resulting expression
-            $expressionWithParentheses .= ' ' . $operands[$i] . ' ' . $operands[$i + 1];
+            $expressionWithParentheses .= $operands[$i] . $operands[$i + 1];
         }
 
         return $expressionWithParentheses;

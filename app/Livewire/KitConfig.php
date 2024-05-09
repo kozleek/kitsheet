@@ -33,6 +33,7 @@ class KitConfig extends Component
     public $operationDivide;
     public $settingsExamplesOnlyPositive;
     public $settingsExamplesWithParentheses;
+    public $settingsSheetsWritten;
     public $canSave;
 
     /**
@@ -50,8 +51,8 @@ class KitConfig extends Component
         $this->countExamples     = $this->kit ? intval($this->kit->count_examples) : 15;
         $this->countNumbers      = $this->kit ? intval($this->kit->count_numbers) : 2;
         $this->rangeType         = $this->kit ? json_decode($this->kit->range_numbers)->type : 'numbers';
-        $this->rangeMin          = $this->kit ? intval(json_decode($this->kit->range_numbers)->min) : 0;
-        $this->rangeMax          = $this->kit ? intval(json_decode($this->kit->range_numbers)->max) : 100;
+        $this->rangeMin          = $this->kit ? intval(json_decode($this->kit->range_numbers)->min) : 1;
+        $this->rangeMax          = $this->kit ? intval(json_decode($this->kit->range_numbers)->max) : 50;
         $this->rangeDecimals     = $this->kit ? intval(json_decode($this->kit->range_numbers)->decimals) : 0;
         $this->operationAdd      = $this->kit ? in_array('add', json_decode($this->kit->range_operations)) : true;
         $this->operationSubtract = $this->kit ? in_array('subtract', json_decode($this->kit->range_operations)) : true;
@@ -61,6 +62,8 @@ class KitConfig extends Component
 
         $this->settingsExamplesOnlyPositive    = $this->kit ? ($this->kit->settings_examples ? in_array('onlyPositive', json_decode($this->kit->settings_examples)) : false) : true;
         $this->settingsExamplesWithParentheses = $this->kit ? ($this->kit->settings_examples ? in_array('withParentheses', json_decode($this->kit->settings_examples)) : false) : false;
+
+        $this->settingsSheetsWritten = $this->kit ? ($this->kit->settings_sheets ? in_array('writtenCounting', json_decode($this->kit->settings_sheets)) : false) : false;
     }
 
     /**
@@ -83,21 +86,22 @@ class KitConfig extends Component
     {
         // Validate the form fields
         $this->validate([
-            'title'                        => 'string|max:255',
-            'description'                  => 'string',
-            'countSheets'                  => 'required|numeric|min:1|max:50',
-            'countExamples'                => 'required|numeric|min:1|max:50',
-            'countNumbers'                 => 'required|numeric|min:2|max:5',
-            'rangeType'                    => 'required|in:numbers,results',
-            'rangeMin'                     => 'required|numeric',
-            'rangeMax'                     => 'required|numeric|gte:rangeMin',
-            'rangeDecimals'                => 'required|numeric|min:0|max:3',
-            'operationAdd'                 => 'boolean',
-            'operationSubtract'            => 'boolean',
-            'operationMultiply'            => 'boolean',
-            'operationDivide'              => 'boolean',
-            'settingsExamplesOnlyPositive' => 'boolean',
+            'title'                           => 'string|max:255',
+            'description'                     => 'string',
+            'countSheets'                     => 'required|numeric|min:1|max:50',
+            'countExamples'                   => 'required|numeric|min:1|max:50',
+            'countNumbers'                    => 'required|numeric|min:2|max:5',
+            'rangeType'                       => 'required|in:numbers,results',
+            'rangeMin'                        => 'required|numeric',
+            'rangeMax'                        => 'required|numeric|gte:rangeMin',
+            'rangeDecimals'                   => 'required|numeric|min:0|max:3',
+            'operationAdd'                    => 'boolean',
+            'operationSubtract'               => 'boolean',
+            'operationMultiply'               => 'boolean',
+            'operationDivide'                 => 'boolean',
+            'settingsExamplesOnlyPositive'    => 'boolean',
             'settingsExamplesWithParentheses' => 'boolean',
+            'settingsSheetsWritten'           => 'boolean',
         ]);
 
         // Set ranges array
@@ -128,6 +132,9 @@ class KitConfig extends Component
 
         // Set settings for sheets
         $settingsSheets = [];
+        if ($this->settingsSheetsWritten) {
+            $settingsSheets[] = 'writtenCounting';
+        }
 
         // Set settings for examples
         $settingsExamples = [];
@@ -187,8 +194,9 @@ class KitConfig extends Component
 
                 // Save example
                 Example::create([
-                    'sheet_id'            => $sheet->id,
-                    'specification'           => $example['raw'],
+                    'sheet_id'                => $sheet->id,
+                    'specification'           => $example['specification'],
+                    'specification_json'      => json_encode($example['json']),
                     'specification_formatted' => $example['formatted'],
                     'result'                  => $example['result'],
                     'answer'                  => null,
