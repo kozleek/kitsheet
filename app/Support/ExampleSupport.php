@@ -94,7 +94,7 @@ class ExampleSupport
      * Decimal point is replaced with a comma
      */
 
-    public static function getSpecificationFormatted($specification): string
+    private static function getSpecificationFormatted($specification): string
     {
         // add space before and after the operators
         $format = preg_replace('/([+\-\/*^])/', ' $1 ', $specification);
@@ -106,7 +106,12 @@ class ExampleSupport
         return $format;
     }
 
-    public static function getSpecificationJSON($specification): array
+    /**
+     * Get specification JSON
+     * This method converts the specification to a JSON array
+     */
+
+    private static function getSpecificationJSON($specification): array
     {
         $json = [];
 
