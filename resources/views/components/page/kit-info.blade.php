@@ -1,7 +1,7 @@
 @props(['kit'])
 
 @if ($kit)
-    <div class="mt-4 grid grid-cols-2 gap-3 md:flex md:flex-row md:flex-wrap md:space-x-6 md:gap-0">
+    <div class="mt-4 flex flex-row sm:flex-wrap space-x-3 sm:space-x-6">
         <div class="flex items-center text-sm text-neutral-500 gap-2">
             <x-heroicon-o-academic-cap class="text-black/30" />
             {{ $kit->count_sheets }}
