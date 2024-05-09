@@ -23,7 +23,8 @@ class ExampleSupport
 
         // check if divide operation is allowed
         $isDivideAllowed = in_array('divide', $rangeOperations) ? true : false;
-        // if isDivideAllowed is trus, set the minimum value to 1 (min is 1 not 0)
+
+        // if isDivideAllowed is true, set the minimum value to 1 (min is 1 not 0)
         $range['min'] = $isDivideAllowed && $range['min'] == 0 ? 1 : $range['min'];
 
         do {
@@ -46,7 +47,11 @@ class ExampleSupport
             // generate random numbers
             for ($i = 0; $i <= $maxNumbers; $i++) {
                 // generate a random number
-                $number = RandomSupport::getRandomNumber($range, $level);
+                // if isDivideAllowed is true, disable 0 as a number
+                do {
+                    $number = RandomSupport::getRandomNumber($range, $level);
+                } while ($isDivideAllowed && $number == 0);
+
                 // add the number to the array
                 $numbers[] = $number;
             }
@@ -68,7 +73,7 @@ class ExampleSupport
 
             // if result is float, fix the number of decimals
             if (is_float($result)) {
-                $result = number_format($result, 2, ',', '');
+                $result = number_format($result, $range['decimals'], ',', '');
             }
         } while ($onlyPositiveValues && $result < 0);
 
