@@ -78,7 +78,8 @@ class ExampleSupport
         } while ($onlyPositiveValues && $result < 0);
 
         return [
-            'raw' => $specification,
+            'specification' => $specification,
+            'json' => self::getSpecificationJSON($specification),
             'formatted' => self::getSpecificationFormatted($specification),
             'result' => $result,
         ];
@@ -103,6 +104,21 @@ class ExampleSupport
         $format = Str::replace('.', ',', $format);
 
         return $format;
+    }
+
+    public static function getSpecificationJSON($specification): array
+    {
+        $json = [];
+
+        // find all numbers and operators in the specification
+        preg_match_all('/\d+|[\+\-\*\/\(\)]/', $specification, $matches);
+
+        // add each match to the array
+        foreach ($matches[0] as $match) {
+            $json[] = $match;
+        }
+
+        return $json;
     }
 
     /**
@@ -136,7 +152,7 @@ class ExampleSupport
         // Iterate over the remaining operands and operators
         for ($i = $remainingStart; $i < $operandsCount; $i += 2) {
             // Add the next operator and operand to the resulting expression
-            $expressionWithParentheses .= ' ' . $operands[$i] . ' ' . $operands[$i + 1];
+            $expressionWithParentheses .= $operands[$i] . $operands[$i + 1];
         }
 
         return $expressionWithParentheses;

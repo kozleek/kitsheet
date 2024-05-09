@@ -194,8 +194,9 @@ class KitConfig extends Component
 
                 // Save example
                 Example::create([
-                    'sheet_id'            => $sheet->id,
-                    'specification'           => $example['raw'],
+                    'sheet_id'                => $sheet->id,
+                    'specification'           => $example['specification'],
+                    'specification_json'      => json_encode($example['json']),
                     'specification_formatted' => $example['formatted'],
                     'result'                  => $example['result'],
                     'answer'                  => null,
