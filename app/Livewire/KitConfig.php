@@ -33,6 +33,7 @@ class KitConfig extends Component
     public $operationDivide;
     public $settingsExamplesOnlyPositive;
     public $settingsExamplesWithParentheses;
+    public $settingsSheetsWritten;
     public $canSave;
 
     /**
@@ -61,6 +62,8 @@ class KitConfig extends Component
 
         $this->settingsExamplesOnlyPositive    = $this->kit ? ($this->kit->settings_examples ? in_array('onlyPositive', json_decode($this->kit->settings_examples)) : false) : true;
         $this->settingsExamplesWithParentheses = $this->kit ? ($this->kit->settings_examples ? in_array('withParentheses', json_decode($this->kit->settings_examples)) : false) : false;
+
+        $this->settingsSheetsWritten = $this->kit ? ($this->kit->settings_sheets ? in_array('writtenCounting', json_decode($this->kit->settings_sheets)) : false) : false;
     }
 
     /**
@@ -83,21 +86,22 @@ class KitConfig extends Component
     {
         // Validate the form fields
         $this->validate([
-            'title'                        => 'string|max:255',
-            'description'                  => 'string',
-            'countSheets'                  => 'required|numeric|min:1|max:50',
-            'countExamples'                => 'required|numeric|min:1|max:50',
-            'countNumbers'                 => 'required|numeric|min:2|max:5',
-            'rangeType'                    => 'required|in:numbers,results',
-            'rangeMin'                     => 'required|numeric',
-            'rangeMax'                     => 'required|numeric|gte:rangeMin',
-            'rangeDecimals'                => 'required|numeric|min:0|max:3',
-            'operationAdd'                 => 'boolean',
-            'operationSubtract'            => 'boolean',
-            'operationMultiply'            => 'boolean',
-            'operationDivide'              => 'boolean',
-            'settingsExamplesOnlyPositive' => 'boolean',
+            'title'                           => 'string|max:255',
+            'description'                     => 'string',
+            'countSheets'                     => 'required|numeric|min:1|max:50',
+            'countExamples'                   => 'required|numeric|min:1|max:50',
+            'countNumbers'                    => 'required|numeric|min:2|max:5',
+            'rangeType'                       => 'required|in:numbers,results',
+            'rangeMin'                        => 'required|numeric',
+            'rangeMax'                        => 'required|numeric|gte:rangeMin',
+            'rangeDecimals'                   => 'required|numeric|min:0|max:3',
+            'operationAdd'                    => 'boolean',
+            'operationSubtract'               => 'boolean',
+            'operationMultiply'               => 'boolean',
+            'operationDivide'                 => 'boolean',
+            'settingsExamplesOnlyPositive'    => 'boolean',
             'settingsExamplesWithParentheses' => 'boolean',
+            'settingsSheetsWritten'           => 'boolean',
         ]);
 
         // Set ranges array
@@ -128,6 +132,9 @@ class KitConfig extends Component
 
         // Set settings for sheets
         $settingsSheets = [];
+        if ($this->settingsSheetsWritten) {
+            $settingsSheets[] = 'writtenCounting';
+        }
 
         // Set settings for examples
         $settingsExamples = [];
