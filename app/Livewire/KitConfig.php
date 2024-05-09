@@ -50,8 +50,8 @@ class KitConfig extends Component
         $this->countExamples     = $this->kit ? intval($this->kit->count_examples) : 15;
         $this->countNumbers      = $this->kit ? intval($this->kit->count_numbers) : 2;
         $this->rangeType         = $this->kit ? json_decode($this->kit->range_numbers)->type : 'numbers';
-        $this->rangeMin          = $this->kit ? intval(json_decode($this->kit->range_numbers)->min) : 0;
-        $this->rangeMax          = $this->kit ? intval(json_decode($this->kit->range_numbers)->max) : 100;
+        $this->rangeMin          = $this->kit ? intval(json_decode($this->kit->range_numbers)->min) : 1;
+        $this->rangeMax          = $this->kit ? intval(json_decode($this->kit->range_numbers)->max) : 50;
         $this->rangeDecimals     = $this->kit ? intval(json_decode($this->kit->range_numbers)->decimals) : 0;
         $this->operationAdd      = $this->kit ? in_array('add', json_decode($this->kit->range_operations)) : true;
         $this->operationSubtract = $this->kit ? in_array('subtract', json_decode($this->kit->range_operations)) : true;
