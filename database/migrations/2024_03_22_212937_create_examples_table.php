@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('examples', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Sheet::class)->constrained()->cascadeOnDelete();
-            $table->string('specification')->required();
-            $table->string('specification_formatted')->nullable();
+            $table->json('specification')->required();
+            $table->string('specification_formatted')->required();
             $table->string('result')->required();
             $table->string('answer')->nullable();
             $table->boolean('is_correct')->nullable();
