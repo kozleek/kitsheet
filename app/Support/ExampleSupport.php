@@ -31,6 +31,7 @@ class ExampleSupport
             $specification = [];
             $maxNumbers = $countNumbers - 1;
 
+            // every number is followed by an operation, except the last number
             for ($i = 0; $i <= $maxNumbers; $i++) {
                 // generate a random number
                 do {
@@ -70,10 +71,30 @@ class ExampleSupport
      * This method add parentheses to the expression.
      */
 
-    private static function addParentheses($specification): string
+    private static function addParentheses($specification): array
     {
+        $count = count($specification);
         $specificationWithParentheses = $specification;
-        return $specificationWithParentheses;
+
+        // two numbers and one operation
+        if ($count == 3) {
+            return $specification;
+        } else {
+            // three numbers and two operations
+            if ($count == 5) {
+                $specificationWithParentheses = ['(', $specification[0], $specification[1], $specification[2], ')', $specification[3], $specification[4]];
+            }
+            // four numbers and three operations
+            if ($count == 7) {
+                $specificationWithParentheses = ['(', $specification[0], $specification[1], $specification[2], ')', $specification[3], '(', $specification[4], $specification[5], $specification[6], ')'];
+            }
+            // five numbers and four operations
+            if ($count == 9) {
+                $specificationWithParentheses = ['(', $specification[0], $specification[1], $specification[2], ')', $specification[3], '(', $specification[4], $specification[5], $specification[6], ')', $specification[7], $specification[8]];
+            }
+
+            return $specificationWithParentheses;
+        }
     }
 
 
