@@ -12,7 +12,7 @@
                     </div>
 
                     <h3 class="font-semibold">
-                        <a href="{{ route('sheet.show', $sheet->id) }}" class="hover:underline">
+                        <a href="{{ route('sheet.show', $sheet->id) }}" target="_blank" class="hover:underline">
                             @if ($sheet->name)
                                 {{ $sheet->name }}
                             @else
