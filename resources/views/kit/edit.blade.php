@@ -10,7 +10,7 @@
         </x-slot:info>
 
         <x-slot:actions>
-            <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['id' => $kit->id]) }}">
+            <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
                 Zpět
             </x-button>
         </x-slot:links>

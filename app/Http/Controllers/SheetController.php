@@ -13,10 +13,8 @@ class SheetController extends Controller
      * Show the sheet.
      */
 
-    public function show($id)
+    public function show(Sheet $sheet)
     {
-        $sheet = Sheet::where('id', $id)->firstOrFail();
-
         $title = 'Pracovní list č. ' . $sheet->code;
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);

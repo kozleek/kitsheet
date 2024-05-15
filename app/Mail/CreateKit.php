@@ -56,7 +56,7 @@ class CreateKit extends Mailable
             markdown: 'emails.kit.create',
             with: [
                 'kit' => $this->kit,
-                'url' => route('kit.show', $this->kit),
+                'url' => route('kit.show', ['kit' => $this->kit]),
                 'operations' => $operations,
             ],
         );

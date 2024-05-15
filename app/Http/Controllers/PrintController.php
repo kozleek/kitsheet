@@ -14,10 +14,8 @@ class PrintController extends Controller
      * Print friendly version of the kit.
      */
 
-    public function __invoke($id)
+    public function __invoke(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';

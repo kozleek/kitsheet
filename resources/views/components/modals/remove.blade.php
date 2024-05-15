@@ -10,7 +10,7 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <x-button small="true" danger="true" href="{{ route('kit.remove', ['id' => $kit->id]) }}">
+        <x-button small="true" danger="true" href="{{ route('kit.remove', ['kit' => $kit]) }}">
             Ano
         </x-button>
     </x-slot:actions>

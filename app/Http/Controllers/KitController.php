@@ -33,10 +33,8 @@ class KitController extends Controller
      * The kit can be edited if all sheets are empty (examples have no answers).
      */
 
-    public function edit($id)
+    public function edit(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
@@ -51,7 +49,7 @@ class KitController extends Controller
                 'kit' => $kit
             ]);
         } else {
-            return redirect()->route('kit.show', ['id' => $kit->id]);
+            return redirect()->route('kit.show', ['kit' => $kit]);
         }
     }
 
@@ -59,10 +57,8 @@ class KitController extends Controller
      * Show the kit.
      */
 
-    public function show($id)
+    public function show(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
@@ -81,10 +77,8 @@ class KitController extends Controller
      * Remove the kit and all its sheets and examples.
      */
 
-    public function remove($id)
+    public function remove(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         // remove all examples and sheets
         foreach ($kit->sheets as $sheet) {
             foreach ($sheet->examples as $example) {
