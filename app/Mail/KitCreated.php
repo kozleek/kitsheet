@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CreateKit extends Mailable
+class KitCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -53,7 +53,7 @@ class CreateKit extends Mailable
         }
 
         return new Content(
-            markdown: 'emails.kit.create',
+            markdown: 'emails.kit.created',
             with: [
                 'kit' => $this->kit,
                 'url' => route('kit.show', ['kit' => $this->kit]),

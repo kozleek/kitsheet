@@ -4,9 +4,9 @@ namespace App\Livewire;
 
 use Carbon\Carbon;
 use App\Models\Kit;
-use App\Mail\CreateKit;
 use App\Models\Example;
 use Livewire\Component;
+use App\Mail\KitCreated;
 use Illuminate\Support\Str;
 use App\Support\RandomSupport;
 use App\Support\ExampleSupport;
@@ -209,7 +209,7 @@ class KitConfig extends Component
         // send email to the admin
         if ($this->mode == 'create') {
             // send email with information about the new kit
-            Mail::to(config('mail.to.address'))->queue(new CreateKit($this->kit));
+            Mail::to(config('mail.to.address'))->queue(new KitCreated($this->kit));
         } else {
             // send email with information about the updated kit
             // ...
