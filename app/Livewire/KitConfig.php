@@ -4,11 +4,13 @@ namespace App\Livewire;
 
 use Carbon\Carbon;
 use App\Models\Kit;
+use App\Mail\CreateKit;
 use App\Models\Example;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use App\Support\RandomSupport;
 use App\Support\ExampleSupport;
+use Illuminate\Support\Facades\Mail;
 
 class KitConfig extends Component
 {
@@ -202,6 +204,15 @@ class KitConfig extends Component
                     'is_correct'              => null,
                 ]);
             }
+        }
+
+        // send email to the admin
+        if ($this->mode == 'create') {
+            // send email with information about the new kit
+            Mail::to(config('mail.to.address'))->queue(new CreateKit($this->kit));
+        } else {
+            // send email with information about the updated kit
+            // ...
         }
 
         // Redirect to the kit
