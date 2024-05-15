@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('/', [KitController::class, 'create'])->name('kit.create');
 Route::get('/kit/{kit}', [KitController::class, 'show'])->name('kit.show');
 Route::get('/kit/{kit}/edit', [KitController::class, 'edit'])->name('kit.edit');
-Route::get('/kit/{kit}/remove', [KitController::class, 'remove'])->name('kit.remove');
+Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destroy');
 
 Route::get('/kit/{kit}/print', PrintController::class)->name('kit.print');
 Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');

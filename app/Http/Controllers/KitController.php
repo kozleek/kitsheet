@@ -77,7 +77,7 @@ class KitController extends Controller
      * Remove the kit and all its sheets and examples.
      */
 
-    public function remove(Kit $kit)
+    public function destroy(Kit $kit)
     {
         // remove all examples and sheets
         foreach ($kit->sheets as $sheet) {
