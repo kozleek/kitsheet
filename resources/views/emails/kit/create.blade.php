@@ -5,10 +5,6 @@ Ahoj,
 Sada pracovních listů byla úspěšně vytvořena.
 
 <x-mail::panel>
-ID: {{ $kit->id }}
-
-Datum vytvoření: {{ $kit->created_at->format('j.n.Y h:i') }}
-
 @if($kit->title)
 Název: {{ $kit->title }}
 @endif
@@ -27,20 +23,10 @@ Rozsah: {{ $kit->range_min }} - {{ $kit->range_max }}
 
 Počet desetinných míst: {{ $kit->range_decimals }}
 
-Operace:
-@if($kit->operation_add)
-* Sčítání
-@endif
-@if($kit->operation_subtract)
-* Odčítání
-@endif
-@if($kit->operation_multiply)
-* Násobení
-@endif
-@if($kit->operation_divide)
-* Dělení
-@endif
+Operace: {{ $kit->range_operations }}
 </x-mail::panel>
+
+<sup><sub>ID: {{ $kit->id }}</sub></sup>
 
 <x-mail::button :url="$url" color="success">
 Zobrazit sadu

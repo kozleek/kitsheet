@@ -30,7 +30,7 @@ class CreateKit extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('automat@kitsheet.cz', 'KitSheet.cz'),
+            from: new Address(config('mail.from.address'), config('mail.from.name')),
             subject: 'Nová sada pracovních listů byla vytvořena',
         );
     }
