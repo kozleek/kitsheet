@@ -93,4 +93,38 @@ class KitController extends Controller
         // redirect to create new kit
         return redirect()->route('kit.create');
     }
+
+    /**
+     * Print the kit.
+     * Print friendly version of the kit.
+     */
+
+    public function print(Kit $kit)
+    {
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $pageDescription = SeoSupport::getMetaInfo($kit);
+
+        $results = [];
+
+        $index = 0;
+        foreach ($kit->sheets as $sheet) {
+            $results[$index][] = $sheet->result;
+            foreach ($sheet->examples as $example) {
+                $results[$index][] = $example->result;
+            }
+            $results[$index] = collect($results[$index])->shuffle();
+            $index++;
+        }
+
+        return view('kit.print', [
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'title' => $title,
+            'description' => $description,
+            'kit'   => $kit,
+            'results' => $results
+        ]);
+    }
 }
