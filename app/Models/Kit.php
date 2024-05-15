@@ -39,4 +39,47 @@ class Kit extends Model
 
         return $canEdit;
     }
+
+    /**
+     * Min and max values for the range of numbers.
+     */
+
+    public function getRangeMinAttribute()
+    {
+        return json_decode($this->range_numbers)->min;
+    }
+
+    public function getRangeMaxAttribute()
+    {
+        return json_decode($this->range_numbers)->max;
+    }
+
+    public function getRangeDecimalsAttribute()
+    {
+        return json_decode($this->range_numbers)->decimals;
+    }
+
+    /**
+     * Operations for the range of numbers.
+     */
+
+    public function getOperationAddAttribute()
+    {
+        return in_array('add', json_decode($this->range_operations));
+    }
+
+    public function getOperationSubtractAttribute()
+    {
+        return in_array('subtract', json_decode($this->range_operations));
+    }
+
+    public function getOperationMultiplyAttribute()
+    {
+        return in_array('multiply', json_decode($this->range_operations));
+    }
+
+    public function getOperationDivideAttribute()
+    {
+        return in_array('divide', json_decode($this->range_operations));
+    }
 }
