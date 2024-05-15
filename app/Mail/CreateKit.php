@@ -4,12 +4,13 @@ namespace App\Mail;
 
 use App\Models\Kit;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
+use App\Support\OperationSupport;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateKit extends Mailable
 {
@@ -40,11 +41,23 @@ class CreateKit extends Mailable
      */
     public function content(): Content
     {
+        $kitOperations = json_decode($this->kit->range_operations);
+        $lastElement = end($kitOperations);
+
+        $operations = '';
+        foreach ($kitOperations as $operation) {
+            $operations .= OperationSupport::getOperationName($operation);
+            if ($operation !== $lastElement) {
+                $operations .= ', ';
+            }
+        }
+
         return new Content(
             markdown: 'emails.kit.create',
             with: [
                 'kit' => $this->kit,
                 'url' => route('kit.show', $this->kit),
+                'operations' => $operations,
             ],
         );
     }

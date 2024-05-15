@@ -209,7 +209,7 @@ class KitConfig extends Component
         // send email to the admin
         if ($this->mode == 'create') {
             // send email with information about the new kit
-            Mail::to(config('mail.to.address'))->send(new CreateKit($this->kit));
+            Mail::to(config('mail.to.address'))->queue(new CreateKit($this->kit));
         } else {
             // send email with information about the updated kit
             // ...

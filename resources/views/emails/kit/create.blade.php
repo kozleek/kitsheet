@@ -1,5 +1,4 @@
 <x-mail::message>
-
 Ahoj,
 
 Sada pracovních listů byla úspěšně vytvořena.
@@ -23,13 +22,9 @@ Rozsah: {{ $kit->range_min }} - {{ $kit->range_max }}
 
 Počet desetinných míst: {{ $kit->range_decimals }}
 
-Operace: {{ $kit->range_operations }}
+Matematické operace: {{ $operations }}
 </x-mail::panel>
-
-<sup><sub>ID: {{ $kit->id }}</sub></sup>
-
 <x-mail::button :url="$url" color="success">
 Zobrazit sadu
 </x-mail::button>
-
 </x-mail::message>
