@@ -32,7 +32,7 @@ class CreateKit extends Mailable
     {
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
-            subject: 'Nová sada pracovních listů byla vytvořena',
+            subject: 'Nová sada pracovních listů byla vytvořena (ID: ' . $this->kit->id . ')',
         );
     }
 
