@@ -12,3 +12,4 @@ Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destro
 Route::get('/kit/{kit}/print', [KitController::class, 'print'])->name('kit.print');
 
 Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');
+Route::post('sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');

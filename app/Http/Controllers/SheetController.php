@@ -26,4 +26,25 @@ class SheetController extends Controller
             'sheet' => $sheet
         ]);
     }
+
+    /**
+     * Check the sheet.
+     */
+
+    public function check(Sheet $sheet)
+    {
+        foreach ($sheet->examples as $example) {
+            $example->answer = isset($example->answer) ? $example->answer : '?';
+            $example->is_correct = $example->is_correct ? 1 : 0;
+            $example->save();
+        }
+
+        // mark the sheet as finished
+        $sheet->is_finished = true;
+        // save the sheet
+        $sheet->save();
+
+        // redirect to the sheet
+        return redirect()->route('sheet.show', ['sheet' => $sheet]);
+    }
 }
