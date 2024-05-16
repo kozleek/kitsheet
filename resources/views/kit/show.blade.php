@@ -33,7 +33,7 @@
         </x-slot:links>
     </x-page.heading>
 
-    <livewire:kit-sheets :kit="$kit" />
+    <livewire:sheets-list :kit="$kit" />
 @endsection
 
 @section('modals')

@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class KitSheets extends Component
+class SheetsList extends Component
 {
     public $kit;
 
@@ -14,7 +14,7 @@ class KitSheets extends Component
 
     public function render()
     {
-        return view('livewire.kit-sheets', [
+        return view('livewire.sheets-list', [
             'sheets' => $this->kit->sheets
         ]);
     }
