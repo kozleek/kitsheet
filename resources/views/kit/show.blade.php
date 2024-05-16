@@ -3,7 +3,7 @@
 @section('announcement')
     @if ($kit->canEdit == false)
         <x-page.announcement>
-            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.create') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
+            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.new') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
         </x-page.announcement>
     @endif
 @endsection
@@ -27,7 +27,7 @@
                 <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
                 <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
             </div>
-            <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.create') }}" target="_blank">
+            <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.new') }}" target="_blank">
                 Vytvořit novou sadu
             </x-button>
         </x-slot:links>

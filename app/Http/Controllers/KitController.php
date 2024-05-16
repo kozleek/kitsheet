@@ -20,7 +20,7 @@ class KitController extends Controller
         $description = config('kitsheet.description');
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        return view('kit.create', [
+        return view('kit.new', [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'title' => $title,
@@ -91,7 +91,7 @@ class KitController extends Controller
         $kit->delete();
 
         // redirect to create new kit
-        return redirect()->route('kit.create');
+        return redirect()->route('kit.new');
     }
 
     /**
