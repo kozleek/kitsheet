@@ -1,6 +1,6 @@
 @props(['kit'])
 
-<x-modals.modal id="modal-kit-destroy">
+<x-modals.default id="modal-kit-destroy">
     <x-slot:title>
         Smazat tuto sadu pracovních listů?
     </x-slot:title>
@@ -22,4 +22,4 @@
 
 
     </form>
-</x-modals.modal>
+</x-modals.default>

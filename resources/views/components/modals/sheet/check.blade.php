@@ -1,6 +1,6 @@
 @props(['sheet'])
 
-<x-modals.modal id="modal-sheet-check">
+<x-modals.default id="modal-sheet-check">
     <x-slot:title>
         Odeslat ke kontrole?
     </x-slot:title>
@@ -18,4 +18,4 @@
             </button>
         </form>
     </x-slot:actions>
-</x-modals.modal>
+</x-modals.default>
