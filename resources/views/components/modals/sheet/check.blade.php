@@ -1,4 +1,4 @@
-<x-modals.modal id="sendForChecking">
+<x-modals.modal id="modal-sheet-check">
     <x-slot:title>
         Odeslat ke kontrole?
     </x-slot:title>

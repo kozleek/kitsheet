@@ -1,6 +1,6 @@
 @props(['kit'])
 
-<x-modals.modal id="remove">
+<x-modals.modal id="modal-kit-remove">
     <x-slot:title>
         Smazat tuto sadu pracovních listů?
     </x-slot:title>
