@@ -13,7 +13,7 @@
     <x-slot:actions>
         <form action="{{ route('sheet.check', ['sheet' => $sheet]) }}" method="POST">
             @csrf
-            <button type="submit" class="inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer transition duration-200 ease-in-out border border-white/50 text-white bg-red-500 hover:bg-red-600 px-6 py-2">
+            <button type="submit" class="button button-danger">
                 Souhlasím
             </button>
         </form>

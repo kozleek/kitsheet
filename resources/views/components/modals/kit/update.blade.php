@@ -9,7 +9,7 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <x-button small="true" danger="true" wire:click="store">
+        <x-button danger="true" wire:click="store">
             Ano
         </x-button>
     </x-slot:actions>

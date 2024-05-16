@@ -1,6 +1,6 @@
 @props(['kit'])
 
-<x-modals.modal id="modal-kit-remove">
+<x-modals.modal id="modal-kit-destroy">
     <x-slot:title>
         Smazat tuto sadu pracovních listů?
     </x-slot:title>
@@ -14,7 +14,7 @@
             @csrf
             @method('DELETE')
 
-            <button type="submit" class="inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer transition duration-200 ease-in-out border border-white/50 text-white bg-red-500 hover:bg-red-600 px-6 py-2">
+            <button type="submit" class="button button-danger">
                 Ano
             </button>
         </form>
