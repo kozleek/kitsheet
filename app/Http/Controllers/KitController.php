@@ -13,7 +13,7 @@ class KitController extends Controller
      * Create a new kit.
      */
 
-    public function create()
+    public function new()
     {
         $title = config('kitsheet.name');
         $pageTitle = SeoSupport::getPageTitle();

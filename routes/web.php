@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\SheetController;
 
-Route::get('/', [KitController::class, 'create'])->name('kit.new');
+Route::get('/', [KitController::class, 'new'])->name('kit.new');
 //Route::post('/kit/{kit}/create', [KitController::class, 'create'])->name('kit.create');
 Route::get('/kit/{kit}', [KitController::class, 'show'])->name('kit.show');
 Route::get('/kit/{kit}/edit', [KitController::class, 'edit'])->name('kit.edit');
