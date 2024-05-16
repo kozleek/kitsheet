@@ -3,16 +3,13 @@
 @if ($disabled)
     <span
         class="
-            inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 opacity-50 cursor-not-allowed transition duration-200 ease-in-out
-            {{ $small ? 'px-6 py-2' : 'px-4 py-3' }}
-
-            @if ($primary)
-                {{ 'border border-white/50 text-white bg-blue-500 hover:bg-blue-600' }}
-            @elseif ($danger)
-                {{ 'border border-white/50 text-white bg-red-500 hover:bg-red-600' }}
-            @else
-                {{ 'bg-blue-400 text-white hover:bg-blue-600' }}
-            @endif
+        @if ($primary)
+            {{ 'button button-disabled button-primary' }}
+        @elseif ($danger)
+            {{ 'button button-disabled button-danger' }}
+        @else
+            {{ 'button button-disabled button-normal' }}
+        @endif
         "
 
         @if ($tooltip)
@@ -20,7 +17,7 @@
         @endif
     >
         @if ($icon)
-            @svg($icon, 'h-6 w-6')
+            @svg($icon, 'h-5 w-5')
         @endif
 
         {{ $slot }}
@@ -29,15 +26,12 @@
     <a
         {{ $attributes }}
         class="
-            inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer
-            {{ $small ? 'px-6 py-2' : 'px-4 py-3' }}
-
             @if ($primary)
-                {{ 'border border-white/50 text-white bg-blue-500 hover:bg-blue-600' }}
+                {{ 'button button-primary' }}
             @elseif ($danger)
-                {{ 'border border-white/50 text-white bg-red-500 hover:bg-red-600' }}
+                {{ 'button button-danger' }}
             @else
-                {{ 'bg-blue-400 text-white hover:bg-blue-600' }}
+                {{ 'button button-normal' }}
             @endif
         "
 
@@ -46,7 +40,7 @@
         @endif
     >
         @if ($icon)
-            @svg($icon, 'h-6 w-6')
+            @svg($icon, 'h-5 w-5')
         @endif
 
         {{ $slot }}

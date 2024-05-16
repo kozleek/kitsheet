@@ -48,11 +48,11 @@
         @endif
 
         @if ($mode == 'edit')
-            <x-button icon="heroicon-o-plus" x-on:click="modal='update'" primary="true" disabled="{{ $canSave == false }}">
+            <x-button icon="heroicon-o-check" x-on:click="modal='modal-kit-update'" primary="true" disabled="{{ $canSave == false }}">
                 Uložit sadu
             </x-button>
 
-            <x-modals.update />
+            <x-modals.kit.update />
         @endif
     </div>
 </x-page.card>

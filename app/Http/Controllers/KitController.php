@@ -13,14 +13,14 @@ class KitController extends Controller
      * Create a new kit.
      */
 
-    public function create()
+    public function new()
     {
         $title = config('kitsheet.name');
         $pageTitle = SeoSupport::getPageTitle();
         $description = config('kitsheet.description');
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        return view('kit.create', [
+        return view('kit.new', [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'title' => $title,
@@ -33,10 +33,8 @@ class KitController extends Controller
      * The kit can be edited if all sheets are empty (examples have no answers).
      */
 
-    public function edit($id)
+    public function edit(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
@@ -51,7 +49,7 @@ class KitController extends Controller
                 'kit' => $kit
             ]);
         } else {
-            return redirect()->route('kit.show', ['id' => $kit->id]);
+            return redirect()->route('kit.show', ['kit' => $kit]);
         }
     }
 
@@ -59,10 +57,8 @@ class KitController extends Controller
      * Show the kit.
      */
 
-    public function show($id)
+    public function show(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
@@ -81,10 +77,8 @@ class KitController extends Controller
      * Remove the kit and all its sheets and examples.
      */
 
-    public function remove($id)
+    public function destroy(Kit $kit)
     {
-        $kit = Kit::findOrFail($id);
-
         // remove all examples and sheets
         foreach ($kit->sheets as $sheet) {
             foreach ($sheet->examples as $example) {
@@ -97,6 +91,40 @@ class KitController extends Controller
         $kit->delete();
 
         // redirect to create new kit
-        return redirect()->route('kit.create');
+        return redirect()->route('kit.new');
+    }
+
+    /**
+     * Print the kit.
+     * Print friendly version of the kit.
+     */
+
+    public function print(Kit $kit)
+    {
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $pageDescription = SeoSupport::getMetaInfo($kit);
+
+        $results = [];
+
+        $index = 0;
+        foreach ($kit->sheets as $sheet) {
+            $results[$index][] = $sheet->result;
+            foreach ($sheet->examples as $example) {
+                $results[$index][] = $example->result;
+            }
+            $results[$index] = collect($results[$index])->shuffle();
+            $index++;
+        }
+
+        return view('kit.print', [
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'title' => $title,
+            'description' => $description,
+            'kit'   => $kit,
+            'results' => $results
+        ]);
     }
 }

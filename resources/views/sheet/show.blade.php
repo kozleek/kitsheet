@@ -19,7 +19,12 @@
 
             @if ($sheet->is_finished == false)
                 <div class="mt-8">
-                    <livewire:send-for-checking :sheet="$sheet" />
+                    <x-button x-on:click="modal='modal-sheet-check'" primary="true">
+                        <x-heroicon-o-rocket-launch />
+                        Odeslat pracovní list ke kontrole
+                    </x-button>
+
+                    <x-modals.sheet.check :sheet="$sheet" />
                 </div>
             @endif
         </x-page.card>

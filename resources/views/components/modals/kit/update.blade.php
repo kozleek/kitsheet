@@ -1,4 +1,4 @@
-<x-modals.modal id="update">
+<x-modals.default id="modal-kit-update">
     <x-slot:title>
         Uložit změny a vytvořit nové pracovní listy?
     </x-slot:title>
@@ -9,8 +9,8 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <x-button small="true" danger="true" wire:click="store">
+        <x-button danger="true" wire:click="store">
             Ano
         </x-button>
     </x-slot:actions>
-</x-modals.modal>
+</x-modals.default>

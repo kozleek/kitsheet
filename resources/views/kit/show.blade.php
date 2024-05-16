@@ -3,7 +3,7 @@
 @section('announcement')
     @if ($kit->canEdit == false)
         <x-page.announcement>
-            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.create') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
+            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.new') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
         </x-page.announcement>
     @endif
 @endsection
@@ -20,22 +20,22 @@
         <x-slot:actions>
             <div class="flex gap-2">
                 @if ($kit->canEdit == true)
-                    <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['id' => $kit->id]) }}" />
+                    <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['kit' => $kit]) }}" />
                 @endif
 
                 <x-button icon="heroicon-o-link" tooltip="Zkopírovat odkaz" data-clipboard-text="{{ Request::url() }}" />
-                <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['id' => $kit->id]) }}');" />
-                <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='remove'" />
+                <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
+                <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
             </div>
-            <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.create') }}" target="_blank">
+            <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.new') }}" target="_blank">
                 Vytvořit novou sadu
             </x-button>
         </x-slot:links>
     </x-page.heading>
 
-    <livewire:kit-sheets :kit="$kit" />
+    <livewire:sheets-list :kit="$kit" />
 @endsection
 
 @section('modals')
-    <x-modals.remove :kit="$kit" />
+    <x-modals.kit.destroy :kit="$kit" />
 @endsection

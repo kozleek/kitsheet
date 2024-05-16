@@ -5,14 +5,14 @@
                 <div class="flex items-center gap-3">
                     <div
                         class="size-7 bg-sky-100 rounded flex items-center justify-center cursor-pointer hover:bg-sky-200 transition duration-200 ease-in-out"
-                        data-clipboard-text="{{ route('sheet.show', ['id' => $sheet->id]) }}"
+                        data-clipboard-text="{{ route('sheet.show', ['sheet' => $sheet]) }}"
                         data-tippy-content="Zkopírovat odkaz pracovního listu"
                     >
                         <x-heroicon-o-link class="!h-3.5 !w-3.5 text-sky-500" />
                     </div>
 
                     <h3 class="font-semibold">
-                        <a href="{{ route('sheet.show', $sheet->id) }}" target="_blank" class="hover:underline">
+                        <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" target="_blank" class="hover:underline">
                             @if ($sheet->name)
                                 {{ $sheet->name }}
                             @else

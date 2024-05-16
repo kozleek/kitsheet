@@ -1,4 +1,6 @@
-<x-modals.modal id="sendForChecking">
+@props(['sheet'])
+
+<x-modals.default id="modal-sheet-check">
     <x-slot:title>
         Odeslat ke kontrole?
     </x-slot:title>
@@ -9,8 +11,11 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <x-button small="true" danger="true" wire:click="store">
-            Souhlasím
-        </x-button>
+        <form action="{{ route('sheet.check', ['sheet' => $sheet]) }}" method="POST">
+            @csrf
+            <button type="submit" class="button button-danger">
+                Souhlasím
+            </button>
+        </form>
     </x-slot:actions>
-</x-modals.modal>
+</x-modals.default>
