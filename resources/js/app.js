@@ -9,7 +9,7 @@ import 'toastr/build/toastr.min.css';
 toastr.options = {
     "closeButton": true,
     "debug": false,
-    "newestOnTop": false,
+    "newestOnTop": true,
     "progressBar": true,
     "positionClass": "toast-bottom-right",
     "preventDuplicates": false,

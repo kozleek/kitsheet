@@ -126,6 +126,7 @@ class KitController extends Controller
         // remove kit
         $kit->delete();
         // redirect to create new kit
+        session()->flash('warning', 'Pracovní listy byly smazány!');
         return redirect()->route('kit.create');
     }
 
