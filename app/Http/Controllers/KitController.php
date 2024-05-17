@@ -79,7 +79,6 @@ class KitController extends Controller
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
 
-
         if ($kit->canEdit) {
             return view('kit.edit', [
                 'title' => $title,
