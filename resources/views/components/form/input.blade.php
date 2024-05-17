@@ -1,12 +1,12 @@
 @props(['label' => '', 'name'])
 
 <div class="{{ $attributes['disabled'] ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }} flex flex-col gap-2">
-    <label for="{{ $name }}" class="relative block rounded-md border border-neutral-300 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 overflow-hidden">
+    <label for="{{ $name }}" class="relative block rounded-md border border-neutral-300 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
         <input
             id="{{ $name }}"
             name="{{ $name }}"
             {{ $attributes }}
-            class="peer w-full border-none bg-transparent p-3 px-3.5 focus:border-transparent focus:outline-none focus:ring-0"
+            class="peer w-full border-none bg-transparent p-3 px-3.5 focus:border-transparent focus:outline-none focus:ring-0 rounded-md "
         />
 
         @if ($label)

@@ -20,9 +20,9 @@ class SheetController extends Controller
         $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);
 
         return view('sheet.show', [
+            'title' => $title,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'title' => $title,
             'sheet' => $sheet
         ]);
     }

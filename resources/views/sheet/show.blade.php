@@ -22,7 +22,7 @@
                     <x-button x-on:click="modal='modal-sheet-check'" primary="true">
                         <x-heroicon-o-rocket-launch />
                         <span class="block md:hidden">Odeslat ke kontrole</span>
-                        <span class="hidden md:block">Odeslat pracovní list ke kontrole</span>
+                        <span class="hidden md:block">Odeslat všechny příklady ke kontrole</span>
                     </x-button>
 
                     <x-modals.sheet.check :sheet="$sheet" />
