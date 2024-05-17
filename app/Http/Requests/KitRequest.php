@@ -48,6 +48,8 @@ class KitRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
+            'title' => $this->title == null ? '' : $this->title,
+            'description' => $this->description == null ? '' : $this->description,
             'operationAdd' => $this->has('operationAdd'),
             'operationSubtract' => $this->has('operationSubtract'),
             'operationMultiply' => $this->has('operationMultiply'),
