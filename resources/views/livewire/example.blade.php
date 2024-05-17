@@ -1,11 +1,10 @@
 <div>
     @if ($is_finished)
         <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl">
-            <div class="flex items-center gap-2 flex-1">
+            <div class="flex flex-col md:flex-row items-center gap-2 flex-1">
                 <span>
-                    {{ $example->specification_formatted }}
+                    {{ $example->specification_formatted }} =
                 </span>
-                <span>=</span>
                 <span class="flex-1">
                     @if ($example->is_correct)
                         <span class="font-bold underline decoration-green-300 decoration-double underline-offset-4">
@@ -36,13 +35,12 @@
             @endif
         </div>
     @else
-        <label class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl cursor-pointer">
+        <label class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl cursor-pointer">
             <span>
-                {{ $example->specification_formatted }}
+                {{ $example->specification_formatted }} =
             </span>
-            <span>=</span>
             <span class="flex-1">
-                <x-form.text name="answer" change="saveAnswer" class="font-sometype text-xl" />
+                <x-form.input type="text" name="answer" wire:model="answer" wire:change="saveAnswer" class="font-sometype text-xl w-full border-0 rounded-md" />
             </span>
         </label>
     @endif

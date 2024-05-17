@@ -1,6 +1,6 @@
 @props(['title' => '', 'description' => '', 'info' => '', 'actions' => ''])
 
-<div class="md:flex items-start lg:items-center md:justify-between py-8 gap-12">
+<div class="xl:flex items-start lg:items-center md:justify-between py-8 gap-12">
     <div class="">
         @if ($title)
             <h1 class="text-2xl font-bold leading-7 text-neutral-600 sm:truncate sm:text-3xl sm:tracking-tight">

@@ -47,7 +47,7 @@ class SeoSupport
             $countNumbers = $kit->count_numbers . ' čísel';
         }
 
-        $range =  'Rozsah: ' . json_decode($kit->range_numbers)->min . ' - ' . json_decode($kit->range_numbers)->max;
+        $range =  'Rozsah: ' . $kit->range_numbers['min'] . ' - ' . $kit->range_numbers['max'];
 
         // concatenate info
         $info = '';

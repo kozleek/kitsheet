@@ -11,7 +11,7 @@
 
     @if ($sheet->examples->count())
         <x-page.card>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:pt-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" key="$example->id" />
                 @endforeach
@@ -21,7 +21,8 @@
                 <div class="mt-8">
                     <x-button x-on:click="modal='modal-sheet-check'" primary="true">
                         <x-heroicon-o-rocket-launch />
-                        Odeslat pracovní list ke kontrole
+                        <span class="block md:hidden">Odeslat ke kontrole</span>
+                        <span class="hidden md:block">Odeslat všechny příklady ke kontrole</span>
                     </x-button>
 
                     <x-modals.sheet.check :sheet="$sheet" />

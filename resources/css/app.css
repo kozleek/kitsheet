@@ -16,7 +16,7 @@
 }
 
 .button {
-    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer px-4 py-2;
+    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer px-4 py-3;
 }
 
 .button-disabled {
