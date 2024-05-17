@@ -18,9 +18,9 @@ Počet příkladů v pracovním listu: {{ $kit->count_examples }}
 
 Počet čísel v příkladu: {{ $kit->count_numbers }}
 
-Rozsah: {{ $kit->range_min }} - {{ $kit->range_max }}
+Rozsah: {{ $kit->range_numbers['min'] }} - {{ $kit->range_numbers['max'] }}
 
-Počet desetinných míst: {{ $kit->range_decimals }}
+Počet desetinných míst: {{ $kit->range_numbers['decimals'] }}
 
 Matematické operace: {{ $operations }}
 </x-mail::panel>
