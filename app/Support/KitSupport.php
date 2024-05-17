@@ -50,9 +50,9 @@ class KitSupport
                 'count_sheets'        => $data['countSheets'],
                 'count_examples'      => $data['countExamples'],
                 'count_numbers'       => $data['countNumbers'],
-                'range_numbers'       => json_encode($rangeNumbers),
-                'range_operations'    => json_encode($rangeOperations),
-                'settings_examples'   => json_encode($settingsExamples),
+                'range_numbers'       => $rangeNumbers,
+                'range_operations'    => $rangeOperations,
+                'settings_examples'   => $settingsExamples,
             ]);
         } else {
             $kit->update([
@@ -61,9 +61,9 @@ class KitSupport
                 'count_sheets'        => $data['countSheets'],
                 'count_examples'      => $data['countExamples'],
                 'count_numbers'       => $data['countNumbers'],
-                'range_numbers'       => json_encode($rangeNumbers),
-                'range_operations'    => json_encode($rangeOperations),
-                'settings_examples'   => json_encode($settingsExamples),
+                'range_numbers'       => $rangeNumbers,
+                'range_operations'    => $rangeOperations,
+                'settings_examples'   => $settingsExamples,
             ]);
         }
 
