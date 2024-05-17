@@ -26,4 +26,5 @@ jobs:
           php artisan migrate
           npm install
           npm run build
+          php artisan cache:clear
           php artisan up

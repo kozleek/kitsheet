@@ -41,7 +41,7 @@ class KitCreated extends Mailable
      */
     public function content(): Content
     {
-        $kitOperations = json_decode($this->kit->range_operations);
+        $kitOperations = $this->kit->range_operations;
         $lastElement = end($kitOperations);
 
         $operations = '';
