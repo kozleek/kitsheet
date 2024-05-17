@@ -16,16 +16,18 @@
         </x-slot:links>
     </x-page.heading>
 
-    <form action="{{ route('kit.store') }}" method="post">
-        @csrf
-        @method('patch')
-        <x-form.kit-items />
+    <x-page.card>
+        <form action="{{ route('kit.update', ['kit' => $kit]) }}" method="post">
+            @csrf
+            @method('patch')
+            <x-form.kit-items :kit="$kit" />
 
-        <div class="mt-8 flex items-center gap-4">
-            <button type="submit" class="button button-primary">
-                <x-heroicon-o-check class="h-5 w-5" />
-                Uložit sadu
-            </button>
-        </div>
-    </form>
+            <div class="mt-8 flex items-center gap-4">
+                <button type="submit" class="button button-primary">
+                    <x-heroicon-o-check class="h-5 w-5" />
+                    Uložit sadu
+                </button>
+            </div>
+        </form>
+    </x-page.card>
 @endsection

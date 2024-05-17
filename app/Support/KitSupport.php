@@ -8,7 +8,7 @@ use App\Models\Example;
 
 class KitSupport
 {
-    public static function store($data): Kit
+    public static function saveKitData($data, $kit = null): Kit
     {
         // Set ranges array
         $rangeNumbers = [
@@ -42,16 +42,33 @@ class KitSupport
         }
 
         // Update or create the kit
-        $kit = Kit::create([
-            'title'               => ucfirst($data['title']),
-            'description'         => $data['description'],
-            'count_sheets'        => $data['countSheets'],
-            'count_examples'      => $data['countExamples'],
-            'count_numbers'       => $data['countNumbers'],
-            'range_numbers'       => json_encode($rangeNumbers),
-            'range_operations'    => json_encode($rangeOperations),
-            'settings_examples'   => json_encode($settingsExamples),
-        ]);
+        // if kit is not set, create new kit
+        if (is_null($kit)) {
+            $kit = Kit::create([
+                'title'               => ucfirst($data['title']),
+                'description'         => $data['description'],
+                'count_sheets'        => $data['countSheets'],
+                'count_examples'      => $data['countExamples'],
+                'count_numbers'       => $data['countNumbers'],
+                'range_numbers'       => json_encode($rangeNumbers),
+                'range_operations'    => json_encode($rangeOperations),
+                'settings_examples'   => json_encode($settingsExamples),
+            ]);
+        } else {
+            $kit->update([
+                'title'               => ucfirst($data['title']),
+                'description'         => $data['description'],
+                'count_sheets'        => $data['countSheets'],
+                'count_examples'      => $data['countExamples'],
+                'count_numbers'       => $data['countNumbers'],
+                'range_numbers'       => json_encode($rangeNumbers),
+                'range_operations'    => json_encode($rangeOperations),
+                'settings_examples'   => json_encode($settingsExamples),
+            ]);
+        }
+
+        // if any sheets exist, delete them
+        $kit->sheets()->delete(); // Smažeme staré listy, pokud existují
 
         foreach (range(1, $data['countSheets']) as $i) {
             $sheet = $kit->sheets()->create([

@@ -9,6 +9,8 @@
                 id="{{ $name }}"
                 name="{{ $name }}"
                 {{ $attributes }}
+                {{ $attributes['disabled'] ? 'disabled' : '' }}
+                {{ $attributes['value'] == 'true' || $attributes['value'] == 1 ? 'checked' : '' }}
                 class="size-4 rounded border-neutral-400" id="{{ $name }}"
             />
         </div>

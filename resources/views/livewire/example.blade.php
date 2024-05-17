@@ -42,7 +42,7 @@
             </span>
             <span>=</span>
             <span class="flex-1">
-                <x-form.input type="text" name="answer" change="saveAnswer" class="font-sometype text-xl" />
+                <x-form.input type="text" name="answer" change="saveAnswer" class="font-sometype text-xl w-full border-0" />
             </span>
         </label>
     @endif

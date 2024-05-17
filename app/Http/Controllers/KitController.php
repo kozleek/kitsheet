@@ -7,8 +7,8 @@ use App\Mail\KitCreated;
 use App\Support\KitSupport;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
+use App\Http\Requests\KitRequest;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\StoreKitModelRequest;
 
 class KitController extends Controller
 {
@@ -36,10 +36,10 @@ class KitController extends Controller
      * Store the new kit.
      */
 
-    public function store(StoreKitModelRequest $request)
+    public function store(KitRequest $request)
     {
         $validateData = $request->validated();
-        $kit = KitSupport::store($validateData);
+        $kit = KitSupport::saveKitData($validateData);
 
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
@@ -91,6 +91,18 @@ class KitController extends Controller
         } else {
             return redirect()->route('kit.show', ['kit' => $kit]);
         }
+    }
+
+    /**
+     * Update the kit.
+     */
+
+    public function update(KitRequest $request, Kit $kit)
+    {
+        $validateData = $request->validated();
+        $kit = KitSupport::saveKitData($validateData, $kit);
+
+        return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
     /**
