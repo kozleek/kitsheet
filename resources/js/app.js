@@ -3,6 +3,33 @@ import persist from "@alpinejs/persist";
 import tippy from 'tippy.js';
 import ClipboardJS from 'clipboard';
 import 'tippy.js/dist/tippy.css'; // optional for styling
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.flashMessage) {
+        const { type, message } = window.flashMessage;
+        toastr[type](message);
+    }
+});
 
 tippy('[data-tippy-content]');
 new ClipboardJS('[data-clipboard-text]');
