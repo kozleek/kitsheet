@@ -38,12 +38,14 @@ class KitController extends Controller
 
     public function store(KitRequest $request)
     {
+        // Validate the request with KitRequest
         $validateData = $request->validated();
+        // Store the kit to the database
         $kit = KitSupport::saveKitData($validateData);
-
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
-        // Redirect to the kit
+        // Redirect to the kit show page
+        session()->flash('success', 'Pracovní listy byly vytvořeny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -98,9 +100,12 @@ class KitController extends Controller
 
     public function update(KitRequest $request, Kit $kit)
     {
+        // Validate the request with KitRequest
         $validateData = $request->validated();
+        // Update the kit to the database
         $kit = KitSupport::saveKitData($validateData, $kit);
-
+        // Redirect to the kit show page
+        session()->flash('success', 'Pracovní listy byly upraveny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -120,7 +125,6 @@ class KitController extends Controller
 
         // remove kit
         $kit->delete();
-
         // redirect to create new kit
         return redirect()->route('kit.create');
     }

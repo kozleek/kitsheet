@@ -56,6 +56,24 @@
         <x-page.footer />
     </div>
     @yield('modals')
+
+    <script>
+        @if (session('success'))
+            window.flashMessage = { type: 'success', message: "{{ session('success') }}" };
+        @endif
+
+        @if (session('error'))
+            window.flashMessage = { type: 'error', message: "{{ session('error') }}" };
+        @endif
+
+        @if (session('info'))
+            window.flashMessage = { type: 'info', message: "{{ session('info') }}" };
+        @endif
+
+        @if (session('warning'))
+            window.flashMessage = { type: 'warning', message: "{{ session('warning') }}" };
+        @endif
+    </script>
 </body>
 
 </html>
