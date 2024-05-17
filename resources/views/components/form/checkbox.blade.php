@@ -1,10 +1,17 @@
-@props(['label', 'name', 'required' => false, 'description' => '', 'disabled' => false, 'beta' => false])
+@props(['label', 'name', 'description' => '', 'value'])
 
 <div class="">
-    <label for="{{ $name }}" class="{{ $disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }} relative flex items-start gap-3 rounded-lg border border-neutral-300 p-3 transition hover:bg-gray-50">
+    <label for="{{ $name }}" class="{{ $attributes['disabled'] ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }} relative flex items-start gap-3 rounded-lg border border-neutral-300 p-3 transition hover:bg-gray-50">
         <div class="flex items-center">
             &#8203;
-            <input type="checkbox" class="size-4 rounded border-neutral-400" id="{{ $name }}" wire:model.live="{{ $name }}" {{ $disabled ? 'disabled' : '' }} />
+            <input
+                type="checkbox"
+                id="{{ $name }}"
+                name="{{ $name }}"
+                value="{{ $value }}"
+                {{ $attributes }}
+                class="size-4 rounded border-neutral-400" id="{{ $name }}"
+            />
         </div>
 
         <div>
@@ -15,11 +22,5 @@
                 </p>
             @endif
         </div>
-
-        @if ($beta)
-            <div class="absolute -top-3 -right-2 py-0.5 px-3 border border-red-600 bg-red-500 text-white rounded-full text-sm">
-                Beta
-            </div>
-        @endif
     </label>
 </div>
