@@ -16,5 +16,16 @@
         </x-slot:links>
     </x-page.heading>
 
-    <livewire:kit-config :kit="$kit" />
+    <form action="{{ route('kit.store') }}" method="post">
+        @csrf
+        @method('patch')
+        <x-form.kit-items />
+
+        <div class="mt-8 flex items-center gap-4">
+            <button type="submit" class="button button-primary">
+                <x-heroicon-o-check class="h-5 w-5" />
+                Uložit sadu
+            </button>
+        </div>
+    </form>
 @endsection

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kit;
+use App\Mail\KitCreated;
+use App\Support\KitSupport;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\StoreKitModelRequest;
 
 class KitController extends Controller
 {
@@ -13,18 +17,53 @@ class KitController extends Controller
      * Create a new kit.
      */
 
-    public function new()
+    public function create()
     {
         $title = config('kitsheet.name');
-        $pageTitle = SeoSupport::getPageTitle();
         $description = config('kitsheet.description');
+        $pageTitle = SeoSupport::getPageTitle();
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        return view('kit.new', [
+        return view('kit.create', [
+            'title' => $title,
+            'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
+        ]);
+    }
+
+    /**
+     * Store the new kit.
+     */
+
+    public function store(StoreKitModelRequest $request)
+    {
+        $validateData = $request->validated();
+        $kit = KitSupport::store($validateData);
+
+        // Send email notification to the admin
+        Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
+        // Redirect to the kit
+        return redirect()->route('kit.show', ['kit' => $kit]);
+    }
+
+    /**
+     * Show the kit.
+     */
+
+    public function show(Kit $kit)
+    {
+        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $pageDescription = SeoSupport::getMetaInfo($kit);
+
+        return view('kit.show', [
             'title' => $title,
-            'description' => $description
+            'description' => $description,
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'kit'   => $kit,
         ]);
     }
 
@@ -36,41 +75,22 @@ class KitController extends Controller
     public function edit(Kit $kit)
     {
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
+
 
         if ($kit->canEdit) {
             return view('kit.edit', [
-                'pageTitle' => $pageTitle,
-                'pageDescription' => $pageDescription,
                 'title' => $title,
                 'description' => $description,
+                'pageTitle' => $pageTitle,
+                'pageDescription' => $pageDescription,
                 'kit' => $kit
             ]);
         } else {
             return redirect()->route('kit.show', ['kit' => $kit]);
         }
-    }
-
-    /**
-     * Show the kit.
-     */
-
-    public function show(Kit $kit)
-    {
-        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $pageTitle = SeoSupport::getPageTitle($title);
-        $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
-        $pageDescription = SeoSupport::getMetaInfo($kit);
-
-        return view('kit.show', [
-            'pageTitle' => $pageTitle,
-            'pageDescription' => $pageDescription,
-            'title' => $title,
-            'description' => $description,
-            'kit'   => $kit,
-        ]);
     }
 
     /**
@@ -91,7 +111,7 @@ class KitController extends Controller
         $kit->delete();
 
         // redirect to create new kit
-        return redirect()->route('kit.new');
+        return redirect()->route('kit.create');
     }
 
     /**
@@ -102,8 +122,8 @@ class KitController extends Controller
     public function print(Kit $kit)
     {
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
-        $pageTitle = SeoSupport::getPageTitle($title);
         $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
 
         $results = [];
@@ -119,10 +139,10 @@ class KitController extends Controller
         }
 
         return view('kit.print', [
-            'pageTitle' => $pageTitle,
-            'pageDescription' => $pageDescription,
             'title' => $title,
             'description' => $description,
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
             'kit'   => $kit,
             'results' => $results
         ]);
