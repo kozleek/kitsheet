@@ -33,6 +33,7 @@ class FeedbackCreated extends Mailable
     {
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
+            replyTo: $this->mail,
             subject: 'Zpětná vazba od ' . $this->name,
         );
     }
