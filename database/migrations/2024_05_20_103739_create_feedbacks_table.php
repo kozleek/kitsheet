@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->id();
+        Schema::create('feedbacks', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->string('name')->required();
             $table->string('mail')->nullable();
             $table->text('message')->required();
