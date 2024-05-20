@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Feedback extends Model
 {
     use HasFactory;
+    use HasUuids;
 
+    protected $table = 'feedbacks';
     protected $guarded = [];
 }
