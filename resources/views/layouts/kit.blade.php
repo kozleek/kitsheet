@@ -40,7 +40,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-neutral-100 antialiased" x-data="{modal:null}">
+<body class="min-h-full bg-neutral-100 antialiased relative" x-data="{modal:null}">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id={{ config('scripts.gtm') }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>

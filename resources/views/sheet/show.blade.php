@@ -20,7 +20,7 @@
             @if ($sheet->is_finished == false)
                 <div class="mt-8">
                     <x-button x-on:click="modal='modal-sheet-check'" primary="true">
-                        <x-heroicon-o-rocket-launch />
+                        <x-heroicon-o-check />
                         <span class="block md:hidden">Odeslat ke kontrole</span>
                         <span class="hidden md:block">Odeslat všechny příklady ke kontrole</span>
                     </x-button>

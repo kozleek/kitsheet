@@ -45,7 +45,7 @@ class KitController extends Controller
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
         // Redirect to the kit show page
-        session()->flash('success', 'Pracovní listy byly vytvořeny!');
+        // session()->flash('success', 'Pracovní listy byly vytvořeny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -105,7 +105,7 @@ class KitController extends Controller
         // Update the kit to the database
         $kit = KitSupport::saveKitData($validateData, $kit);
         // Redirect to the kit show page
-        session()->flash('success', 'Pracovní listy byly upraveny!');
+        // session()->flash('success', 'Pracovní listy byly upraveny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -126,7 +126,7 @@ class KitController extends Controller
         // remove kit
         $kit->delete();
         // redirect to create new kit
-        session()->flash('warning', 'Pracovní listy byly smazány!');
+        // session()->flash('warning', 'Pracovní listy byly smazány!');
         return redirect()->route('kit.create');
     }
 
