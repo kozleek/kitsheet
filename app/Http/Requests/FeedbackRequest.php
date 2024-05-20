@@ -31,7 +31,7 @@ class FeedbackRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'mail' => $this->mail,
+            'mail' => $this->mail == null ? '' : $this->mail,
         ]);
     }
 }
