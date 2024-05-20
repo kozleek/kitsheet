@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\SheetController;
@@ -14,3 +15,6 @@ Route::get('/{kit}/print', [KitController::class, 'print'])->name('kit.print');
 
 Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');
 Route::post('sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
+
+//Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
+Route::view('/feedback', 'feedback.create');
