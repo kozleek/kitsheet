@@ -55,8 +55,6 @@
 
         <x-page.footer />
     </div>
-
-    <x-feedback.handler />
     @yield('modals')
 
     <script>

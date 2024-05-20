@@ -14,14 +14,12 @@ class FeedbackController extends Controller
 
     public function create()
     {
-        dd('create');
-
-        $title = config('kitsheet.name');
-        $description = config('kitsheet.description');
-        $pageTitle = SeoSupport::getPageTitle();
+        $title = 'Zpětná vazba';
+        $description = 'Zpětná vazba k aplikaci KitSheet.';
+        $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        return view('kit.create', [
+        return view('feedback.create', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
