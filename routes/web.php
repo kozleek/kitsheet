@@ -17,3 +17,5 @@ Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show
 Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
 
 Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
+Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/{id}/thank-you', [FeedbackController::class, 'thankYou'])->name('feedback.thankYou');

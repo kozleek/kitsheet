@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->string('name')->required();
-            $table->string('email')->nullable();
+            $table->string('mail')->nullable();
             $table->text('message')->required();
-            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
