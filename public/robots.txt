@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /sheet
+
+Sitemap: https://www.kitsheet.cz/sitemap.xml
