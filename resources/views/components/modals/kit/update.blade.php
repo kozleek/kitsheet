@@ -1,5 +1,3 @@
-@props(['kit'])
-
 <x-modals.default id="modal-kit-update">
     <x-slot:title>
         Uložit změny a vytvořit nové pracovní listy?
@@ -11,13 +9,8 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <form action="{{ route('kit.update', ['kit' => $kit]) }}" method="post">
-            @csrf
-            @method('patch')
-
-            <button type="submit" class="button button-danger">
-                Ano
-            </button>
-        </form>
+        <button class="button button-danger" x-on:click="document.getElementById('form-kit-update').submit()">
+            Ano
+        </button>
     </x-slot:actions>
 </x-modals.default>

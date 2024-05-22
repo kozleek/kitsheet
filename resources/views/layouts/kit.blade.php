@@ -42,7 +42,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-neutral-100 antialiased relative" x-data="{modal:null}">
+<body class="min-h-full bg-neutral-100 antialiased relative" x-data="{modal:''}">
     @production
         <!-- Google Tag Manager (noscript) -->
         <noscript>
@@ -61,23 +61,7 @@
     </div>
     @yield('modals')
 
-    <script>
-        @if (session('success'))
-            window.flashMessage = { type: 'success', message: "{{ session('success') }}" };
-        @endif
-
-        @if (session('error'))
-            window.flashMessage = { type: 'error', message: "{{ session('error') }}" };
-        @endif
-
-        @if (session('info'))
-            window.flashMessage = { type: 'info', message: "{{ session('info') }}" };
-        @endif
-
-        @if (session('warning'))
-            window.flashMessage = { type: 'warning', message: "{{ session('warning') }}" };
-        @endif
-    </script>
+    @livewireScriptConfig
 </body>
 
 </html>

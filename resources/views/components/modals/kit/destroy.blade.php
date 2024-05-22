@@ -19,7 +19,4 @@
             </button>
         </form>
     </x-slot:actions>
-
-
-    </form>
 </x-modals.default>
