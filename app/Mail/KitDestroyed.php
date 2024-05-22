@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class KitCreated extends Mailable
+class KitDestroyed extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class KitCreated extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        public Kit $kit,
+        public $id,
     ) {
         //
     }
@@ -32,7 +32,7 @@ class KitCreated extends Mailable
     {
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
-            subject: '🎉 Sada pracovních listů byla vytvořena (ID: ' . $this->kit->id . ')',
+            subject: 'Nová sada pracovních listů byla odstraněna (ID: ' . $this->id . ')',
         );
     }
 
@@ -41,23 +41,10 @@ class KitCreated extends Mailable
      */
     public function content(): Content
     {
-        $kitOperations = $this->kit->range_operations;
-        $lastElement = end($kitOperations);
-
-        $operations = '';
-        foreach ($kitOperations as $operation) {
-            $operations .= OperationSupport::getOperationName($operation);
-            if ($operation !== $lastElement) {
-                $operations .= ', ';
-            }
-        }
-
         return new Content(
-            markdown: 'emails.kit.created',
+            markdown: 'emails.kit.destroyed',
             with: [
-                'kit' => $this->kit,
-                'url' => route('kit.show', ['kit' => $this->kit]),
-                'operations' => $operations,
+                'id' => $this->id,
             ],
         );
     }
