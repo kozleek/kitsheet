@@ -11,11 +11,8 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <form action="{{ route('sheet.check', ['sheet' => $sheet]) }}" method="POST">
-            @csrf
-            <button type="submit" class="button button-danger">
-                Souhlasím
-            </button>
-        </form>
+        <button x-on:click="document.getElementById('form-sheet-check').submit()" class="button button-danger">
+            Souhlasím
+        </button>
     </x-slot:actions>
 </x-modals.default>

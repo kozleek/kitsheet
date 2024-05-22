@@ -1,10 +1,13 @@
 import './bootstrap';
+import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import persist from "@alpinejs/persist";
 import tippy from 'tippy.js';
 import ClipboardJS from 'clipboard';
 import 'tippy.js/dist/tippy.css'; // optional for styling
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css';
+
+Livewire.start();
 
 toastr.options = {
     "closeButton": false,

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] { display: none !important; }
+
 .custom_label {
     @apply text-sm font-medium text-gray-700 cursor-pointer flex items-center gap-3;
 }
