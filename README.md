@@ -9,6 +9,7 @@ This project will use the following technologies:
 - [Laravel + Blade](https://laravel.com)
 - [Tailwind CSS](https://tailwindcss.com)
 - [AlpineJS](https://alpinejs.dev)
+- [Heroicons](https://heroicons.com/)
 
 ## Instalation
 
@@ -31,10 +32,17 @@ Run PHP migration
 php artisan migrate
 ```
 
-Run NPM dev script
+Run NPM dev script or run NPM build script
 
 ```shell
 npm run dev
+npm run build
+```
+
+Create sitemap (sitemap.xml)
+
+```shell
+php artisan sitemap:create
 ```
 
 ## Author
