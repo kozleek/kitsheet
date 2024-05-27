@@ -22,4 +22,18 @@ class OperationSupport
                 return '';
         }
     }
+
+    /**
+     * Generate a string with names of the given operations
+     * This method generates a string with names of the given operations
+     */
+    public static function getOperationsNames($operations): string
+    {
+        $operationsNames = [];
+        foreach ($operations as $operation) {
+            $operationsNames[] = self::getOperationName($operation);
+        }
+
+        return implode(', ', $operationsNames);
+    }
 }

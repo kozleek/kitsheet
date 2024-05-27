@@ -49,23 +49,12 @@ class KitCreated extends Mailable
      */
     public function content(): Content
     {
-        $kitOperations = $this->kit->range_operations;
-        $lastElement = end($kitOperations);
-
-        $operations = '';
-        foreach ($kitOperations as $operation) {
-            $operations .= OperationSupport::getOperationName($operation);
-            if ($operation !== $lastElement) {
-                $operations .= ', ';
-            }
-        }
-
         return new Content(
             markdown: 'emails.kit.created',
             with: [
                 'kit' => $this->kit,
                 'url' => route('kit.show', ['kit' => $this->kit]),
-                'operations' => $operations,
+                'operations' => OperationSupport::getOperationsNames($this->kit->range_operations),
             ],
         );
     }
