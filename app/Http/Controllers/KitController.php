@@ -196,7 +196,7 @@ class KitController extends Controller
 
      public function excel(Kit $kit)
      {
-        $filename = 'kitsheet-vysledky-' . Carbon::now()->format('Y-m-d-H-i') . '.xlsx';
+        $filename = 'kitsheet-hodnoceni-' . Carbon::now()->format('Y-m-d-H-i') . '.xlsx';
         return Excel::download(new ResultsExport($kit), $filename );
      }
 }
