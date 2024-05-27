@@ -2,13 +2,15 @@
 
 <div class="flex flex-col gap-3 rounded-lg bg-white p-4 lg:p-6 shadow-md hover:shadow-lg">
     <div class="">
-        <div class="flex items-center gap-3">
-            <div
-                class="size-7 bg-sky-100 rounded flex items-center justify-center cursor-pointer hover:bg-sky-200 transition duration-200 ease-in-out"
-                data-clipboard-text="{{ route('sheet.show', ['sheet' => $sheet]) }}"
-                data-tippy-content="Zkopírovat odkaz pracovního listu"
-            >
-                <x-heroicon-o-link class="!h-3.5 !w-3.5 text-sky-500" />
+        <div class="flex items-center gap-4">
+            <div class="flex gap-2">
+                <div
+                    class="size-7 bg-sky-100 rounded flex items-center justify-center cursor-pointer hover:bg-sky-200 transition duration-200 ease-in-out"
+                    data-clipboard-text="{{ route('sheet.show', ['sheet' => $sheet]) }}"
+                    data-tippy-content="Zkopírovat odkaz pracovního listu"
+                >
+                    <x-heroicon-o-link class="!h-3.5 !w-3.5 text-sky-500" />
+                </div>
             </div>
 
             <h3 class="font-semibold">

@@ -11,6 +11,7 @@
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-ray": "^1.35",
         "spatie/laravel-sitemap": "^7.2",
         "vormkracht10/laravel-open-graph-image": "^0.7.2"

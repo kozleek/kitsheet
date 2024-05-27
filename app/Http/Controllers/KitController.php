@@ -160,8 +160,29 @@ class KitController extends Controller
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'kit'   => $kit,
+            'kit' => $kit,
             'results' => $results
         ]);
     }
+
+/**
+     * Print the QR codes.
+     * Print QR codes for the kit's sheets.
+     */
+
+     public function qr(Kit $kit)
+     {
+         $title = $kit->title ? $kit->title : 'QR kódy pracovních listů';
+         $description = $kit->description ? $kit->description : 'Tisková verze QR kódů pracovních listů';
+         $pageTitle = SeoSupport::getPageTitle($title);
+         $pageDescription = SeoSupport::getMetaInfo($kit);
+
+         return view('kit.qr', [
+             'title' => $title,
+             'description' => $description,
+             'pageTitle' => $pageTitle,
+             'pageDescription' => $pageDescription,
+             'kit' => $kit,
+         ]);
+     }
 }
