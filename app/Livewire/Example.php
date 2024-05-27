@@ -31,6 +31,7 @@ class Example extends Component
         // normalize the answer
         $answer = $this->answer;
         $answer = Str::replace(' ', '', $answer);
+        $answer = Str::replace('.', ',', $answer);
 
         // check if the answer is correct
         if ($this->answer === '') {
