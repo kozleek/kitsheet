@@ -48,7 +48,8 @@ class Sheet extends Model
 
     public function getCorrectAnswersCounterAttribute()
     {
-        return $this->examples->where('is_correct', true)->count();
+        $count = $this->examples->where('is_correct', true)->count();
+        return $count ? $count : 0;
     }
 
     /**
@@ -57,7 +58,8 @@ class Sheet extends Model
 
     public function getWrongAnswersCounterAttribute()
     {
-        return $this->examples->where('is_correct', false)->count();
+        $count = $this->examples->where('is_correct', false)->count();
+        return $count ? $count : 0;
     }
 
     /**
@@ -66,6 +68,7 @@ class Sheet extends Model
 
     public function getEmptyAnswersCounterAttribute()
     {
-        return $this->examples->where('answer', '?')->count();
+        $count = $this->examples->where('answer', '?')->count();
+        return $count ? $count : 0;
     }
 }
