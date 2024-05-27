@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kit;
 use App\Mail\KitCreated;
+use App\Mail\KitUpdated;
+use App\Mail\KitDestroyed;
 use App\Support\KitSupport;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
@@ -45,7 +47,6 @@ class KitController extends Controller
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
         // Redirect to the kit show page
-        // session()->flash('success', 'Pracovní listy byly vytvořeny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -104,8 +105,9 @@ class KitController extends Controller
         $validateData = $request->validated();
         // Update the kit to the database
         $kit = KitSupport::saveKitData($validateData, $kit);
+        // Send email notification to the admin
+        Mail::to(config('mail.to.address'))->queue(new KitUpdated($kit));
         // Redirect to the kit show page
-        // session()->flash('success', 'Pracovní listy byly upraveny!');
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
 
@@ -126,7 +128,6 @@ class KitController extends Controller
         // remove kit
         $kit->delete();
         // redirect to create new kit
-        // session()->flash('warning', 'Pracovní listy byly smazány!');
         return redirect()->route('kit.create');
     }
 

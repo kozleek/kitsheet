@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class KitCreated extends Mailable
+class KitUpdated extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class KitCreated extends Mailable
     {
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
-            subject: '🎉 Sada pracovních listů byla vytvořena (ID: ' . $this->kit->id . ')',
+            subject: '💾 Sada pracovních listů byla změněna (ID: ' . $this->kit->id . ')',
         );
     }
 
@@ -53,7 +53,7 @@ class KitCreated extends Mailable
         }
 
         return new Content(
-            markdown: 'emails.kit.created',
+            markdown: 'emails.kit.updated',
             with: [
                 'kit' => $this->kit,
                 'url' => route('kit.show', ['kit' => $this->kit]),
