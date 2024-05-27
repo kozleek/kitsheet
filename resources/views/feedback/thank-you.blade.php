@@ -8,6 +8,7 @@
     <x-page.card>
         <div class="space-y-2">
             <p>Děkuji za zpětnou vazbu k aplikaci {{ config('app.name') }}. Budu se snažit ji co nejdříve zpracovat.</p>
+            <p>Budu rád, když se připojíte do naši <a href="https://www.facebook.com/groups/kitsheet" target="_blank" class="underline text-neutral-700">Facebook skupiny</a>.</p>
             <p>S pozdravem Tomáš Musiol</p>
         </div>
         @if($feedback->message)
