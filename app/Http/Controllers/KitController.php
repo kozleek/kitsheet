@@ -9,8 +9,11 @@ use App\Mail\KitDestroyed;
 use App\Support\KitSupport;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
+use App\Exports\ResultsExport;
 use App\Http\Requests\KitRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KitController extends Controller
 {
@@ -141,7 +144,7 @@ class KitController extends Controller
         $title = $kit->title ? $kit->title : 'Sada pracovních listů';
         $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
-        $pageDescription = SeoSupport::getMetaInfo($kit);
+        $pageDescription = SeoSupport::getMetaDescription($description);
 
         $results = [];
 
@@ -165,17 +168,17 @@ class KitController extends Controller
         ]);
     }
 
-/**
+    /**
      * Print the QR codes.
      * Print QR codes for the kit's sheets.
      */
 
      public function qr(Kit $kit)
      {
-         $title = $kit->title ? $kit->title : 'QR kódy pracovních listů';
-         $description = $kit->description ? $kit->description : 'Tisková verze QR kódů pracovních listů';
+         $title = 'QR kódy pracovních listů';
+         $description = 'Tisková verze QR kódů pracovních listů';
          $pageTitle = SeoSupport::getPageTitle($title);
-         $pageDescription = SeoSupport::getMetaInfo($kit);
+         $pageDescription = SeoSupport::getMetaDescription($description);
 
          return view('kit.qr', [
              'title' => $title,
@@ -184,5 +187,16 @@ class KitController extends Controller
              'pageDescription' => $pageDescription,
              'kit' => $kit,
          ]);
+     }
+
+    /**
+     * Export kit to Excel.
+     * Export the kit to Excel file.
+     */
+
+     public function excel(Kit $kit)
+     {
+        $filename = 'kitsheet-hodnoceni-' . Carbon::now()->format('Y-m-d-H-i') . '.xlsx';
+        return Excel::download(new ResultsExport($kit), $filename );
      }
 }

@@ -13,6 +13,7 @@ Route::get('/kit/{kit}', [KitController::class, 'show'])->name('kit.show');
 Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destroy');
 Route::get('/kit/{kit}/print', [KitController::class, 'print'])->name('kit.print');
 Route::get('/kit/{kit}/qr', [KitController::class, 'qr'])->name('kit.qr');
+Route::get('/kit/{kit}/excel', [KitController::class, 'excel'])->name('kit.excel');
 
 Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');
 Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
