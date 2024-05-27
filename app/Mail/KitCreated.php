@@ -30,9 +30,17 @@ class KitCreated extends Mailable
      */
     public function envelope(): Envelope
     {
+        $subject = '🎉 Sada pracovních listů byla vytvořena';
+        if($this->kit->title) {
+            $subject .= ': ' . $this->kit->title;
+        }
+        else {
+            $subject .= ': ' . $this->kit->id;
+        }
+
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
-            subject: '🎉 Sada pracovních listů byla vytvořena (ID: ' . $this->kit->id . ')',
+            subject: $subject,
         );
     }
 
