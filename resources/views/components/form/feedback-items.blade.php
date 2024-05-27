@@ -4,7 +4,7 @@
     <x-form.section label="Základní informace">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-8">
             <x-form.input type="text" label="Vaše jméno" name="name" value="" autofocus required />
-            <x-form.input type="text" label="E-mail" name="mail" value="" />
+            <x-form.input type="text" label="E-mail" name="mail" value="" required />
         </div>
 
         <div>
