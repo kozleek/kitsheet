@@ -12,7 +12,6 @@ class ExampleSupport
      * Get a example
      * This method generates a random example with the given parameters
      */
-
     public static function getExample($countNumbers, $range, $rangeOperations, $settings = [], $level = 'normal'): array
     {
         // generate only positive values
@@ -35,6 +34,7 @@ class ExampleSupport
             for ($i = 0; $i <= $maxNumbers; $i++) {
                 // generate a random number
                 do {
+                    // get a random number
                     $number = RandomSupport::getRandomNumber($range, $level);
                     // if isDivideAllowed is true, repeat the process until the number is not 0
                 } while ($isDivideAllowed && $number == 0);
@@ -70,7 +70,6 @@ class ExampleSupport
      * Add parentheses to the expression
      * This method add parentheses to the expression.
      */
-
     private static function addParentheses($specification): array
     {
         $count = count($specification);
@@ -97,12 +96,10 @@ class ExampleSupport
         }
     }
 
-
     /**
      * Get result of the specification
      * This method calculates the result of the specification
      */
-
     private static function getResult($specification, $decimals = 0): string
     {
         $specificationForEvaluation = implode($specification);
@@ -127,7 +124,6 @@ class ExampleSupport
      * String operators are replaced with their symbols
      * Decimal point is replaced with a comma
      */
-
     private static function getSpecificationFormatted($specification): string
     {
         $specificationString = implode($specification);

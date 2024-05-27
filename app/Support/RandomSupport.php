@@ -8,7 +8,6 @@ class RandomSupport
      * Get a random placeholder name.
      * This method returns a random placeholder name.
      */
-
     public static function getRandomPlaceholderName($gender = 'random'): string
     {
         $randomPlaceholders = [
@@ -80,7 +79,6 @@ class RandomSupport
      * Get a random number from a range.
      * This method returns a random number from a range.
      */
-
     public static function getRandomNumber(array $range = ['min' => 0, 'max' => 100, 'decimals' => 0], string $level = 'normal')
     {
         $min = $range['min'];
@@ -120,7 +118,6 @@ class RandomSupport
      * Get a random operation with a sign.
      * This method returns a random operation with a sign.
      */
-
     public static function getRandomSign(array $range = ['add', 'subtract', 'multiply', 'divide']): array
     {
         $operation = $range[rand(0, count($range) - 1)];
@@ -141,7 +138,6 @@ class RandomSupport
      * Get a random code.
      * This method returns a random code.
      */
-
     public static function getRandomCode(int $length = 4): string
     {
         return str_pad(rand(0, pow(10, $length) - 1), $length, '0', STR_PAD_LEFT);
