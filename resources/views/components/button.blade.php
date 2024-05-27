@@ -17,7 +17,7 @@
         @endif
     >
         @if ($icon)
-            @svg($icon, 'h-5 w-5')
+            @svg($icon, 'h-6 w-6')
         @endif
 
         {{ $slot }}

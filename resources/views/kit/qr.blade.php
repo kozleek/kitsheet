@@ -11,7 +11,7 @@
 
         <div class="mb-8">
             @foreach ($kit->sheets as $sheet)
-                <div class="border-b border-neutral-300 border-dashed py-4 first:border-t flex gap-8">
+                <div class="border-b border-neutral-300 border-dashed py-4 first:border-t flex gap-8 relative">
                     <div>
                         {!! QrCode::size(150)->generate(route('sheet.show', $sheet)) !!}
                     </div>
@@ -23,6 +23,9 @@
                         <div>
                             <p class="text-xs text-neutral-400">{{ route('sheet.show', $sheet) }}</p>
                         </div>
+                    </div>
+                    <div class="size-6 absolute right-4 -bottom-3.5">
+                        <x-heroicon-o-scissors class="text-neutral-400" />
                     </div>
                 </div>
             @endforeach
