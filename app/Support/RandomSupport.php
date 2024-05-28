@@ -62,7 +62,7 @@ class RandomSupport
                 ['m' => 'Klokan', 'f' => 'Klokánice'],
                 ['m' => 'Koala', 'f' => 'Koala'],
                 ['m' => 'Králík', 'f' => 'Králice'],
-                ['m' => 'Puma', 'f' => 'Pumice'],
+                ['m' => 'Puma', 'f' => 'Puma'],
             ]
         ];
 
