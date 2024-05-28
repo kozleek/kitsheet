@@ -40,7 +40,7 @@
         @endif
     >
         @if ($icon)
-            @svg($icon, 'h-5 w-5')
+            @svg($icon, 'h-4 h-4 lg:h-6 lg:w-6')
         @endif
 
         {{ $slot }}
