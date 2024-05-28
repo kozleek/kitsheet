@@ -37,7 +37,7 @@ class Kit extends Model
     {
         $canEdit = true;
         foreach ($this->sheets as $sheet) {
-            if ($sheet->examples()->whereNotNull('answer')->exists()) {
+            if ($sheet->is_finished == 1) {
                 $canEdit = false;
                 break;
             }
