@@ -25,6 +25,15 @@ class Sheet extends Model
     }
 
     /**
+     * Get the finished sheets.
+     */
+
+    public function scopeFinished($query)
+    {
+        return $query->where('is_finished', 1);
+    }
+
+    /**
      * Get the kit that owns the sheet.
      */
 

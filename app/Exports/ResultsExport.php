@@ -34,6 +34,7 @@ class ResultsExport implements FromCollection, WithHeadings
     {
 
         $results = [];
+        //foreach ($this->kit->sheets()->finished()->get() as $sheet) {
         foreach ($this->kit->sheets as $sheet) {
             $results[] = [
                 'number' => 'Pracovní list č.' . $sheet->code,
