@@ -15,8 +15,8 @@
 
     <x-form.section label="Čísla">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <x-form.input type="number" label="Minimum" name="rangeMin" value="{{ $kit ? $kit->range_numbers['min'] : '1' }}" required />
-            <x-form.input type="number" label="Maximum" name="rangeMax" value="{{ $kit ? $kit->range_numbers['max'] : '50' }}" required />
+            <x-form.input type="number" label="Minimum" name="rangeMin" value="{{ $kit ? $kit->range_numbers['min'] : '1' }}" min="-100000" max="100000" required />
+            <x-form.input type="number" label="Maximum" name="rangeMax" value="{{ $kit ? $kit->range_numbers['max'] : '50' }}" min="-100000" max="100000" required />
             <x-form.input type="number" label="Počet čísel v příkladu" name="countNumbers" value="{{ $kit ? $kit->count_numbers : '2' }}" min="2" max="5" required />
             <x-form.input type="number" label="Počet desetinných míst" name="rangeDecimals" value="{{ $kit ? $kit->range_numbers['decimals'] : '0' }}" min="0" max="3" required />
         </div>
