@@ -35,16 +35,7 @@ class SheetController extends Controller
     public function showByFingerprint($fingerPrint)
     {
         $sheet = Sheet::where('fingerprint', $fingerPrint)->firstOrFail();
-        $title = 'Pracovní list č. ' . $sheet->code;
-        $pageTitle = SeoSupport::getPageTitle($title);
-        $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);
-
-        return view('sheet.show', [
-            'title' => $title,
-            'pageTitle' => $pageTitle,
-            'pageDescription' => $pageDescription,
-            'sheet' => $sheet
-        ]);
+        return redirect()->route('sheet.show', ['sheet' => $sheet]);
     }
 
     /**
