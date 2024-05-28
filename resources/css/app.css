@@ -25,15 +25,15 @@
 }
 
 .button-normal {
-    @apply bg-blue-400 text-white hover:bg-blue-600;
+    @apply text-white bg-secondary hover:bg-secondary-hover;
 }
 
 .button-primary {
-    @apply border border-white/50 text-white bg-blue-500 hover:bg-blue-600;
+    @apply text-white bg-primary hover:bg-primary-hover;
 }
 
 .button-danger {
-    @apply border border-white/50 text-white bg-red-500 hover:bg-red-600;
+    @apply text-white bg-danger hover:bg-danger-hover;
 }
 
 @media print {
