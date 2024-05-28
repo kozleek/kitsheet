@@ -28,6 +28,26 @@ class SheetController extends Controller
     }
 
     /**
+     * Show the sheet by fingerprint.
+     * @param string $fingerPrint
+     *
+     */
+    public function showByFingerprint($fingerPrint)
+    {
+        $sheet = Sheet::where('fingerprint', $fingerPrint)->firstOrFail();
+        $title = 'Pracovní list č. ' . $sheet->code;
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);
+
+        return view('sheet.show', [
+            'title' => $title,
+            'pageTitle' => $pageTitle,
+            'pageDescription' => $pageDescription,
+            'sheet' => $sheet
+        ]);
+    }
+
+    /**
      * Check the sheet.
      */
 

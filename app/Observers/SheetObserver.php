@@ -2,14 +2,16 @@
 
 namespace App\Observers;
 
+use App\Models\Sheet;
 use App\Support\RandomSupport;
 
 class SheetObserver
 {
 
-    function creating($sheet)
+    function created(Sheet $sheet)
     {
         // generate a random placeholder name for the sheet
-        // $sheet->name = RandomSupport::getRandomPlaceholderName();
+        $sheet->fingerprint = RandomSupport::getRandomCode($sheet->id, 4);
+        $sheet->save();
     }
 }

@@ -143,8 +143,9 @@ class RandomSupport
      * Get a random code.
      * This method returns a random code.
      */
-    public static function getRandomCode(int $length = 4): string
+    public static function getRandomCode($uuid, int $length = 4): string
     {
-        return str_pad(rand(0, pow(10, $length) - 1), $length, '0', STR_PAD_LEFT);
+        $hash = md5($uuid);
+        return substr($hash, 0, $length);
     }
 }

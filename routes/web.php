@@ -16,6 +16,7 @@ Route::get('/kit/{kit}/qr', [KitController::class, 'qr'])->name('kit.qr');
 Route::get('/kit/{kit}/excel', [KitController::class, 'excel'])->name('kit.excel');
 
 Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');
+Route::get('/s/{fingerprint}', [SheetController::class, 'showByFingerprint'])->name('sheet.fingerprint');
 Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
 
 Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
