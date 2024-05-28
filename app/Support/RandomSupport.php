@@ -109,7 +109,12 @@ class RandomSupport
                 $randomNumber = sprintf($formatString, $randomNumber);
                 return $randomNumber;
             } else {
-                return rand($min, $max);
+                $randomNumber = rand($min, $max);
+                if ($randomNumber < 0){
+                    return '(' . $randomNumber . ')';
+                } else {
+                    return $randomNumber;
+                }
             }
         }
     }
