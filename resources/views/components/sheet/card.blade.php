@@ -24,7 +24,7 @@
             </h3>
         </div>
         @if ($sheet->is_finished)
-            <div class="flex gap-3 text-xs text-neutral-500 items-center mt-2">
+            <div class="flex gap-2 text-xs text-neutral-500 items-center mt-2">
                 <div>Správně: {{ $sheet->correct_answers_counter }}</div>
                 <div class="w-1 h-1 bg-neutral-300 rounded-full"></div>
                 <div>Špatně: {{ $sheet->wrong_answers_counter }}</div>
@@ -37,7 +37,7 @@
     </div>
 
     @if ($sheet->examples->count())
-        <div class="flex flex-wrap gap-2 mt-2">
+        <div class="flex flex-wrap gap-1.5 mt-2">
             @foreach ($sheet->examples as $example)
                 @if (!is_null($example->is_correct))
                     <span
