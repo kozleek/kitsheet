@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sheet;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
+use App\Support\SheetSupport;
 
 class SheetController extends Controller
 {
@@ -54,17 +55,8 @@ class SheetController extends Controller
 
     public function check(Sheet $sheet)
     {
-        foreach ($sheet->examples as $example) {
-            $example->answer = isset($example->answer) ? $example->answer : '?';
-            $example->is_correct = $example->is_correct ? 1 : 0;
-            $example->save();
-        }
-
-        // mark the sheet as finished
-        $sheet->is_finished = true;
-        // save the sheet
-        $sheet->save();
-
+        // check the sheet
+        SheetSupport::check($sheet);
         // redirect to the sheet
         return redirect()->route('sheet.show', ['sheet' => $sheet]);
     }
