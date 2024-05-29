@@ -17,7 +17,7 @@ Jméno učitele: {{ $kit->teacher_name }}
 @endif
 
 @if($kit->teacher_email)
-Email: {{ $kit->teacher_email }}
+E-mail: {{ $kit->teacher_email }}
 @endif
 
 Počet pracovních listů: {{ $kit->count_sheets }}
