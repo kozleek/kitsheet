@@ -12,6 +12,14 @@ Název: {{ $kit->title }}
 Popis: {{ $kit->description }}
 @endif
 
+@if($kit->teacher_name)
+Jméno učitele: {{ $kit->teacher_name }}
+@endif
+
+@if($kit->teacher_email)
+E-mail: {{ $kit->teacher_email }}
+@endif
+
 Počet pracovních listů: {{ $kit->count_sheets }}
 
 Počet příkladů v pracovním listu: {{ $kit->count_examples }}
@@ -25,6 +33,6 @@ Počet desetinných míst: {{ $kit->range_numbers['decimals'] }}
 Matematické operace: {{ $operations }}
 </x-mail::panel>
 <x-mail::button :url="$url" color="success">
-Zobrazit sadu
+Zobrazit sadu pracovních listů
 </x-mail::button>
 </x-mail::message>

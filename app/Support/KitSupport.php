@@ -47,6 +47,8 @@ class KitSupport
             $kit = Kit::create([
                 'title'               => ucfirst($data['title']),
                 'description'         => $data['description'],
+                'teacher_name'        => $data['teacherName'],
+                'teacher_email'       => $data['teacherEmail'],
                 'count_sheets'        => $data['countSheets'],
                 'count_examples'      => $data['countExamples'],
                 'count_numbers'       => $data['countNumbers'],
@@ -58,6 +60,8 @@ class KitSupport
             $kit->update([
                 'title'               => ucfirst($data['title']),
                 'description'         => $data['description'],
+                'teacher_name'        => $data['teacherName'],
+                'teacher_email'       => $data['teacherEmail'],
                 'count_sheets'        => $data['countSheets'],
                 'count_examples'      => $data['countExamples'],
                 'count_numbers'       => $data['countNumbers'],

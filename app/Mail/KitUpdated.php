@@ -31,11 +31,12 @@ class KitUpdated extends Mailable
     public function envelope(): Envelope
     {
         $subject = '💾 Sada pracovních listů byla změněna';
+        // Add title and teacher name to the subject if they are set
         if($this->kit->title) {
             $subject .= ': ' . $this->kit->title;
         }
-        else {
-            $subject .= ': ' . $this->kit->id;
+        if($this->kit->teacher_name) {
+            $subject .= ' (' . $this->kit->teacher_name . ')';
         }
 
         return new Envelope(

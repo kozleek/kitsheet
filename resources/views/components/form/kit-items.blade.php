@@ -2,18 +2,20 @@
 
 <div class="space-y-4">
     <x-form.section label="Základní informace">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-8">
-            <x-form.input type="text" label="Název" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
-            <x-form.input type="text" label="Stručný popis" name="description" value="{{ $kit ? $kit->description : '' }}" />
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <x-form.input type="text" label="Název sady" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
+            <x-form.input type="text" label="Stručný popis sady" name="description" value="{{ $kit ? $kit->description : '' }}" />
         </div>
+    </x-form.section>
 
+    <x-form.section label="Pracovní listy">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <x-form.input type="number" label="Počet pracovních listů" name="countSheets" value="{{ $kit ? $kit->count_sheets : '10' }}" min="1" max="50" required />
             <x-form.input type="number" label="Počet příkladů v pracovním listu" name="countExamples" value="{{ $kit ? $kit->count_examples : '10' }}" min="1" max="50" required />
         </div>
     </x-form.section>
 
-    <x-form.section label="Čísla">
+    <x-form.section label="Číselné hodnoty">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             <x-form.input type="number" label="Minimum" name="rangeMin" value="{{ $kit ? $kit->range_numbers['min'] : '1' }}" min="-1000000" max="1000000" required />
             <x-form.input type="number" label="Maximum" name="rangeMax" value="{{ $kit ? $kit->range_numbers['max'] : '50' }}" min="-1000000" max="1000000" required />
@@ -34,7 +36,14 @@
     <x-form.section label="Nastavení">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem." name="settingsExamplesOnlyPositive" value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}" />
-            <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojice čísel." name="settingsExamplesWithParentheses" value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}" />
+            <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojice čísel (pro 2 a více čísel)." name="settingsExamplesWithParentheses" value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}" />
+        </div>
+    </x-form.section>
+
+    <x-form.section label="Učitel" description="Jméno a e-mail jsou nepovinné údaje. Pokud zadáte e-mail, tak Vám příjde automatická zpráva s informacemi o Vaši sadě pracovních listů.">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <x-form.input type="text" label="Jméno" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
+            <x-form.input type="text" label="E-mail" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
         </div>
     </x-form.section>
 </div>
