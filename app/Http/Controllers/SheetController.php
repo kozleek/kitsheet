@@ -32,6 +32,7 @@ class SheetController extends Controller
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'sheet' => $sheet,
+            'settingsExamplesSelectionOfResults' => $sheet->kit->settings_examples_selection_of_results,
             'results' => $results,
         ]);
     }

@@ -10,6 +10,7 @@ class Example extends Component
     public $example;
     public $answer;
     public $results;
+    public $selectionOfResults;
     public $is_finished;
 
     /**
