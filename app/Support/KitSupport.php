@@ -40,6 +40,9 @@ class KitSupport
         if ($data['settingsExamplesWithParentheses']) {
             $settingsExamples[] = 'withParentheses';
         }
+        if ($data['settingsExamplesSelectionOfResults']) {
+            $settingsExamples[] = 'selectionOfResults';
+        }
 
         // Update or create the kit
         // if kit is not set, create new kit

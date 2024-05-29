@@ -22,22 +22,23 @@ class KitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'                           => 'string|max:255',
-            'description'                     => 'string',
-            'teacherName'                     => 'string|max:255',
-            'teacherEmail'                    => 'string|email|max:255',
-            'countSheets'                     => 'required|numeric|min:1|max:50',
-            'countExamples'                   => 'required|numeric|min:1|max:50',
-            'countNumbers'                    => 'required|numeric|min:2|max:5',
-            'rangeMin'                        => 'required|numeric|min:-1000000|max:1000000',
-            'rangeMax'                        => 'required|numeric|gte:rangeMin|min:-1000000|max:1000000',
-            'rangeDecimals'                   => 'required|numeric|min:0|max:3',
-            'operationAdd'                    => 'boolean',
-            'operationSubtract'               => 'boolean',
-            'operationMultiply'               => 'boolean',
-            'operationDivide'                 => 'boolean',
-            'settingsExamplesOnlyPositive'    => 'boolean',
-            'settingsExamplesWithParentheses' => 'boolean',
+            'title'                              => 'string|max:255',
+            'description'                        => 'string',
+            'teacherName'                        => 'string|max:255',
+            'teacherEmail'                       => 'string|email|max:255',
+            'countSheets'                        => 'required|numeric|min:1|max:50',
+            'countExamples'                      => 'required|numeric|min:1|max:50',
+            'countNumbers'                       => 'required|numeric|min:2|max:5',
+            'rangeMin'                           => 'required|numeric|min:-1000000|max:1000000',
+            'rangeMax'                           => 'required|numeric|gte:rangeMin|min:-1000000|max:1000000',
+            'rangeDecimals'                      => 'required|numeric|min:0|max:3',
+            'operationAdd'                       => 'boolean',
+            'operationSubtract'                  => 'boolean',
+            'operationMultiply'                  => 'boolean',
+            'operationDivide'                    => 'boolean',
+            'settingsExamplesOnlyPositive'       => 'boolean',
+            'settingsExamplesWithParentheses'    => 'boolean',
+            'settingsExamplesSelectionOfResults' => 'boolean',
         ];
     }
 
@@ -60,6 +61,7 @@ class KitRequest extends FormRequest
             'operationDivide' => $this->has('operationDivide'),
             'settingsExamplesOnlyPositive' => $this->has('settingsExamplesOnlyPositive'),
             'settingsExamplesWithParentheses' => $this->has('settingsExamplesWithParentheses'),
+            'settingsExamplesSelectionOfResults' => $this->has('settingsExamplesSelectionOfResults'),
         ]);
     }
 }
