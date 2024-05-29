@@ -37,12 +37,46 @@ class Kit extends Model
     {
         $canEdit = true;
         foreach ($this->sheets as $sheet) {
-            if ($sheet->is_finished == 1) {
-                $canEdit = false;
+            if($canEdit == false) {
                 break;
+            }
+            else{
+                foreach ($sheet->examples as $example) {
+                    if ($example->answer != null) {
+                        $canEdit = false;
+                        break;
+                    }
+                }
             }
         }
 
         return $canEdit;
+    }
+
+    /**
+     * Get the settings examples only positive attribute.
+     */
+
+    public function getSettingsExamplesOnlyPositiveAttribute()
+    {
+        return in_array('onlyPositive', $this->settings_examples);
+    }
+
+    /**
+     * Get the settings examples with parentheses attribute.
+     */
+
+    public function getSettingsExamplesWithParenthesesAttribute()
+    {
+        return in_array('withParentheses', $this->settings_examples);
+    }
+
+    /**
+     * Get the settings examples selection of results attribute.
+     */
+
+    public function getSettingsExamplesSelectionOfResultsAttribute()
+    {
+        return in_array('selectionOfResults', $this->settings_examples);
     }
 }
