@@ -28,6 +28,17 @@ class SheetController extends Controller
     }
 
     /**
+     * Show the sheet by fingerprint.
+     * @param string $fingerPrint
+     *
+     */
+    public function showByFingerprint($fingerPrint)
+    {
+        $sheet = Sheet::where('fingerprint', $fingerPrint)->firstOrFail();
+        return redirect()->route('sheet.show', ['sheet' => $sheet]);
+    }
+
+    /**
      * Check the sheet.
      */
 

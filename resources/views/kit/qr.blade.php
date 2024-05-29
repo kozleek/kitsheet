@@ -21,7 +21,13 @@
                             <x-page.sheet-info :kit="$sheet->kit" />
                         </div>
                         <div>
-                            <p class="text-xs text-neutral-400">{{ route('sheet.show', $sheet) }}</p>
+                            <p class="text-xs text-neutral-400 font-sometype">
+                                @if($sheet->fingerprint != '')
+                                    {{ route('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
+                                @else
+                                    {{ route('sheet.show', $sheet) }}
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="size-6 absolute right-4 -bottom-3.5">
