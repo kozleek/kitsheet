@@ -25,7 +25,7 @@ class KitRequest extends FormRequest
             'title'                           => 'string|max:255',
             'description'                     => 'string',
             'teacherName'                     => 'string|max:255',
-            'teacherEmail'                    => 'email',
+            'teacherEmail'                    => 'string|email|max:255',
             'countSheets'                     => 'required|numeric|min:1|max:50',
             'countExamples'                   => 'required|numeric|min:1|max:50',
             'countNumbers'                    => 'required|numeric|min:2|max:5',
@@ -52,6 +52,8 @@ class KitRequest extends FormRequest
         $this->merge([
             'title' => $this->title == null ? '' : $this->title,
             'description' => $this->description == null ? '' : $this->description,
+            'teacherName' => $this->teacherName == null ? '' : $this->teacherName,
+            'teacherEmail' => $this->teacherEmail == null ? '' : $this->teacherEmail,
             'operationAdd' => $this->has('operationAdd'),
             'operationSubtract' => $this->has('operationSubtract'),
             'operationMultiply' => $this->has('operationMultiply'),
