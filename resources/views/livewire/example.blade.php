@@ -60,13 +60,13 @@
                         <x-heroicon-o-chevron-down class="text-neutral-500" ::class="{ 'transform rotate-180': showResults }" />
                     </div>
                     <div
-                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-neutral-100 border border-neutral-200 shadow-md rounded-md absolute top-14 left-0 z-50"
+                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-blue-200 border-2 border-blue-600 shadow-md rounded-md absolute top-14 left-0 z-50"
                         x-cloak
                         x-show="showResults"
                     >
                         @foreach ($results as $result)
                             <div
-                                class="p-2 bg-white rounded cursor-pointer text-base border border-neutral-200"
+                                class="p-2 bg-white rounded cursor-pointer text-base border border-blue-600"
                                 x-on:click.outside="showResults=false"
                                 x-on:click="setInput('{{ $result }}')"
                             >
