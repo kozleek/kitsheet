@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /kit
 Disallow: /sheet
+Disallow: /s
+
 
 Sitemap: https://www.kitsheet.cz/sitemap.xml
