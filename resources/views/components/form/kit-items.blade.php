@@ -2,10 +2,15 @@
 
 <div class="space-y-4">
     <x-form.section label="Základní informace">
-        <div class="grid grid-cols-1 gap-4 gap-y-8 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <x-form.input type="text" label="Název sady" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
             <x-form.input type="text" label="Stručný popis sady" name="description" value="{{ $kit ? $kit->description : '' }}" />
-            <x-form.input type="text" label="Jméno učitele" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
+        </div>
+    </x-form.section>
+
+    <x-form.section label="Učitel" description="Nepovinné údaje. Pokud zadáte e-mail, tak Vám příjde automatická notifikace s informacemi o sadě pracovních listů.">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <x-form.input type="text" label="Jméno" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
             <x-form.input type="text" label="E-mail" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
         </div>
     </x-form.section>
