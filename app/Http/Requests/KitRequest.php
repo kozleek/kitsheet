@@ -24,6 +24,8 @@ class KitRequest extends FormRequest
         return [
             'title'                           => 'string|max:255',
             'description'                     => 'string',
+            'teacherName'                     => 'string|max:255',
+            'teacherEmail'                    => 'email',
             'countSheets'                     => 'required|numeric|min:1|max:50',
             'countExamples'                   => 'required|numeric|min:1|max:50',
             'countNumbers'                    => 'required|numeric|min:2|max:5',
