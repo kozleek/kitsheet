@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
+use App\Support\ExampleSupport;
 
 class Example extends Component
 {
@@ -30,23 +31,7 @@ class Example extends Component
 
     public function saveAnswer()
     {
-        // normalize the answer
-        $answer = $this->answer;
-        $answer = Str::replace(' ', '', $answer);
-        $answer = Str::replace('.', ',', $answer);
-
-        // check if the answer is correct
-        if ($this->answer === '') {
-            $is_correct = null;
-        } else {
-            $is_correct = $answer === $this->example->result ? 1 : 0;
-        }
-
-        // update the example
-        $this->example->update([
-            'answer' => $this->answer,
-            'is_correct' => $is_correct,
-        ]);
+        ExampleSupport::saveAnswer($this->example, $this->answer);
     }
 
     /**
