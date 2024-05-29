@@ -12,6 +12,14 @@ Název: {{ $kit->title }}
 Popis: {{ $kit->description }}
 @endif
 
+@if($kit->teacher_name)
+Jméno učitele: {{ $kit->teacher_name }}
+@endif
+
+@if($kit->teacher_email)
+Email: {{ $kit->teacher_email }}
+@endif
+
 Počet pracovních listů: {{ $kit->count_sheets }}
 
 Počet příkladů v pracovním listu: {{ $kit->count_examples }}
