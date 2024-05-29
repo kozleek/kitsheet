@@ -49,6 +49,10 @@ class KitController extends Controller
         $kit = KitSupport::saveKitData($validateData);
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
+        // Send email notification to the teacher
+        if($kit->teacher_email) {
+            Mail::to($kit->teacher_email)->queue(new KitCreated($kit));
+        }
         // Redirect to the kit show page
         return redirect()->route('kit.show', ['kit' => $kit]);
     }
@@ -110,6 +114,10 @@ class KitController extends Controller
         $kit = KitSupport::saveKitData($validateData, $kit);
         // Send email notification to the admin
         Mail::to(config('mail.to.address'))->queue(new KitUpdated($kit));
+        // Send email notification to the teacher
+        if($kit->teacher_email) {
+            Mail::to($kit->teacher_email)->queue(new KitUpdated($kit));
+        }
         // Redirect to the kit show page
         return redirect()->route('kit.show', ['kit' => $kit]);
     }

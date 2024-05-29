@@ -25,6 +25,6 @@ Počet desetinných míst: {{ $kit->range_numbers['decimals'] }}
 Matematické operace: {{ $operations }}
 </x-mail::panel>
 <x-mail::button :url="$url" color="success">
-Zobrazit sadu
+Zobrazit sadu pracovních listů
 </x-mail::button>
 </x-mail::message>
