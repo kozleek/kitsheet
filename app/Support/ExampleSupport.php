@@ -9,6 +9,31 @@ class ExampleSupport
 {
 
     /**
+     * Save the answer
+     * Normalize the answer, check if it is correct and update the example
+     */
+
+    public static function saveAnswer($example, $answer)
+    {
+        // normalize the answer
+        $answer = Str::replace(' ', '', $answer);
+        $answer = Str::replace('.', ',', $answer);
+
+        // check if the answer is correct
+        if ($answer === '') {
+            $isCorrect = null;
+        } else {
+            $isCorrect = $answer === $example->result ? 1 : 0;
+        }
+
+        // update the example
+        $example->update([
+            'answer' => $answer,
+            'is_correct' => $isCorrect,
+        ]);
+    }
+
+    /**
      * Get a example
      * This method generates a random example with the given parameters
      */

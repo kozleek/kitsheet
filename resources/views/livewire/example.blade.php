@@ -1,5 +1,5 @@
 <div>
-    @if ($is_finished)
+    @if ($isFinished)
         <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl">
             <div class="flex flex-col md:flex-row items-center gap-2 flex-1">
                 <span>
@@ -35,13 +35,47 @@
             @endif
         </div>
     @else
-        <label class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl cursor-pointer">
-            <span>
+        <div class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl">
+            <div>
                 {{ $example->specification_formatted }} =
-            </span>
-            <span class="flex-1">
-                <x-form.input type="text" name="answer" wire:model="answer" wire:change="saveAnswer" class="font-sometype text-xl w-full border-0 rounded-md" />
-            </span>
-        </label>
+            </div>
+            <div
+                class="flex-1 relative"
+                @if($selectionOfResults)
+                    x-data="{
+                        showResults:false,
+                        setInput(value) {
+                            this.$refs.answer.value = value;
+                            this.showResults = false;
+                            // Trigger change event for Livewire
+                            this.$refs.answer.dispatchEvent(new Event('input'));
+                            this.$refs.answer.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    }"
+                @endif
+                }">
+                <x-form.input type="text" name="answer" wire:model="answer" wire:change="saveAnswer" x-ref="answer" x-on:click="showResults=true" class="font-sometype text-xl w-full border-0 rounded-md" />
+                @if($selectionOfResults)
+                    <div class="absolute top-3 right-3">
+                        <x-heroicon-o-chevron-down class="text-neutral-500" ::class="{ 'transform rotate-180': showResults }" />
+                    </div>
+                    <div
+                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-blue-200 border-2 border-blue-600 shadow-md rounded-md absolute top-14 left-0 z-50"
+                        x-cloak
+                        x-show="showResults"
+                    >
+                        @foreach ($results as $result)
+                            <div
+                                class="p-2 bg-white rounded cursor-pointer text-base border border-blue-600"
+                                x-on:click.outside="showResults=false"
+                                x-on:click="setInput('{{ $result }}')"
+                            >
+                                {{ $result }}
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </div>
     @endif
 </div>
