@@ -19,11 +19,20 @@ class SheetController extends Controller
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);
 
+        $results = [];
+        $results[] = $sheet->result;
+        foreach ($sheet->examples as $example) {
+            $results[] = $example->result;
+        }
+        // shuffle the results
+        $results = collect($results)->shuffle();
+
         return view('sheet.show', [
             'title' => $title,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'sheet' => $sheet
+            'sheet' => $sheet,
+            'results' => $results,
         ]);
     }
 

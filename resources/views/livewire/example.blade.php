@@ -35,13 +35,40 @@
             @endif
         </div>
     @else
-        <label class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl cursor-pointer">
-            <span>
+        <div class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl">
+            <div>
                 {{ $example->specification_formatted }} =
-            </span>
-            <span class="flex-1">
-                <x-form.input type="text" name="answer" wire:model="answer" wire:change="saveAnswer" class="font-sometype text-xl w-full border-0 rounded-md" />
-            </span>
-        </label>
+            </div>
+            <div
+                class="flex-1 relative"
+                x-data="{
+                    showResults:false,
+                    setInput(value) {
+                        this.$refs.answer.value = value;
+                        this.showResults = false;
+                        // Trigger change event for Livewire
+                        this.$refs.answer.dispatchEvent(new Event('input'));
+                        this.$refs.answer.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                }">
+                <x-form.input type="text" name="answer" wire:model="answer" wire:change="saveAnswer" x-ref="answer" x-on:click="showResults=true" class="font-sometype text-xl w-full border-0 rounded-md" />
+                <div
+                    class="grid grid-cols-5 gap-1 items-center p-2 bg-white border border-neutral-300 shadow-md rounded-md absolute top-8 right-2 z-50"
+                    x-cloak
+                    x-show="showResults"
+                >
+                    <div class="p-2 text-red-500">{{ $example->result}}</div>
+                    @foreach ($results as $result)
+                        <div
+                            class="p-2 border border-neutral-200 rounded cursor-pointer"
+                            x-on:click.outside="showResults=false"
+                            x-on:click="setInput('{{ $result }}')"
+                        >
+                            {{ $result }}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     @endif
 </div>

@@ -9,6 +9,7 @@ class Example extends Component
 {
     public $example;
     public $answer;
+    public $results;
     public $is_finished;
 
     /**
