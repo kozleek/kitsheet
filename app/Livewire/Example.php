@@ -11,7 +11,7 @@ class Example extends Component
     public $answer;
     public $results;
     public $selectionOfResults;
-    public $is_finished;
+    public $isFinished;
 
     /**
      * Mount the component.
@@ -20,7 +20,7 @@ class Example extends Component
     public function mount($example)
     {
         $this->answer = $example->answer;
-        $this->is_finished = $example->sheet->is_finished;
+        $this->isFinished = $example->sheet->is_finished;
     }
 
     /**

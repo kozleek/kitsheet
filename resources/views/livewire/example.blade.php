@@ -1,5 +1,5 @@
 <div>
-    @if ($is_finished)
+    @if ($isFinished)
         <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl">
             <div class="flex flex-col md:flex-row items-center gap-2 flex-1">
                 <span>
