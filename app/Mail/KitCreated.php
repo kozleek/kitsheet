@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Kit;
+use App\Support\KitSupport;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use App\Support\OperationSupport;
@@ -50,12 +51,15 @@ class KitCreated extends Mailable
      */
     public function content(): Content
     {
+        $settings = $this->kit->settings_examples;
+
         return new Content(
             markdown: 'emails.kit.created',
             with: [
                 'kit' => $this->kit,
                 'url' => route('kit.show', ['kit' => $this->kit]),
                 'operations' => OperationSupport::getOperationsNames($this->kit->range_operations),
+                'settings' => KitSupport::getSettingsNames($settings),
             ],
         );
     }
