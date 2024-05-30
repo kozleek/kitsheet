@@ -41,7 +41,14 @@ class ReportController extends Controller
          $validateData = $request->validated();
          $report = Report::create($validateData);
 
-         Mail::to(config('mail.to.address'))->queue(new ReportCreated($name = $validateData['name'], $mail = $validateData['mail'], $message = $validateData['message']));
+         Mail::to(config('mail.to.address'))->queue(
+            new ReportCreated(
+                $name = $validateData['name'],
+                $mail = $validateData['mail'],
+                $message = $validateData['message'],
+                $techinfo = $validateData['techinfo']
+            )
+        );
          return redirect()->route('report.thankYou', ['id' => $report->id]);
      }
 

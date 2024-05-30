@@ -25,6 +25,7 @@ class ReportRequest extends FormRequest
             'name'    => 'required|string|max:255',
             'mail'    => 'nullable|email',
             'message' => 'required|string',
+            'techinfo' => 'nullable|string',
         ];
     }
 
@@ -32,6 +33,7 @@ class ReportRequest extends FormRequest
     {
         $this->merge([
             'mail' => $this->mail == null ? '' : $this->mail,
+            'techinfo' => $this->techinfo == null ? '' : $this->techinfo,
         ]);
     }
 }

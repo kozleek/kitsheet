@@ -13,5 +13,9 @@ E-mail: {{ $mail }}
 @endif
 
 {{ $message }}
+
+@if($techinfo)
+{{ $techinfo }}
+@endif
 </x-mail::panel>
 </x-mail::message>

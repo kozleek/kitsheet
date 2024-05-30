@@ -21,6 +21,7 @@ class ReportCreated extends Mailable
         public string $name,
         public string $mail,
         public string $message,
+        public string $techinfo,
     )
     {
         //
@@ -49,6 +50,7 @@ class ReportCreated extends Mailable
                 'name' => $this->name,
                 'mail' => $this->mail,
                 'message' => $this->message,
+                'techinfo' => $this->techinfo,
             ],
         );
     }

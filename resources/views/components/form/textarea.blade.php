@@ -6,7 +6,7 @@
             id="{{ $name }}"
             name="{{ $name }}"
             {{ $attributes }}
-            class="peer w-full border-none bg-transparent p-3 px-3.5 focus:border-transparent focus:outline-none focus:ring-0 rounded-md "
+            class="peer w-full border-none bg-transparent p-4 px-3.5 focus:border-transparent focus:outline-none focus:ring-0 rounded-md text-neutral-600"
         ></textarea>
 
         @if ($label)

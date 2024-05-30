@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name')->required();
-            $table->string('mail')->nullable();
-            $table->text('message')->required();
-            $table->timestamps();
+        Schema::table('reports', function (Blueprint $table) {
+            $table->text('techinfo')->nullable()->after('message');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reports');
+        Schema::table('reports', function (Blueprint $table) {
+            $table->dropColumn('techinfo');
+        });
     }
 };
