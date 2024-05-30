@@ -8,6 +8,31 @@ use App\Models\Example;
 
 class KitSupport
 {
+
+    public static function getSettingsNames($settings): string
+    {
+        $settingsNames = [];
+        foreach ($settings as $setting) {
+            switch ($setting) {
+                case 'onlyPositive':
+                    $settingsNames[] = 'Pouze kladné výsledky';
+                    break;
+                case 'withParentheses':
+                    $settingsNames[] = 'Priority operátorů';
+                    break;
+                case 'selectionOfResults':
+                    $settingsNames[] = 'Přiřazení výsledku';
+                    break;
+            }
+        }
+
+        return implode(', ', $settingsNames);
+    }
+
+    /**
+     * Save kit data
+     */
+
     public static function saveKitData($data, $kit = null): Kit
     {
         // Set ranges array

@@ -31,6 +31,10 @@ Rozsah: {{ $kit->range_numbers['min'] }} - {{ $kit->range_numbers['max'] }}
 Počet desetinných míst: {{ $kit->range_numbers['decimals'] }}
 
 Matematické operace: {{ $operations }}
+
+@if($settings)
+Nastavení: {{ $settings }}
+@endif
 </x-mail::panel>
 <x-mail::button :url="$url" color="success">
 Zobrazit sadu pracovních listů

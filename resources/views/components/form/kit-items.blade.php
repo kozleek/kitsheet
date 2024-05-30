@@ -37,7 +37,7 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
             <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem." name="settingsExamplesOnlyPositive" value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}" />
             <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojice čísel." name="settingsExamplesWithParentheses" value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}" />
-            <x-form.checkbox label="Přiřaď výsledky" description="Výběr z existujících výsledků." name="settingsExamplesSelectionOfResults" value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}" />
+            <x-form.checkbox label="Přiřazení výsledku" description="Výběr z existujících výsledků." name="settingsExamplesSelectionOfResults" value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}" />
         </div>
     </x-form.section>
 
