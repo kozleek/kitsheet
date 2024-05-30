@@ -57,7 +57,7 @@ class Sheet extends Model
 
     public function getCorrectAnswersCounterAttribute()
     {
-        $count = $this->examples->where('is_correct', true)->count();
+        $count = $this->examples->where('is_correct', '1')->count();
         return $count ? $count : 0;
     }
 
@@ -67,7 +67,7 @@ class Sheet extends Model
 
     public function getWrongAnswersCounterAttribute()
     {
-        $count = $this->examples->where('is_correct', false)->count();
+        $count = $this->examples->where('is_correct', '0')->count();
         return $count ? $count : 0;
     }
 

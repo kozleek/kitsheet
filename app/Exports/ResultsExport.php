@@ -27,6 +27,7 @@ class ResultsExport implements FromCollection, WithHeadings
             'Správně',
             'Špatně',
             'Neodpovězeno',
+            'URL',
         ];
     }
 
@@ -34,14 +35,15 @@ class ResultsExport implements FromCollection, WithHeadings
     {
 
         $results = [];
-        //foreach ($this->kit->sheets()->finished()->get() as $sheet) {
-        foreach ($this->kit->sheets as $sheet) {
+        foreach ($this->kit->sheets()->finished()->get() as $sheet) {
+        //foreach ($this->kit->sheets as $sheet) {
             $results[] = [
                 'number' => 'Pracovní list č.' . $sheet->code,
                 'name' => '',
                 'correct' => $sheet->correct_answers_counter ? $sheet->correct_answers_counter : '0',
                 'wrong' => $sheet->wrong_answers_counter ? $sheet->wrong_answers_counter : '0',
                 'empty' => $sheet->empty_answers_counter ? $sheet->empty_answers_counter : '0',
+                'url' => route('sheet.show', ['sheet' => $sheet]),
             ];
         }
 
