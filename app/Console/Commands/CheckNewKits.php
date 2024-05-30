@@ -30,12 +30,14 @@ class CheckNewKits extends Command
     {
         $today = Carbon::today()->toDateString();
         $newKits = DB::table('kits')->whereDate('created_at', $today)->get();
+        $totalNewKits = count($newKits);
+        $totalKits = Kit::count();
 
         if ($newKits->isEmpty()) {
             $this->info('No new kits created today.');
         } else {
-            $this->info('New kits created today: ' . count($newKits));
-            $this->info('Total kits: ' . Kit::count());
+            $this->info('New kits created today: ' . $totalNewKits);
+            $this->info('Total kits: ' . $totalKits);
             $this->info('');
             foreach ($newKits as $kit) {
                 $this->info("{$kit->id} ({$kit->created_at})");

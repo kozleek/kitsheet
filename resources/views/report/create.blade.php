@@ -7,15 +7,16 @@
     </x-page.heading>
 
     <x-page.card>
-        <form action="{{ route('feedback.store') }}" method="post">
+        <form action="{{ route('report.store') }}" method="post">
             @csrf
-            <x-form.feedback-items />
+            <x-form.report-items />
 
             <div class="mt-8 flex items-center gap-4">
-                <button type="submit" class="button button-primary">
-                    <x-heroicon-o-rocket-launch />
-                    Odeslat zpětnou vazbu
+                <button type="submit" class="button button-danger">
+                    <x-heroicon-o-bug-ant />
+                    Nahlásit chybu
                 </button>
+                <a href="/" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">Zrušit</a>
             </div>
         </form>
     </x-page.card>

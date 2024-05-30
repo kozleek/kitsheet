@@ -1,7 +1,7 @@
 <x-mail::message>
 Ahoj,
 
-přišla nová zpětná vazba k aplikaci {{ config('app.name') }}.
+byla nahlášená nová chyba k aplikaci {{ config('app.name') }}.
 
 <x-mail::panel>
 @if($name)
@@ -13,5 +13,9 @@ E-mail: {{ $mail }}
 @endif
 
 {{ $message }}
+
+@if($techinfo)
+{{ $techinfo }}
+@endif
 </x-mail::panel>
 </x-mail::message>

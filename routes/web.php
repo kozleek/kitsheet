@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\SheetController;
@@ -19,6 +19,6 @@ Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show
 Route::get('/s/{fingerprint}', [SheetController::class, 'showByFingerprint'])->name('sheet.fingerprint');
 Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
 
-Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
-Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
-Route::get('/feedback/{id}/thank-you', [FeedbackController::class, 'thankYou'])->name('feedback.thankYou');
+Route::get('/report', [ReportController::class, 'create'])->name('report.create');
+Route::post('/report/store', [ReportController::class, 'store'])->name('report.store');
+Route::get('/report/{id}/thank-you', [ReportController::class, 'thankYou'])->name('report.thankYou');

@@ -5,13 +5,6 @@
             <p>Chcete dostávat novinky o nových funkcích a aktualizacích? <a href="https://nasetrida.substack.com/" target="_blank" class="underline text-neutral-700">Přihlaste se k odběru novinek e-mailem</a>.</p>
             <p>Budete-li mít jakýkoliv dotaz, nápad na vylepšení nebo narazíte-li na chybu, napište do naši <a href="https://www.facebook.com/groups/kitsheet" target="_blank" class="underline text-neutral-700">FB skupiny</a>.</p>
         </div>
-        @if (Route::is('feedback.*') === false)
-            <div>
-                <a href="{{ route('feedback.create') }}" target="_blank" class="px-4 py-2 bg-orange-100 flex gap-2 items-center rounded-md cursor-pointer hover:bg-orange-500 text-orange-500 hover:text-white border border-orange-200 hover:border-orange-500">
-                    <x-heroicon-o-pencil-square class="h-4 w-4" />
-                    <span class="text-sm">Zpětná vazba</span>
-                </a>
-            </div>
-        @endif
+        <x-report.handler />
     </div>
 </div>

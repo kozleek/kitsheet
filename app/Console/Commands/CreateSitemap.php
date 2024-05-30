@@ -32,7 +32,7 @@ class CreateSitemap extends Command
 
         Sitemap::create()
         ->add(Url::create(route('kit.create')))
-        ->add(Url::create(route('feedback.create')))
+        ->add(Url::create(route('report.create')))
         ->writeToFile($path);
 
     }

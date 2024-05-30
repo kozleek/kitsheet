@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FeedbackRequest extends FormRequest
+class ReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,7 @@ class FeedbackRequest extends FormRequest
             'name'    => 'required|string|max:255',
             'mail'    => 'nullable|email',
             'message' => 'required|string',
+            'techinfo' => 'nullable|string',
         ];
     }
 
@@ -32,6 +33,7 @@ class FeedbackRequest extends FormRequest
     {
         $this->merge([
             'mail' => $this->mail == null ? '' : $this->mail,
+            'techinfo' => $this->techinfo == null ? '' : $this->techinfo,
         ]);
     }
 }
