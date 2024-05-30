@@ -22,10 +22,11 @@ class ReportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'    => 'required|string|max:255',
-            'mail'    => 'nullable|email',
-            'message' => 'required|string',
-            'techinfo' => 'nullable|string',
+            'name'       => 'required|string|max:255',
+            'mail'       => 'nullable|email',
+            'message'    => 'required|string',
+            'attachment' => 'nullable|file|mimes:pdf,doc,docx,xsl,xlsx,txt,jpg,jpeg,png|max:10240',
+            'techinfo'   => 'nullable|string',
         ];
     }
 

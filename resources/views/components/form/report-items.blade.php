@@ -14,7 +14,7 @@
     }
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
     <x-form.section label="Základní informace">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-8">
             <x-form.input type="text" label="Vaše jméno" name="name" value="" autofocus required />
@@ -23,6 +23,10 @@
 
         <div class="mb-8">
             <x-form.textarea label="Zpráva" name="message" value="" rows="8" required />
+        </div>
+
+        <div class="mb-8">
+            <input type="file" name="attachment" id="attachment" />
         </div>
     </x-form.section>
 

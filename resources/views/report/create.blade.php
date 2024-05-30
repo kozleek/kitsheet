@@ -7,7 +7,7 @@
     </x-page.heading>
 
     <x-page.card>
-        <form action="{{ route('report.store') }}" method="post">
+        <form action="{{ route('report.store') }}" method="post" multipart enctype="multipart/form-data">
             @csrf
             <x-form.report-items />
 
