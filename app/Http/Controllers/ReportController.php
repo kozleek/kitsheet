@@ -18,8 +18,8 @@ class ReportController extends Controller
 
     public function create()
     {
-        $title = 'Zpětná vazba';
-        $description = 'Zpětná vazba k aplikaci KitSheet.';
+        $title = 'Hlášení chyby';
+        $description = 'Formulář pro hlášení chyby v aplikaci '. config('app.name');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
