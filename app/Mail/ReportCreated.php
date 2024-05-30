@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class FeedbackCreated extends Mailable
+class ReportCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +34,7 @@ class FeedbackCreated extends Mailable
         return new Envelope(
             from: new Address(config('mail.from.address'), config('mail.from.name')),
             replyTo: $this->mail,
-            subject: 'Zpětná vazba od ' . $this->name,
+            subject: '🐞 Report od ' . $this->name,
         );
     }
 
@@ -44,7 +44,7 @@ class FeedbackCreated extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.feedback.created',
+            markdown: 'emails.report.created',
             with: [
                 'name' => $this->name,
                 'mail' => $this->mail,

@@ -11,10 +11,10 @@
             <p>Budu rád, když se připojíte do naši <a href="https://www.facebook.com/groups/kitsheet" target="_blank" class="underline text-neutral-700">Facebook skupiny</a>.</p>
             <p>S pozdravem Tomáš Musiol</p>
         </div>
-        @if($feedback->message)
+        @if($report->message)
             <div class="mt-8 p-4 bg-neutral-100 rounded-md">
-                <h2 class="text-lg font-semibold mb-2">{{ $feedback->name }} napsal/a:</h2>
-                <p>{{ $feedback->message }}</p>
+                <h2 class="text-lg font-semibold mb-2">{{ $report->name }} napsal/a:</h2>
+                <p>{{ $report->message }}</p>
             </div>
         @endif
     </x-page.card>

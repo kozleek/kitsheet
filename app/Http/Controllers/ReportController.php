@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feedback;
-use App\Mail\FeedbackCreated;
+use App\Models\Report;
+use App\Mail\ReportCreated;
 use App\Support\SeoSupport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\FeedbackRequest;
+use App\Http\Requests\ReportRequest;
 
-class FeedbackController extends Controller
+class ReportController extends Controller
 {
     /**
-     * Create a new feedback.
+     * Create a new report.
      */
 
     public function create()
@@ -23,7 +23,7 @@ class FeedbackController extends Controller
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        return view('feedback.create', [
+        return view('report.create', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
@@ -32,17 +32,17 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Store the new feedback.
+     * Store the new report.
      */
 
-     public function store(FeedbackRequest $request)
+     public function store(ReportRequest $request)
      {
          // Validate the request with KitRequest
          $validateData = $request->validated();
-         $feedback = Feedback::create($validateData);
+         $report = Report::create($validateData);
 
-         Mail::to(config('mail.to.address'))->queue(new FeedbackCreated($name = $validateData['name'], $mail = $validateData['mail'], $message = $validateData['message']));
-         return redirect()->route('feedback.thankYou', ['id' => $feedback->id]);
+         Mail::to(config('mail.to.address'))->queue(new ReportCreated($name = $validateData['name'], $mail = $validateData['mail'], $message = $validateData['message']));
+         return redirect()->route('report.thankYou', ['id' => $report->id]);
      }
 
     /**
@@ -56,14 +56,14 @@ class FeedbackController extends Controller
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
-        $feedback = Feedback::findOrFail(request('id'));
+        $report = Report::findOrFail(request('id'));
 
-        return view('feedback.thank-you', [
+        return view('report.thank-you', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'feedback' => $feedback,
+            'report' => $report,
         ]);
     }
 }
