@@ -7,15 +7,18 @@
 
     <x-page.card>
         <div class="space-y-2">
-            <p>Děkuji za zpětnou vazbu k aplikaci {{ config('app.name') }}. Budu se snažit ji co nejdříve zpracovat.</p>
-            <p>Budu rád, když se připojíte do naši <a href="https://www.facebook.com/groups/kitsheet" target="_blank" class="underline text-neutral-700">Facebook skupiny</a>.</p>
+            <p>Děkuji za nahlášení chyby k aplikaci <a href="/" class="underline text-neutral-700">{{ config('app.name') }}</a>. Budu se snažit ji co nejdříve opravit.</p>
             <p>S pozdravem Tomáš Musiol</p>
         </div>
         @if($report->message)
-            <div class="mt-8 p-4 bg-neutral-100 rounded-md">
+            <div class="my-8 p-4 bg-neutral-100 rounded-md">
                 <h2 class="text-lg font-semibold mb-2">{{ $report->name }} napsal/a:</h2>
                 <p>{{ $report->message }}</p>
             </div>
         @endif
+
+        <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
+            Zpět na hlavní stránku
+        </x-button>
     </x-page.card>
 @endsection
