@@ -14,10 +14,12 @@ class SheetSupport
 
     public static function check(Sheet $sheet)
     {
+        // count examples
+        $countExamples = $sheet->examples->count();
+        $correctExamples = 0;
+
         foreach ($sheet->examples as $example) {
-            $example->answer = isset($example->answer) ? $example->answer : '?';
-            $example->is_correct = $example->is_correct ? 1 : 0;
-            $example->save();
+            ExampleSupport::saveAnswer($example, $example->answer);
         }
 
         // mark the sheet as finished
