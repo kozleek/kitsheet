@@ -9,27 +9,34 @@ class ExampleSupport
 {
 
     /**
+     * Check the answer of the example
+     */
+
+    public static function checkAnswer($example, $answer)
+    {
+        // normalize the answer
+        $answer = Str::replace(' ', '', $answer);
+        $answer = Str::replace('.', ',', $answer);
+
+        // return true if the answer is correct, false otherwise
+        return $answer === $example->result;
+    }
+
+    /**
      * Save the answer
      * Normalize the answer, check if it is correct and update the example
      */
 
     public static function saveAnswer($example, $answer)
     {
-        // normalize the answer
-        $answer = Str::replace(' ', '', $answer);
-        $answer = Str::replace('.', ',', $answer);
-
-        // check if the answer is correct
-        if ($answer === '') {
-            $isCorrect = null;
-        } else {
-            $isCorrect = $answer === $example->result ? 1 : 0;
+        if ($answer == '' || $answer == null) {
+            $answer = '?';
         }
 
         // update the example
         $example->update([
             'answer' => $answer,
-            'is_correct' => $isCorrect,
+            'is_correct' => self::checkAnswer($example, $answer),
         ]);
     }
 

@@ -80,4 +80,15 @@ class Sheet extends Model
         $count = $this->examples->where('answer', '?')->count();
         return $count ? $count : 0;
     }
+
+    /**
+     * Get attributes for percentage of correct answers
+     */
+
+    public function getPercentageOfCorrectAnswersAttribute()
+    {
+        $count = $this->examples->count();
+        $correct = $this->correctAnswersCounter;
+        return $count ? round($correct / $count * 100) : 0;
+    }
 }
