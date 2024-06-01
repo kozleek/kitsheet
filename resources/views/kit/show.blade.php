@@ -20,8 +20,9 @@
         <x-slot:actions>
             <div class="flex gap-2">
                 <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.create') }}" target="_blank">
-                    Nová sada
+                    <span class="hidden md:block">Nová sada</span>
                 </x-button>
+
                 <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
 
                 @if ($kit->canEdit == true)

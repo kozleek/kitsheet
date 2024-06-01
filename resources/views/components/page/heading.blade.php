@@ -9,7 +9,7 @@
 
     <div class="">
         @if ($title)
-            <h1 class="text-2xl font-bold leading-7 text-neutral-600 sm:truncate sm:text-3xl sm:tracking-tight">
+            <h1 class="text-2xl font-bold leading-7 text-neutral-600 sm:text-3xl sm:tracking-tight">
                 {{ $title }}
             </h1>
         @endif
