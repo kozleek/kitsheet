@@ -14,6 +14,12 @@
             <div class="my-8 p-4 bg-neutral-100 rounded-md">
                 <h2 class="text-lg font-semibold mb-2">{{ $report->name }} napsal/a:</h2>
                 <p>{{ $report->message }}</p>
+                @if($report->file_path)
+                    <a href="{{ asset('storage/' . $report->file_path) }}" target="_blank" class="mt-8 flex gap-3 items-center text-sm text-blue-500 underline hover:no-underline" target="_blank">
+                        <x-heroicon-o-paper-clip />
+                        {{ $report->file_name }}
+                    </a>
+                @endif
             </div>
 
             @if($report->techinfo)
