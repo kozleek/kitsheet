@@ -1,6 +1,12 @@
 @props(['title' => '', 'description' => '', 'info' => '', 'actions' => ''])
 
-<div class="xl:flex items-start lg:items-center md:justify-between py-8 gap-12">
+<div class="py-8">
+    @if ($actions)
+        <div class="flex-1 mb-4 md:mb-6 flex flex-col md:flex-row gap-2 justify-start">
+            {{ $actions }}
+        </div>
+    @endif
+
     <div class="">
         @if ($title)
             <h1 class="text-2xl font-bold leading-7 text-neutral-600 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -18,10 +24,4 @@
             {{ $info }}
         @endif
     </div>
-
-    @if ($actions)
-        <div class="min-w-1/2 flex-shrink-0 mt-5 flex flex-col md:flex-row lg:mt-0 gap-2">
-            {{ $actions }}
-        </div>
-    @endif
 </div>
