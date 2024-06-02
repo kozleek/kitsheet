@@ -8,6 +8,30 @@ use App\Models\Example;
 
 class KitSupport
 {
+    /**
+     * Get kit name
+     */
+
+    public static function getKitName($kit): string
+    {
+        // default title
+        $title = 'Sada pracovních listů';
+
+        // if title is set, use it
+        if ($kit->title) {
+            $title = $kit->title;
+        }
+        // if teacher name is set, use it
+        elseif ($kit->teacher_name) {
+            $title = $kit->teacher_name;
+        }
+
+        return $title;
+    }
+
+    /**
+     * Get settings names
+     */
 
     public static function getSettingsNames($settings): string
     {

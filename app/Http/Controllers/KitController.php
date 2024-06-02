@@ -63,7 +63,7 @@ class KitController extends Controller
 
     public function show(Kit $kit)
     {
-        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = KitSupport::getKitName($kit);
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
@@ -84,7 +84,7 @@ class KitController extends Controller
 
     public function edit(Kit $kit)
     {
-        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = KitSupport::getKitName($kit);
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
@@ -149,7 +149,7 @@ class KitController extends Controller
 
     public function print(Kit $kit)
     {
-        $title = $kit->title ? $kit->title : 'Sada pracovních listů';
+        $title = KitSupport::getKitName($kit);
         $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);

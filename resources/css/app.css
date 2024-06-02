@@ -17,7 +17,7 @@
 }
 
 .button {
-    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer px-3 py-2;
+    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-2 focus:outline-none cursor-pointer px-3 py-2;
 }
 
 .button-disabled {
@@ -25,7 +25,7 @@
 }
 
 .button-normal {
-    @apply text-white bg-secondary hover:bg-secondary-hover;
+    @apply text-secondary bg-white border;
 }
 
 .button-primary {

@@ -19,16 +19,15 @@
 
         <x-slot:actions>
             <div class="flex gap-2">
-                <x-button icon="heroicon-o-plus" primary="true" href="{{ route('kit.create') }}" target="_blank">
-                    <span class="hidden md:block">Nová sada</span>
-                </x-button>
+                @if ($kit->canEdit == true)
+                    <x-button icon="heroicon-o-adjustments-horizontal" primary="true" href="{{ route('kit.edit', ['kit' => $kit]) }}">
+                        Upravit sadu
+                    </x-button>
+                @endif
 
                 <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
 
-                @if ($kit->canEdit == true)
-                    <x-button icon="heroicon-o-adjustments-horizontal" tooltip="Upravit sadu" href="{{ route('kit.edit', ['kit' => $kit]) }}" />
-                @endif
-
+                <x-button icon="heroicon-o-document-plus" tooltip="Vytvořit novou sadu" href="{{ route('kit.create') }}" target="_blank" />
                 <x-button icon="heroicon-o-qr-code" tooltip="QR kódy" x-on:click="printThis('{{ route('kit.qr', ['kit' => $kit]) }}');" />
                 <x-button icon="heroicon-o-table-cells" tooltip="Export do MS Excel" href="{{ route('kit.excel', ['kit' => $kit]) }}" />
                 <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
