@@ -55,6 +55,15 @@
     @yield('announcement')
     <div class="pt-4 pb-12">
         <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
+            <x-page.header :title="$title" :description="$description">
+                <x-slot name="actions">
+                    @yield('actions')
+                </x-slot>
+                <x-slot name="info">
+                    @yield('info')
+                </x-slot>
+            </x-page.header>
+
             @yield('content')
         </div>
 

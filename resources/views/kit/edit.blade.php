@@ -1,21 +1,16 @@
 @extends('layouts.kit')
 
+@section('actions')
+    <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
+        Zpět
+    </x-button>
+@endsection
+
+@section('info')
+    <x-page.kit-info :kit="$kit" />
+@endsection
+
 @section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-        <x-slot:description>{{ $description }}</x-slot:description>
-
-        <x-slot:info>
-            <x-page.kit-info :kit="$kit" />
-        </x-slot:info>
-
-        <x-slot:actions>
-            <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
-                Zpět
-            </x-button>
-        </x-slot:actions>
-    </x-page.heading>
-
     <x-page.card>
         <form action="{{ route('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
             @csrf

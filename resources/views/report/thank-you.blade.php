@@ -1,10 +1,6 @@
 @extends('layouts.kit')
 
 @section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-    </x-page.heading>
-
     <x-page.card>
         <div class="space-y-2">
             <p>Děkuji za nahlášení chyby k aplikaci <a href="/" class="underline text-neutral-700">{{ config('app.name') }}</a>. Budu se snažit ji co nejdříve opravit.</p>

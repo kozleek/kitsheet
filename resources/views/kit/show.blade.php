@@ -8,33 +8,25 @@
     @endif
 @endsection
 
+@section('actions')
+    @if ($kit->canEdit == true)
+        <x-button icon="heroicon-o-adjustments-horizontal" primary="true" href="{{ route('kit.edit', ['kit' => $kit]) }}">
+            <span class="hidden md:block">Upravit sadu</span>
+        </x-button>
+    @endif
+
+    <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
+    <x-button icon="heroicon-o-document-plus" tooltip="Vytvořit novou sadu" href="{{ route('kit.create') }}" target="_blank" />
+    <x-button icon="heroicon-o-qr-code" tooltip="QR kódy" x-on:click="printThis('{{ route('kit.qr', ['kit' => $kit]) }}');" />
+    <x-button icon="heroicon-o-table-cells" tooltip="Export do MS Excel" href="{{ route('kit.excel', ['kit' => $kit]) }}" />
+    <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
+@endsection
+
+@section('info')
+    <x-page.kit-info :kit="$kit" />
+@endsection
+
 @section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-        <x-slot:description>{{ $description }}</x-slot:description>
-
-        <x-slot:info>
-            <x-page.kit-info :kit="$kit" />
-        </x-slot:info>
-
-        <x-slot:actions>
-            <div class="flex gap-2">
-                @if ($kit->canEdit == true)
-                    <x-button icon="heroicon-o-adjustments-horizontal" primary="true" href="{{ route('kit.edit', ['kit' => $kit]) }}">
-                        <span class="hidden md:block">Upravit sadu</span>
-                    </x-button>
-                @endif
-
-                <x-button icon="heroicon-o-trash" danger="true" tooltip="Smazat sadu" x-on:click="modal='modal-kit-destroy'" />
-
-                <x-button icon="heroicon-o-document-plus" tooltip="Vytvořit novou sadu" href="{{ route('kit.create') }}" target="_blank" />
-                <x-button icon="heroicon-o-qr-code" tooltip="QR kódy" x-on:click="printThis('{{ route('kit.qr', ['kit' => $kit]) }}');" />
-                <x-button icon="heroicon-o-table-cells" tooltip="Export do MS Excel" href="{{ route('kit.excel', ['kit' => $kit]) }}" />
-                <x-button icon="heroicon-o-printer" tooltip="Tisková verze" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
-            </div>
-        </x-slot:links>
-    </x-page.heading>
-
     <livewire:sheets-list :kit="$kit" />
 @endsection
 

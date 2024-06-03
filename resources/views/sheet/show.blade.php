@@ -1,19 +1,14 @@
 @extends('layouts.sheet')
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+@endsection
 
+@section('info')
+    <x-page.sheet-info :kit="$sheet->kit" />
 @endsection
 
 @section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-
-        <x-slot:info>
-            <x-page.sheet-info :kit="$sheet->kit" />
-        </x-slot:info>
-    </x-page.heading>
-
     @if ($sheet->examples->count())
         <x-page.card>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
