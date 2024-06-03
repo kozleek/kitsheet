@@ -21,7 +21,7 @@
             <div class="flex gap-2">
                 @if ($kit->canEdit == true)
                     <x-button icon="heroicon-o-adjustments-horizontal" primary="true" href="{{ route('kit.edit', ['kit' => $kit]) }}">
-                        Upravit sadu
+                        <span class="hidden md:block">Upravit sadu</span>
                     </x-button>
                 @endif
 
