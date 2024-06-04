@@ -92,6 +92,7 @@ class KitController extends Controller
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
+        $disableEdit = !$kit->canEdit;
 
         if ($kit->canEdit) {
             return view('kit.edit', [
@@ -99,7 +100,8 @@ class KitController extends Controller
                 'description' => $description,
                 'pageTitle' => $pageTitle,
                 'pageDescription' => $pageDescription,
-                'kit' => $kit
+                'kit' => $kit,
+                'disableEdit' => $disableEdit,
             ]);
         } else {
             return redirect()->route('kit.show', ['kit' => $kit]);
