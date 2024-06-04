@@ -18,7 +18,7 @@
                     @if ($sheet->name)
                         {{ $sheet->name }}
                     @else
-                        Pracovní list č.: {{ $sheet->code }}
+                        Pracovní list č. {{ $sheet->code }}
                     @endif
                 </a>
             </h3>
