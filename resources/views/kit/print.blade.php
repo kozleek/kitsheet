@@ -6,7 +6,7 @@
             <h2 class="font-bold text-2xl">{{ $kit->title }}</h2>
             <p class="text-base mt-2 text-neutral-500">{{ $kit->description }}</p>
 
-            <x-page.kit-info :kit="$kit" />
+            <x-page.info.kit :kit="$kit" />
         </div>
 
         <div class="mb-8">
