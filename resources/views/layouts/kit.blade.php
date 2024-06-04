@@ -43,7 +43,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-gray-600 antialiased relative" x-data="{modal:''}">
+<body class="min-h-full bg-gradient-to-b from-gray-600 to-gray-700 antialiased relative" x-data="{modal:''}">
     @production
         <!-- Google Tag Manager (noscript) -->
         <noscript>

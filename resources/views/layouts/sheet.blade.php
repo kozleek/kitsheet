@@ -33,7 +33,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-gray-600 antialiased" x-data="{modal:null}">
+<body class="min-h-full bg-gradient-to-b from-gray-600 to-gray-700 antialiased" x-data="{modal:null}">
 
     <x-page.header :title="$title" :description="$description">
         <x-slot name="actions">
