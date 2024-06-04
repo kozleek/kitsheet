@@ -6,7 +6,7 @@
             <h2 class="font-bold text-2xl">{{ $kit->title }}</h2>
             <p class="text-base mt-2 text-neutral-500">{{ $kit->description }}</p>
 
-            <x-page.info.kit :kit="$kit" />
+            <x-info.kit :kit="$kit" />
         </div>
 
         <div class="mb-8">
@@ -38,7 +38,7 @@
                 <div class="flex justify-between items-center mb-8">
                     <div>
                         <h2 class="font-bold text-2xl">Pracovní list č. {{ $sheet->code }}</h2>
-                        <x-page.info.sheet :kit="$sheet->kit" />
+                        <x-info.sheet :kit="$sheet->kit" />
                     </div>
                     <div class="min-w-[200px] border-b border-neutral-300 pb-2 text-center">
                         {{ $sheet->name }}

@@ -19,7 +19,7 @@
 @endsection
 
 @section('info')
-    <x-page.info.kit :kit="$kit" />
+    <x-info.kit :kit="$kit" />
 @endsection
 
 @section('content')
