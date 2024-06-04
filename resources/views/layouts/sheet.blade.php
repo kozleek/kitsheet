@@ -43,7 +43,7 @@
             @yield('info')
         </x-slot>
     </x-page.header>
-    <main class="content-container my-12">
+    <main class="content-container my-8">
         @yield('content')
     </main>
     @yield('modals')
