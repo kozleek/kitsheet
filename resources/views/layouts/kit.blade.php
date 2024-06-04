@@ -58,18 +58,17 @@
         </x-page.announcement>
     @endif
 
-    <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
-        <x-page.header :title="$title" :description="$description">
-            <x-slot name="actions">
-                @yield('actions')
-            </x-slot>
-            <x-slot name="info">
-                @yield('info')
-            </x-slot>
-        </x-page.header>
-
+    <x-page.header :title="$title" :description="$description">
+        <x-slot name="actions">
+            @yield('actions')
+        </x-slot>
+        <x-slot name="info">
+            @yield('info')
+        </x-slot>
+    </x-page.header>
+    <main class="content-container mt-12">
         @yield('content')
-    </div>
+    </main>
     <x-page.footer />
     @yield('modals')
 

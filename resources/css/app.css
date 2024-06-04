@@ -4,6 +4,10 @@
 
 [x-cloak] { display: none !important; }
 
+.content-container{
+    @apply container mx-auto px-4 2xl:px-0 2xl:max-w-7xl;
+}
+
 .custom_label {
     @apply text-sm font-medium text-gray-700 cursor-pointer flex items-center gap-3;
 }
