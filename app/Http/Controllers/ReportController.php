@@ -22,12 +22,14 @@ class ReportController extends Controller
         $description = 'Formulář pro hlášení chyby v aplikaci '. config('app.name');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
+        $disableEdit = false;
 
         return view('report.create', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
+            'disableEdit' => $disableEdit,
         ]);
     }
 

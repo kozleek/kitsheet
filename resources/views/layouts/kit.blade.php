@@ -43,7 +43,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-neutral-100 antialiased relative" x-data="{modal:''}">
+<body class="min-h-full bg-gray-600 antialiased relative" x-data="{modal:''}">
     @production
         <!-- Google Tag Manager (noscript) -->
         <noscript>
@@ -66,7 +66,7 @@
             @yield('info')
         </x-slot>
     </x-page.header>
-    <main class="content-container mt-12">
+    <main class="content-container my-12">
         @yield('content')
     </main>
     <x-page.footer />

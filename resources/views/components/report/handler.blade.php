@@ -1,6 +1,6 @@
 @if (Route::is('report.*') === false)
-    <a href="{{ route('report.create') }}" target="_blank" class="button button-danger">
-        <x-heroicon-o-bug-ant class="h-4 w-4" />
-        <span class="text-sm">Nahlásit chybu</span>
+    <a href="{{ route('report.create') }}" target="_blank" class="button bg-gray-900 text-gray-200">
+        <x-heroicon-o-bug-ant class="h-4 w-4 text-rose-500" />
+        <span class="text-xs">Nahlásit chybu</span>
     </a>
 @endif

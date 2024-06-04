@@ -33,7 +33,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-neutral-100 antialiased" x-data="{modal:null}">
+<body class="min-h-full bg-gray-600 antialiased" x-data="{modal:null}">
 
     <x-page.header :title="$title" :description="$description">
         <x-slot name="actions">
@@ -43,10 +43,9 @@
             @yield('info')
         </x-slot>
     </x-page.header>
-    <main class="content-container mt-12">
+    <main class="content-container my-12">
         @yield('content')
     </main>
-    <x-page.footer />
     @yield('modals')
 
 </body>
