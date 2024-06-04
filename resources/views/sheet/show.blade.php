@@ -10,7 +10,7 @@
 
 @section('content')
     @if ($sheet->examples->count())
-        <x-page.card>
+        <x-page.content>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" :results="$results" :selectionOfResults="$settingsExamplesSelectionOfResults" key="$example->id" />
@@ -29,7 +29,7 @@
                     </form>
                 </div>
             @endif
-        </x-page.card>
+        </x-page.content>
     @endif
 
     @if ($sheet->percentage_of_correct_answers == 100)

@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('content')
-    <x-page.card>
+    <x-page.content>
         <div class="space-y-2">
             <p>Děkuji za nahlášení chyby k aplikaci <a href="/" class="underline text-neutral-700">{{ config('app.name') }}</a>. Budu se snažit ji co nejdříve opravit.</p>
             <p>Níže je shrnutí Vašeho hlášení:</p>
@@ -23,5 +23,5 @@
         <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
             Zpět na hlavní stránku
         </x-button>
-    </x-page.card>
+    </x-page.content>
 @endsection

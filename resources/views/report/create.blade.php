@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('content')
-    <x-page.card>
+    <x-page.content>
         <form action="{{ route('report.store') }}" method="post">
             @csrf
             <x-form.report-items />
@@ -14,5 +14,5 @@
                 <a href="/" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">Zrušit</a>
             </div>
         </form>
-    </x-page.card>
+    </x-page.content>
 @endsection

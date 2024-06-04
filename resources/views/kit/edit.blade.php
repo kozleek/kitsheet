@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <x-page.card>
+    <x-page.content>
         <form action="{{ route('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
             @csrf
             @method('patch')
@@ -24,7 +24,7 @@
                 </a>
             </div>
         </form>
-    </x-page.card>
+    </x-page.content>
 @endsection
 
 @section('modals')

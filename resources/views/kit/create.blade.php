@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('content')
-    <x-page.card>
+    <x-page.content>
         <form action="{{ route('kit.store') }}" method="post">
             @csrf
             <x-form.kit-items />
@@ -14,5 +14,5 @@
                 </button>
             </div>
         </form>
-    </x-page.card>
+    </x-page.content>
 @endsection
