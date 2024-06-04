@@ -5,7 +5,7 @@
 @endsection
 
 @section('info')
-    <x-page.sheet-info :kit="$sheet->kit" />
+    <x-page.info.sheet :kit="$sheet->kit" />
 @endsection
 
 @section('content')

@@ -18,7 +18,7 @@
                     <div class="flex flex-col justify-between">
                         <div>
                             <h2 class="font-bold text-xl">Pracovní list č. {{ $sheet->code }}</h2>
-                            <x-page.sheet-info :kit="$sheet->kit" />
+                            <x-page.info.sheet :kit="$sheet->kit" />
                         </div>
                         <div>
                             <p class="text-xs text-neutral-400 font-sometype">

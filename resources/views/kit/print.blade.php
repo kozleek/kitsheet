@@ -38,7 +38,7 @@
                 <div class="flex justify-between items-center mb-8">
                     <div>
                         <h2 class="font-bold text-2xl">Pracovní list č. {{ $sheet->code }}</h2>
-                        <x-page.sheet-info :kit="$sheet->kit" />
+                        <x-page.info.sheet :kit="$sheet->kit" />
                     </div>
                     <div class="min-w-[200px] border-b border-neutral-300 pb-2 text-center">
                         {{ $sheet->name }}
