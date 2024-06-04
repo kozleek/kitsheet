@@ -1,11 +1,7 @@
 @extends('layouts.kit')
 
 @section('announcement')
-    @if ($kit->canEdit == false)
-        <x-page.announcement>
-            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.create') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
-        </x-page.announcement>
-    @endif
+
 @endsection
 
 @section('actions')

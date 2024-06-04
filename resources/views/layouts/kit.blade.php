@@ -52,23 +52,25 @@
         <!-- End Google Tag Manager (noscript) -->
     @endproduction
 
-    @yield('announcement')
-    <div class="pt-4 pb-12">
-        <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
-            <x-page.header :title="$title" :description="$description">
-                <x-slot name="actions">
-                    @yield('actions')
-                </x-slot>
-                <x-slot name="info">
-                    @yield('info')
-                </x-slot>
-            </x-page.header>
+    @if ($disableEdit)
+        <x-page.announcement>
+            <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.create') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
+        </x-page.announcement>
+    @endif
 
-            @yield('content')
-        </div>
+    <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
+        <x-page.header :title="$title" :description="$description">
+            <x-slot name="actions">
+                @yield('actions')
+            </x-slot>
+            <x-slot name="info">
+                @yield('info')
+            </x-slot>
+        </x-page.header>
 
-        <x-page.footer />
+        @yield('content')
     </div>
+    <x-page.footer />
     @yield('modals')
 
     @livewireScriptConfig

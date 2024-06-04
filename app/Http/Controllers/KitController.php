@@ -28,12 +28,14 @@ class KitController extends Controller
         $description = config('kitsheet.description');
         $pageTitle = SeoSupport::getPageTitle();
         $pageDescription = SeoSupport::getMetaDescription($description);
+        $disableEdit = false;
 
         return view('kit.create', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
+            'disableEdit' => $disableEdit,
         ]);
     }
 
@@ -67,13 +69,15 @@ class KitController extends Controller
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
+        $disableEdit = !$kit->canEdit;
 
         return view('kit.show', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'kit'   => $kit,
+            'kit' => $kit,
+            'disableEdit' => $disableEdit,
         ]);
     }
 
