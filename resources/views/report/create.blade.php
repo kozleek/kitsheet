@@ -1,5 +1,11 @@
 @extends('layouts.kit')
 
+@section('actions')
+    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
+        Zpět na hlavní stránku
+    </x-action>
+@endsection
+
 @section('content')
     <x-page.content>
         <form action="{{ route('report.store') }}" method="post">

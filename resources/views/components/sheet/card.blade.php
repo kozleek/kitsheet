@@ -1,6 +1,6 @@
 @props(['sheet'])
 
-<div class="flex flex-col gap-3 rounded-lg bg-white p-4 lg:p-6 shadow-md hover:shadow-lg">
+<div class="flex flex-col gap-3 rounded-md bg-white p-4 lg:p-6 shadow-md hover:shadow-lg">
     <div class="">
         <div class="flex items-center gap-3">
             <div class="flex gap-2">

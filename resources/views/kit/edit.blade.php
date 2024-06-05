@@ -2,7 +2,7 @@
 
 @section('actions')
     <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
-        Zpět
+        Zpět na výpis
     </x-action>
 @endsection
 

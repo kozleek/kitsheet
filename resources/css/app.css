@@ -42,7 +42,7 @@
 
 
 .button {
-    @apply inline-flex items-center rounded-md text-sm font-semibold shadow-sm gap-2 focus:outline-none cursor-pointer px-6 py-4;
+    @apply inline-flex items-center rounded-md text-sm font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer px-6 py-4;
 }
 
 .button-small {
