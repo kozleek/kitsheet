@@ -14,7 +14,7 @@
             </div>
 
             <h3 class="font-semibold">
-                <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" target="_blank" class="hover:underline">
+                <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" class="hover:underline">
                     @if ($sheet->name)
                         {{ $sheet->name }}
                     @else
