@@ -3,7 +3,7 @@
 <div class="min-h-full">
     <div class="bg-slate-800">
         @if ($actions != '')
-            <nav class="bg-gray-800">
+            <nav class="bg-slate-800">
                 <div class="content-container">
                     <div class="border-b border-gray-700">
                         <div class="flex h-16 items-center justify-between px-4 sm:px-0">
