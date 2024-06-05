@@ -3,10 +3,12 @@
 @section('content')
     <div class="print-page">
         <div class="mb-8">
-            <h2 class="font-bold text-2xl">{{ $kit->title }}</h2>
-            <p class="text-base mt-2 text-neutral-500">{{ $kit->description }}</p>
+            <h2 class="font-bold text-2xl">{{ $title }}</h2>
+            <p class="text-base mt-2 text-neutral-500">{{ $description }}</p>
 
-            <x-info.kit :kit="$kit" />
+            <div class="text-black">
+                <x-info.kit :kit="$kit" />
+            </div>
         </div>
 
         <div class="mb-8">
