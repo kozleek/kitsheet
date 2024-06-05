@@ -1,9 +1,9 @@
 @extends('layouts.kit')
 
 @section('actions')
-    <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
+    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
         Zpět
-    </x-button>
+    </x-action>
 @endsection
 
 @section('info')
