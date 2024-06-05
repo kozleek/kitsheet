@@ -22,7 +22,7 @@
                     <form action="{{ route('sheet.check', ['sheet' => $sheet]) }}" method="POST" id="form-sheet-check">
                         @csrf
                         <a href="#" class="button button-primary" x-on:click="modal='modal-sheet-check'">
-                            <x-heroicon-o-check />
+                            <x-heroicon-o-document-check />
                             <span class="block md:hidden">Odeslat ke kontrole</span>
                             <span class="hidden md:block">Odeslat všechny příklady ke kontrole</span>
                         </a>
