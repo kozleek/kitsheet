@@ -6,7 +6,15 @@
     @if ($tooltip)
         data-tippy-content="{{ $tooltip }}"
     @endif
-    class="flex gap-2 items-center rounded-md bg-slate-700 px-3 py-2 text-sm font-medium text-white cursor-pointer hover:bg-slate-900 group ease-in-out transition-colors duration-150"
+    class="
+        @if ($primary)
+            {{ 'action action-primary' }}
+        @elseif ($danger)
+            {{ 'action action-danger' }}
+        @else
+            {{ 'action action-normal' }}
+        @endif
+    "
 >
     @if ($icon)
         <div>

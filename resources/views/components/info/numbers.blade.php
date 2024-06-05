@@ -1,7 +1,7 @@
 @props(['kit'])
 
 @if ($kit)
-    <div class="flex items-center text-sm text-white gap-2">
+    <div class="flex items-center text-sm gap-2">
         <x-heroicon-o-calculator />
         {{ $kit->count_numbers }}
         <span class="hidden md:block">
