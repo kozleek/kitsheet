@@ -1,7 +1,7 @@
 @props(['title' => '', 'description' => '', 'info' => '', 'actions' => ''])
 
 <div class="min-h-full">
-    <div class="bg-gray-800 pb-6">
+    <div class="bg-slate-800">
         @if ($actions != '')
             <nav class="bg-gray-800">
                 <div class="content-container">
