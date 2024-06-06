@@ -11,7 +11,7 @@
 
     <x-slot:actions>
         <button x-on:click="document.getElementById('form-sheet-check').submit()" class="button button-danger">
-            <x-heroicon-o-document-check />
+            <x-heroicon-o-check />
             Odeslat ke kontrole
         </button>
     </x-slot:actions>

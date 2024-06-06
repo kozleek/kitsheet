@@ -5,11 +5,11 @@
         <div class="flex items-center gap-3">
             <div class="flex gap-2">
                 <div
-                    class="size-7 rounded flex items-center justify-center cursor-pointer bg-gray-400 text-gray-900"
+                    class="size-7 rounded flex items-center justify-center cursor-pointer bg-gray-100 text-gray-500"
                     data-clipboard-text="{{ route('sheet.show', ['sheet' => $sheet]) }}"
                     data-tippy-content="Zkopírovat odkaz pracovního listu"
                 >
-                    <x-heroicon-o-link class="!h-4 !w-4 text-white" />
+                    <x-heroicon-o-link class="!h-4 !w-4 text-inherit" />
                 </div>
             </div>
 
