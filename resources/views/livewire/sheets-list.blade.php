@@ -1,59 +1,37 @@
 <div>
     <div class="mb-8">
-        <dl class="mt-5 grid grid-cols-1 divide-y divide-gray-200 overflow-hidden rounded-md bg-white md:grid-cols-4 md:divide-x md:divide-y-0">
-            <div class="px-4 py-5 sm:p-6">
-                <dt class="text-base font-normal text-gray-900">Správné odpovědi:</dt>
-                <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
-                    <div class="flex items-baseline text-2xl font-semibold text-green-600">
-                        {{ $correctAnswersCount }}
-                        <span class="ml-2 text-sm font-medium text-gray-500">/ {{ $examplesCount }}</span>
-                    </div>
-
-                    <div class="inline-flex items-baseline rounded-full bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800 md:mt-2 lg:mt-0">
-                        {{ $correctAnswersPercentage }}%
-                    </div>
-                </dd>
+        <div class="mx-auto max-w-7xl overflow-hidden rounded-md">
+            <div class="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
+                <div class="bg-slate-900 px-4 py-6 sm:px-6 lg:px-8">
+                    <p class="text-sm font-medium leading-6 text-gray-400">Správné odpovědi</p>
+                    <p class="mt-2 flex items-baseline gap-x-2">
+                        <span class="text-4xl font-semibold tracking-tight text-white">{{ $correctAnswersCount }}</span>
+                        <span class="text-sm text-gray-400">/ {{ $examplesCount }}</span>
+                    </p>
+                </div>
+                <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                    <p class="text-sm font-medium leading-6 text-gray-400">Špatné odpovědi</p>
+                    <p class="mt-2 flex items-baseline gap-x-2">
+                        <span class="text-4xl font-semibold tracking-tight text-white">{{ $wrongAnswersCount }}</span>
+                        <span class="text-sm text-gray-400">/ {{ $examplesCount }}</span>
+                    </p>
+                </div>
+                <div class="bg-slate-800 px-4 py-6 sm:px-6 lg:px-8">
+                    <p class="text-sm font-medium leading-6 text-gray-400">Dokončeno listů</p>
+                    <p class="mt-2 flex items-baseline gap-x-2">
+                        <span class="text-4xl font-semibold tracking-tight text-white">{{ $finishedSheetsCount }}</span>
+                        <span class="text-sm text-gray-400">/ {{ $sheetsCount }}</span>
+                    </p>
+                </div>
+                <div class="bg-slate-800 px-4 py-6 sm:px-6 lg:px-8">
+                    <p class="text-sm font-medium leading-6 text-gray-400">Úspěšnost</p>
+                    <p class="mt-2 flex items-baseline gap-x-2">
+                        <span class="text-4xl font-semibold tracking-tight text-white">{{ $correctAnswersPercentage }}</span>
+                        <span class="text-sm text-gray-400">%</span>
+                    </p>
+                </div>
             </div>
-            <div class="px-4 py-5 sm:p-6">
-                <dt class="text-base font-normal text-gray-900">Špatné odpovědi:</dt>
-                <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
-                    <div class="flex items-baseline text-2xl font-semibold text-rose-600">
-                        {{ $wrongAnswersCount }}
-                        <span class="ml-2 text-sm font-medium text-gray-500">/ {{ $examplesCount }}</span>
-                    </div>
-
-                    <div class="inline-flex items-baseline rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800 md:mt-2 lg:mt-0">
-                        {{ $wrongAnswersPercentage }}%
-                    </div>
-                </dd>
-            </div>
-            <div class="px-4 py-5 sm:p-6">
-                <dt class="text-base font-normal text-gray-900">Zbývá vyřešit příkladů:</dt>
-                <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
-                    <div class="flex items-baseline text-2xl font-semibold text-neutral-500">
-                        {{ $emptyAnswersCount }}
-                        <span class="ml-2 text-sm font-medium text-gray-500">/ {{ $examplesCount }}</span>
-                    </div>
-
-                    <div class="inline-flex items-baseline rounded-full bg-neutral-100 px-2.5 py-0.5 text-sm font-medium text-neutral-400 md:mt-2 lg:mt-0">
-                        {{ $emptyAnswersPercentage }}%
-                    </div>
-                </dd>
-            </div>
-            <div class="px-4 py-5 sm:p-6">
-                <dt class="text-base font-normal text-gray-900">Zkontrolováno:</dt>
-                <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
-                    <div class="flex items-baseline text-2xl font-semibold text-neutral-500">
-                        {{ $finishedSheetsCount }}
-                        <span class="ml-2 text-sm font-medium text-gray-500">/ {{ $sheetsCount }}</span>
-                    </div>
-
-                    <div class="inline-flex items-baseline rounded-full bg-neutral-100 px-2.5 py-0.5 text-sm font-medium text-neutral-400 md:mt-2 lg:mt-0">
-                        {{ $finishedSheetsPercentage }}%
-                    </div>
-                </dd>
-            </div>
-        </dl>
+        </div>
     </div>
 
     <div class="{{ count($sheets) > 1 ? 'xl:grid-cols-2' : 'xl:grid-cols-1' }} grid grid-cols-1 gap-2" wire:poll.750ms>
