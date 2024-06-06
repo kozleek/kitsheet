@@ -58,7 +58,7 @@
 
                     <div>
                         <h3 class="text-xl font-bold">Možné výsledky</h3>
-                        <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladu a poslední zbývající číslo zakroužkujte</p>
+                        <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladům a poslední zbývající číslo zakroužkujte</p>
                         <div class="grid grid-cols-4 gap-4 mt-8">
                             @foreach ($results[$loop->index] as $result)
                                 <div class="border border-neutral-300 p-2 text-base font-sometype">{{ $result }}</div>

@@ -15,6 +15,7 @@
             @method('DELETE')
 
             <button type="submit" class="button button-danger">
+                <x-heroicon-o-trash />
                 Smazat sadu
             </button>
         </form>

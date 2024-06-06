@@ -14,7 +14,7 @@
                         <span class="block">
                             @if ($example->answer == '?')
                                 <span class="underline underline-offset-4 decoration-red-300 decoration-wavy">Neodpovězeno</span>
-                                <span class="text-rose-500">({{ $example->result }})</span>
+                                <span class="text-rose-500">{{ $example->result }}</span>
                             @else
                                 <span class="line-through decoration-red-500">{{ $example->answer }}</span>
                                 <span class="text-rose-500">{{ $example->result }}</span>
@@ -63,13 +63,13 @@
                         <x-heroicon-o-chevron-down class="text-neutral-500" ::class="{ 'transform rotate-180': showResults }" />
                     </div>
                     <div
-                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-blue-200 border-2 border-blue-600 shadow-md rounded-md absolute top-14 left-0 z-50"
+                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-slate-800 shadow-md rounded-md absolute top-14 left-0 z-50"
                         x-cloak
                         x-show="showResults"
                     >
                         @foreach ($results as $result)
                             <div
-                                class="p-2 bg-white rounded cursor-pointer text-base border border-blue-600"
+                                class="p-2 bg-white rounded cursor-pointer text-base hover:bg-blue-100"
                                 x-on:click.outside="showResults=false"
                                 x-on:click="setInput('{{ $result }}')"
                             >

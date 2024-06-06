@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <h3 class="font-semibold">
+            <h3 class="font-semibold text-lg">
                 <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" class="hover:underline">
                     @if ($sheet->name)
                         {{ $sheet->name }}
