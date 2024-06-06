@@ -54,6 +54,155 @@ class KitSupport
     }
 
     /**
+     * Get sheets count
+     */
+
+    public static function getSheetsCount($kit): int
+    {
+        return $kit->sheets->count();
+    }
+
+    /**
+     * Get examples count
+     */
+
+    public static function getExamplesCount($kit): int
+    {
+        $examplesCount = 0;
+        foreach ($kit->sheets as $sheet) {
+            $examplesCount += $sheet->examples->count();
+        }
+
+        return $examplesCount;
+    }
+
+    /**
+     * Get count for correct answers
+     */
+
+    public static function getCorrectAnswersCount($kit): int
+    {
+        $correctAnswersCount = 0;
+        foreach ($kit->sheets as $sheet) {
+            $correctAnswersCount += $sheet->correct_answers_counter;
+        }
+
+        return $correctAnswersCount;
+    }
+
+    /**
+     * Get percentage of correct answers
+     */
+
+    public static function getCorrectAnswersPercentage($kit): int
+    {
+        $examplesCount = self::getExamplesCount($kit);
+        $correctAnswersCount = self::getCorrectAnswersCount($kit);
+
+        if ($examplesCount > 0) {
+            return round($correctAnswersCount / $examplesCount * 100);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Get count for incorrect answers
+     */
+
+    public static function getWrongAnswersCount($kit): int
+    {
+        $wrongAnswersCount = 0;
+        foreach ($kit->sheets as $sheet) {
+            $wrongAnswersCount += $sheet->wrong_answers_counter;
+        }
+
+        return $wrongAnswersCount;
+    }
+
+    /**
+     * Get percentage of wrong answers
+     */
+
+    public static function getWrongAnswersPercentage($kit): int
+    {
+        $examplesCount = self::getExamplesCount($kit);
+        $wrongAnswersCount = self::getWrongAnswersCount($kit);
+
+        if ($examplesCount > 0) {
+            return round($wrongAnswersCount / $examplesCount * 100);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Get count of empty answers
+     */
+
+    public static function getEmptyAnswersCount($kit): int
+    {
+        $emptyAnswersCount = 0;
+        foreach ($kit->sheets as $sheet) {
+            foreach ($sheet->examples as $example) {
+                if (is_null($example->answer)) {
+                    $emptyAnswersCount++;
+                }
+            }
+        }
+
+        return $emptyAnswersCount;
+    }
+
+    /**
+     * Get percentage of empty answers
+     */
+
+    public static function getEmptyAnswersPercentage($kit): int
+    {
+        $examplesCount = self::getExamplesCount($kit);
+        $emptyAnswersCount = self::getEmptyAnswersCount($kit);
+
+        if ($examplesCount > 0) {
+            return round($emptyAnswersCount / $examplesCount * 100);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Get count of finished sheets
+     */
+
+    public static function getFinishedSheetsCount($kit): int
+    {
+        $finishedSheetsCount = 0;
+        foreach ($kit->sheets as $sheet) {
+            if ($sheet->is_finished) {
+                $finishedSheetsCount++;
+            }
+        }
+
+        return $finishedSheetsCount;
+    }
+
+    /**
+     * Get percentage of finished sheets
+     */
+
+    public static function getFinishedSheetsPercentage($kit): int
+    {
+        $sheetsCount = self::getSheetsCount($kit);
+        $finishedSheetsCount = self::getFinishedSheetsCount($kit);
+
+        if ($sheetsCount > 0) {
+            return round($finishedSheetsCount / $sheetsCount * 100);
+        }
+
+        return 0;
+    }
+
+    /**
      * Save kit data
      */
 
