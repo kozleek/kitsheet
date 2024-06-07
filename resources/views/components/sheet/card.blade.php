@@ -23,35 +23,15 @@
                 </a>
             </h3>
         </div>
-        @if ($sheet->is_finished)
-            <div class="flex gap-2 text-xs text-neutral-500 items-center mt-2">
-                <div>Správně: {{ $sheet->correct_answers_counter }}</div>
-                <div class="w-1 h-1 bg-neutral-300 rounded-full"></div>
-                <div>Špatně: {{ $sheet->wrong_answers_counter }}</div>
-                @if ($sheet->empty_answers_counter > 0)
-                    <div class="w-1 h-1 bg-neutral-300 rounded-full"></div>
-                    <div>Neodpovězeno: {{ $sheet->empty_answers_counter }}</div>
-                @endif
-            </div>
-        @endif
     </div>
 
     @if ($sheet->examples->count())
-        <div class="flex flex-wrap gap-1.5 mt-2">
+        <div class="flex flex-wrap gap-1 mt-2">
             @foreach ($sheet->examples as $example)
                 @if (!is_null($example->is_correct))
-                    <span
-                        class="{{ $example->is_correct ? 'border border-green-400 bg-green-200 text-green-600' : 'border-red-300 bg-red-200 text-red-600' }} size-5 rounded-sm border flex items-center justify-center"
-                    >
-                        @if($example->is_correct == 1)
-                            <x-heroicon-o-check class="!w-3 !h-3 text-current" />
-                        @endif
-                        @if($example->is_correct == 0)
-                            <x-heroicon-o-x-mark class="!w-3 !h-3 text-current" />
-                        @endif
-                    </span>
+                    <span class="{{ $example->is_correct ? 'border border-green-400 bg-green-200' : 'border-red-300 bg-red-200' }} size-3 rounded-full border flex items-center justify-center"></span>
                 @else
-                    <span class="size-5 rounded-sm border border-gray-200 bg-gray-100 text-gray-500 flex items-center justify-center text-xs">?</span>
+                    <span class="size-3 rounded-full border border-gray-300 bg-gray-100"></span>
                 @endif
             @endforeach
         </div>

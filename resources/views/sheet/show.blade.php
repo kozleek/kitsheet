@@ -10,6 +10,16 @@
 
 @section('content')
     @if ($sheet->examples->count())
+
+        @if ($sheet->is_finished)
+            <x-stats.sheet
+                :examplesCount="$sheet->examples->count()"
+                :correctAnswersCount="$sheet->correct_answers_counter"
+                :wrongAnswersCount="$sheet->wrong_answers_counter"
+                :correctAnswersPercentage="$sheet->percentage_of_correct_answers"
+            />
+        @endif
+
         <x-page.content>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 @foreach ($sheet->examples as $example)

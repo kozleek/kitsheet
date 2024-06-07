@@ -5,7 +5,7 @@
 [x-cloak] { display: none !important; }
 
 .content-container{
-    @apply container mx-auto px-4 2xl:px-0 2xl:max-w-7xl;
+    @apply container mx-auto px-4 xl:px-8 2xl:max-w-7xl;
 }
 
 .custom_label {
