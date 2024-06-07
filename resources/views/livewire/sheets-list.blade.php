@@ -2,14 +2,14 @@
     <div class="mb-8">
         <div class="mx-auto max-w-7xl overflow-hidden rounded-md">
             <div class="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
-                <div class="bg-slate-900 px-4 py-6 sm:px-6 lg:px-8">
+                <div class="bg-slate-800 px-4 py-6 sm:px-6 lg:px-8">
                     <p class="text-sm font-medium leading-6 text-gray-400">Správné odpovědi</p>
                     <p class="mt-2 flex items-baseline gap-x-2">
                         <span class="text-4xl font-semibold tracking-tight text-white">{{ $correctAnswersCount }}</span>
                         <span class="text-sm text-gray-400">/ {{ $examplesCount }}</span>
                     </p>
                 </div>
-                <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                <div class="bg-slate-800 px-4 py-6 sm:px-6 lg:px-8">
                     <p class="text-sm font-medium leading-6 text-gray-400">Špatné odpovědi</p>
                     <p class="mt-2 flex items-baseline gap-x-2">
                         <span class="text-4xl font-semibold tracking-tight text-white">{{ $wrongAnswersCount }}</span>
