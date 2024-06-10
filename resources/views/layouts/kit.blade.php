@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="theme-color" content="#6466F1"/>
+    <meta name="theme-color" content="#444E5D"/>
 
     <!-- HTML Meta Tags -->
     <title>{{ $pageTitle }} </title>
