@@ -1,7 +1,7 @@
 <div>
     @if ($isFinished)
         <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl">
-            <div class="flex flex-col md:flex-row items-center gap-2 flex-1">
+            <div class="flex flex-row items-center gap-2 flex-1">
                 <span>
                     {{ $example->specification_formatted }} =
                 </span>
@@ -11,9 +11,12 @@
                             {{ $example->answer }}
                         </span>
                     @else
-                        <span class="block">
+                        <span class="flex gap-4">
                             @if ($example->answer == '?')
-                                <span class="underline underline-offset-4 decoration-red-300 decoration-wavy">Neodpovězeno</span>
+                                <span class="underline underline-offset-4 decoration-red-300 decoration-wavy">
+                                    <span class="block lg:hidden">?</span>
+                                    <span class="hidden lg:block">Neodpovězeno</span>
+                                </span>
                                 <span class="text-rose-500">{{ $example->result }}</span>
                             @else
                                 <span class="line-through decoration-red-500">{{ $example->answer }}</span>
@@ -38,7 +41,7 @@
             @endif
         </div>
     @else
-        <div class="flex flex-col md:flex-row items-center gap-2 rounded-md py-3 px-4 font-sometype text-base lg:text-xl xl:text-2xl">
+        <div class="flex flex-col md:flex-row sm:items-center gap-2 rounded-md py-3 font-sometype text-base lg:text-xl xl:text-2xl">
             <div>
                 {{ $example->specification_formatted }} =
             </div>

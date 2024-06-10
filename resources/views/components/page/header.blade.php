@@ -6,12 +6,10 @@
             <nav class="bg-slate-800">
                 <div class="content-container">
                     <div class="border-b border-gray-700">
-                        <div class="flex h-16 items-center justify-between px-4 sm:px-0">
+                        <div class="flex h-16 items-center justify-between">
                             <div class="flex items-center">
-                                <div class="hidden md:block">
-                                    <div class="flex items-baseline space-x-4">
-                                        {{ $actions }}
-                                    </div>
+                                <div class="flex items-baseline gap-4">
+                                    {{ $actions }}
                                 </div>
                             </div>
                         </div>

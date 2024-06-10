@@ -8,7 +8,7 @@
         :correctAnswersPercentage="$correctAnswersPercentage"
     />
 
-    <div class="{{ count($sheets) > 1 ? 'xl:grid-cols-2' : 'xl:grid-cols-1' }} grid grid-cols-1 gap-2" wire:poll.750ms>
+    <div class="{{ count($sheets) > 1 ? 'xl:grid-cols-2' : 'xl:grid-cols-1' }} grid grid-cols-1 md:grid-cols-2 gap-2" wire:poll.750ms>
         @foreach ($sheets as $sheet)
             <x-sheet.card :sheet="$sheet" />
         @endforeach
