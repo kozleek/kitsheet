@@ -15,7 +15,8 @@
             @method('DELETE')
 
             <button type="submit" class="button button-danger">
-                Ano
+                <x-heroicon-o-trash />
+                Smazat sadu
             </button>
         </form>
     </x-slot:actions>

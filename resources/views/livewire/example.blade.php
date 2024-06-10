@@ -1,23 +1,29 @@
 <div>
     @if ($isFinished)
-        <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-2 px-4 font-sometype text-xl">
-            <div class="flex flex-col md:flex-row items-center gap-2 flex-1">
+        <div class="flex items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl">
+            <div class="flex flex-row items-center gap-2 flex-1">
                 <span>
                     {{ $example->specification_formatted }} =
                 </span>
-                <span class="flex-1">
+                <span class="flex-1 flex gap-2">
                     @if ($example->is_correct)
-                        <span class="font-bold underline decoration-green-300 decoration-double underline-offset-4">
+                        <span class="underline decoration-green-300 decoration-double underline-offset-4">
                             {{ $example->answer }}
                         </span>
                     @else
-                        <span class="block underline decoration-red-300 decoration-wavy underline-offset-4">
+                        <span class="flex gap-4">
                             @if ($example->answer == '?')
-                                Neodpovězeno
+                                <span class="underline underline-offset-4 decoration-red-300 decoration-wavy">
+                                    <span class="block lg:hidden">?</span>
+                                    <span class="hidden lg:block">Neodpovězeno</span>
+                                </span>
+                                <span class="text-rose-500">{{ $example->result }}</span>
                             @else
-                                {{ $example->answer }}
+                                <span class="line-through decoration-red-500">{{ $example->answer }}</span>
+                                <span class="text-rose-500">{{ $example->result }}</span>
                             @endif
                         </span>
+
                     @endif
                 </span>
             </div>
@@ -35,7 +41,7 @@
             @endif
         </div>
     @else
-        <div class="flex flex-col md:flex-row items-center gap-2 bg-neutral-100 rounded-md py-3 px-4 font-sometype text-xl">
+        <div class="flex flex-col md:flex-row sm:items-center gap-2 rounded-md py-3 font-sometype text-base lg:text-xl xl:text-2xl">
             <div>
                 {{ $example->specification_formatted }} =
             </div>
@@ -60,13 +66,13 @@
                         <x-heroicon-o-chevron-down class="text-neutral-500" ::class="{ 'transform rotate-180': showResults }" />
                     </div>
                     <div
-                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-blue-200 border-2 border-blue-600 shadow-md rounded-md absolute top-14 left-0 z-50"
+                        class="w-full grid grid-cols-3 gap-1 items-center p-2 bg-slate-400 rounded-md absolute top-14 left-0 z-50"
                         x-cloak
                         x-show="showResults"
                     >
                         @foreach ($results as $result)
                             <div
-                                class="p-2 bg-white rounded cursor-pointer text-base border border-blue-600"
+                                class="p-2 bg-white rounded cursor-pointer text-base hover:bg-blue-100"
                                 x-on:click.outside="showResults=false"
                                 x-on:click="setInput('{{ $result }}')"
                             >

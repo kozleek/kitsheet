@@ -3,10 +3,12 @@
 @section('content')
     <div class="print-page">
         <div class="mb-8">
-            <h2 class="font-bold text-2xl">{{ $kit->title }}</h2>
-            <p class="text-base mt-2 text-neutral-500">{{ $kit->description }}</p>
+            <h2 class="font-bold text-2xl">{{ $title }}</h2>
+            <p class="text-base mt-2 text-neutral-500">{{ $description }}</p>
 
-            <x-page.kit-info :kit="$kit" />
+            <div class="text-black">
+                <x-info.kit :kit="$kit" :settings="$settings" />
+            </div>
         </div>
 
         <div class="mb-8">
@@ -38,7 +40,7 @@
                 <div class="flex justify-between items-center mb-8">
                     <div>
                         <h2 class="font-bold text-2xl">Pracovní list č. {{ $sheet->code }}</h2>
-                        <x-page.sheet-info :kit="$sheet->kit" />
+                        <x-info.sheet :kit="$sheet->kit" />
                     </div>
                     <div class="min-w-[200px] border-b border-neutral-300 pb-2 text-center">
                         {{ $sheet->name }}
@@ -56,7 +58,7 @@
 
                     <div>
                         <h3 class="text-xl font-bold">Možné výsledky</h3>
-                        <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladu a poslední zbývající číslo zakroužkujte</p>
+                        <p class="text-base mt-2 text-neutral-500">Správné výsledky přiřaď k příkladům a poslední zbývající číslo zakroužkujte</p>
                         <div class="grid grid-cols-4 gap-4 mt-8">
                             @foreach ($results[$loop->index] as $result)
                                 <div class="border border-neutral-300 p-2 text-base font-sometype">{{ $result }}</div>

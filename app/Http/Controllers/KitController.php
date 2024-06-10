@@ -28,12 +28,14 @@ class KitController extends Controller
         $description = config('kitsheet.description');
         $pageTitle = SeoSupport::getPageTitle();
         $pageDescription = SeoSupport::getMetaDescription($description);
+        $disableEdit = false;
 
         return view('kit.create', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
+            'disableEdit' => $disableEdit,
         ]);
     }
 
@@ -67,13 +69,16 @@ class KitController extends Controller
         $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
+        $disableEdit = !$kit->canEdit;
 
         return view('kit.show', [
             'title' => $title,
             'description' => $description,
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
-            'kit'   => $kit,
+            'kit' => $kit,
+            'disableEdit' => $disableEdit,
+            'settings' => KitSupport::getSettingsNames($kit->settings_examples),
         ]);
     }
 
@@ -88,6 +93,7 @@ class KitController extends Controller
         $description = $kit->description ? $kit->description : 'Editace sady pracovních listů';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
+        $disableEdit = !$kit->canEdit;
 
         if ($kit->canEdit) {
             return view('kit.edit', [
@@ -95,7 +101,9 @@ class KitController extends Controller
                 'description' => $description,
                 'pageTitle' => $pageTitle,
                 'pageDescription' => $pageDescription,
-                'kit' => $kit
+                'kit' => $kit,
+                'disableEdit' => $disableEdit,
+                'settings' => KitSupport::getSettingsNames($kit->settings_examples),
             ]);
         } else {
             return redirect()->route('kit.show', ['kit' => $kit]);
@@ -172,7 +180,8 @@ class KitController extends Controller
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'kit' => $kit,
-            'results' => $results
+            'results' => $results,
+            'settings' => KitSupport::getSettingsNames($kit->settings_examples),
         ]);
     }
 
@@ -194,6 +203,7 @@ class KitController extends Controller
              'pageTitle' => $pageTitle,
              'pageDescription' => $pageDescription,
              'kit' => $kit,
+             'settings' => KitSupport::getSettingsNames($kit->settings_examples),
          ]);
      }
 

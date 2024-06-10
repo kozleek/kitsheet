@@ -4,6 +4,10 @@
 
 [x-cloak] { display: none !important; }
 
+.content-container{
+    @apply container mx-auto px-4 xl:px-8 2xl:max-w-7xl;
+}
+
 .custom_label {
     @apply text-sm font-medium text-gray-700 cursor-pointer flex items-center gap-3;
 }
@@ -16,8 +20,33 @@
     @apply appearance-none w-5 h-5 border border-gray-400 rounded relative text-green-500 active:ring-0 focus:ring-0 active:ring-offset-0 focus:ring-offset-0 focus:checked:bg-orange-400 checked:bg-orange-400 checked:hover:bg-orange-400;
 }
 
+.action {
+    @apply flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium cursor-pointer ease-in-out duration-150;
+}
+
+.action-disabled {
+    @apply !opacity-50 !cursor-not-allowed;
+}
+
+.action-normal {
+    @apply bg-slate-700 text-white hover:bg-slate-900;
+}
+
+.action-primary {
+    @apply bg-gray-900 text-gray-200;
+}
+
+.action-danger {
+    @apply text-white bg-danger hover:bg-danger-hover;
+}
+
+
 .button {
-    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-2 focus:outline-none cursor-pointer px-3 py-2;
+    @apply inline-flex items-center rounded-md text-base font-semibold shadow-sm gap-3 focus:outline-none cursor-pointer px-6 py-3;
+}
+
+.button-small {
+    @apply !px-3 !py-2
 }
 
 .button-disabled {
@@ -25,11 +54,11 @@
 }
 
 .button-normal {
-    @apply text-secondary bg-white border;
+    @apply bg-gray-900 text-gray-200;
 }
 
 .button-primary {
-    @apply text-white bg-primary hover:bg-primary-hover;
+    @apply bg-emerald-500 text-white hover:bg-emerald-600 border border-emerald-500;
 }
 
 .button-danger {

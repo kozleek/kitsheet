@@ -6,7 +6,6 @@ use App\Models\Sheet;
 
 class SheetSupport
 {
-
     /**
      * Check the sheet
      * This method checks the sheet and marks it as finished

@@ -1,22 +1,27 @@
 @extends('layouts.sheet')
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+@endsection
 
+@section('info')
+    <x-info.sheet :kit="$sheet->kit" />
 @endsection
 
 @section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-
-        <x-slot:info>
-            <x-page.sheet-info :kit="$sheet->kit" />
-        </x-slot:info>
-    </x-page.heading>
-
     @if ($sheet->examples->count())
-        <x-page.card>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+        @if ($sheet->is_finished)
+            <x-stats.sheet
+                :examplesCount="$sheet->examples->count()"
+                :correctAnswersCount="$sheet->correct_answers_counter"
+                :wrongAnswersCount="$sheet->wrong_answers_counter"
+                :correctAnswersPercentage="$sheet->percentage_of_correct_answers"
+            />
+        @endif
+
+        <x-page.content>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @foreach ($sheet->examples as $example)
                     <livewire:example :example="$example" :results="$results" :selectionOfResults="$settingsExamplesSelectionOfResults" key="$example->id" />
                 @endforeach
@@ -28,13 +33,12 @@
                         @csrf
                         <a href="#" class="button button-primary" x-on:click="modal='modal-sheet-check'">
                             <x-heroicon-o-check />
-                            <span class="block md:hidden">Odeslat ke kontrole</span>
-                            <span class="hidden md:block">Odeslat všechny příklady ke kontrole</span>
+                            Odeslat ke kontrole
                         </a>
                     </form>
                 </div>
             @endif
-        </x-page.card>
+        </x-page.content>
     @endif
 
     @if ($sheet->percentage_of_correct_answers == 100)

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="theme-color" content="#6466F1"/>
+    <meta name="theme-color" content="#444E5D"/>
 
     <!-- HTML Meta Tags -->
     <title>{{ $pageTitle }} </title>
@@ -33,14 +33,21 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-full bg-neutral-100 antialiased" x-data="{modal:null}">
-    @yield('announcement')
-    <div class="pt-4 pb-12">
-        <div class="container mx-auto px-4 2xl:px-0 2xl:max-w-7xl">
-            @yield('content')
-        </div>
-    </div>
+<body class="min-h-full bg-gradient-to-b from-gray-600 to-gray-700 antialiased" x-data="{modal:null}">
+
+    <x-page.header :title="$title" :description="$description">
+        <x-slot name="actions">
+            @yield('actions')
+        </x-slot>
+        <x-slot name="info">
+            @yield('info')
+        </x-slot>
+    </x-page.header>
+    <main class="content-container my-8">
+        @yield('content')
+    </main>
     @yield('modals')
+
 </body>
 
 </html>

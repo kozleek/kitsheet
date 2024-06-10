@@ -1,12 +1,13 @@
 @extends('layouts.kit')
 
-@section('content')
-    <x-page.heading>
-        <x-slot:title>{{ $title }}</x-slot:title>
-        <x-slot:description>{{ $description }}</x-slot:description>
-    </x-page.heading>
+@section('actions')
+    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
+        Zpět na hlavní stránku
+    </x-action>
+@endsection
 
-    <x-page.card>
+@section('content')
+    <x-page.content>
         <form action="{{ route('report.store') }}" method="post">
             @csrf
             <x-form.report-items />
@@ -19,6 +20,5 @@
                 <a href="/" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">Zrušit</a>
             </div>
         </form>
-    </x-page.card>
-
+    </x-page.content>
 @endsection
