@@ -7,7 +7,7 @@
             <p class="text-base mt-2 text-neutral-500">{{ $description }}</p>
 
             <div class="text-black">
-                <x-info.kit :kit="$kit" />
+                <x-info.kit :kit="$kit" :settings="$settings" />
             </div>
         </div>
 

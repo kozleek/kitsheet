@@ -7,7 +7,7 @@
 @endsection
 
 @section('info')
-    <x-info.kit :kit="$kit" />
+    <x-info.kit :kit="$kit" :settings="$settings" />
 @endsection
 
 @section('content')

@@ -17,7 +17,7 @@
                 description="/ {{ $sheetsCount }}"
             />
             <x-stats.card
-                title="Úspěšnost"
+                title="Celková úspěšnost"
                 :value="$correctAnswersPercentage"
                 description="%"
             />

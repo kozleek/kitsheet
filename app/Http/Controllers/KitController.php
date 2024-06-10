@@ -78,6 +78,7 @@ class KitController extends Controller
             'pageDescription' => $pageDescription,
             'kit' => $kit,
             'disableEdit' => $disableEdit,
+            'settings' => KitSupport::getSettingsNames($kit->settings_examples),
         ]);
     }
 
@@ -102,6 +103,7 @@ class KitController extends Controller
                 'pageDescription' => $pageDescription,
                 'kit' => $kit,
                 'disableEdit' => $disableEdit,
+                'settings' => KitSupport::getSettingsNames($kit->settings_examples),
             ]);
         } else {
             return redirect()->route('kit.show', ['kit' => $kit]);
@@ -178,7 +180,8 @@ class KitController extends Controller
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'kit' => $kit,
-            'results' => $results
+            'results' => $results,
+            'settings' => KitSupport::getSettingsNames($kit->settings_examples),
         ]);
     }
 
@@ -200,6 +203,7 @@ class KitController extends Controller
              'pageTitle' => $pageTitle,
              'pageDescription' => $pageDescription,
              'kit' => $kit,
+             'settings' => KitSupport::getSettingsNames($kit->settings_examples),
          ]);
      }
 

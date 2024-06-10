@@ -14,11 +14,20 @@
             </div>
 
             <h3 class="font-semibold text-lg">
-                <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" class="hover:underline">
-                    @if ($sheet->name)
-                        {{ $sheet->name }}
-                    @else
-                        Pracovní list č. {{ $sheet->code }}
+                <a href="{{ route('sheet.show', ['sheet' => $sheet]) }}" class="group flex items-center gap-2">
+                    <div class="group-hover:underline">
+                        @if ($sheet->name)
+                            {{ $sheet->name }}
+                        @else
+                            Pracovní list č. {{ $sheet->code }}
+                        @endif
+                    </div>
+
+                    @if ($sheet->is_finished)
+                        <x-badge
+                            :value="$sheet->percentage_of_correct_answers . '%'"
+                            :color="$sheet->percentage_of_correct_answers >= 60 ? 'green' : 'red'"
+                        />
                     @endif
                 </a>
             </h3>
@@ -29,9 +38,9 @@
         <div class="flex flex-wrap gap-1 mt-2">
             @foreach ($sheet->examples as $example)
                 @if (!is_null($example->is_correct))
-                    <span class="{{ $example->is_correct ? 'border border-green-400 bg-green-200' : 'border-red-300 bg-red-200' }} size-3 rounded-full border flex items-center justify-center"></span>
+                    <span class="{{ $example->is_correct ? 'border border-green-400 bg-green-200' : 'border-red-300 bg-red-200' }} size-2.5 rounded-full border flex items-center justify-center"></span>
                 @else
-                    <span class="size-3 rounded-full border border-gray-300 bg-gray-100"></span>
+                    <span class="size-2.5 rounded-full border border-gray-300 bg-gray-100"></span>
                 @endif
             @endforeach
         </div>
