@@ -27,5 +27,6 @@ jobs:
           npm install
           npm run build
           php artisan cache:clear
+          php artisan view:clear
           php artisan sitemap:create
           php artisan up
