@@ -15,6 +15,15 @@ class SheetsList extends Component
 
     public function render()
     {
+        $sheets = $this->kit->sheets;
+        // sort sheets by is_finished and percentage of correct answers
+        $sheets = $sheets->sortByDesc(function ($sheet) {
+            return [
+                $sheet->is_finished,
+                $sheet->percentage_of_correct_answers,
+            ];
+        });
+
         $examplesCount = KitSupport::getExamplesCount($this->kit);
         $correctAnswersCount = KitSupport::getCorrectAnswersCount($this->kit);
         $correctAnswersPercentage = KitSupport::getCorrectAnswersPercentage($this->kit);
@@ -26,8 +35,8 @@ class SheetsList extends Component
         $finishedSheetsPercentage = KitSupport::getFinishedSheetsPercentage($this->kit);
 
         return view('livewire.sheets-list', [
-            'sheets' => $this->kit->sheets,
-            'sheetsCount' => $this->kit->sheets->count(),
+            'sheets' => $sheets,
+            'sheetsCount' => $sheets->count(),
             'examplesCount' => $examplesCount,
             'correctAnswersCount' => $correctAnswersCount,
             'correctAnswersPercentage' => $correctAnswersPercentage,
