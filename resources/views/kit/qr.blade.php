@@ -12,6 +12,13 @@
         <div class="mb-8">
             @foreach ($kit->sheets as $sheet)
                 <x-sheet.info :sheet="$sheet" />
+                @if (!$loop->last)
+                    <div class="border-b border-neutral-300 border-dashed relative">
+                        <div class="size-6 absolute right-4 -bottom-3.5">
+                            <x-heroicon-o-scissors class="text-neutral-400" />
+                        </div>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>
