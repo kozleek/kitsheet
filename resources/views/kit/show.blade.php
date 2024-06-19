@@ -28,4 +28,8 @@
 
 @section('modals')
     <x-modals.kit.destroy id="modal-kit-destroy" :kit="$kit" />
+
+    @foreach ($kit->sheets as $sheet)
+        <x-modals.sheet.info id="modal-sheet-info-{{ $sheet->id }}" :sheet="$sheet" />
+    @endforeach
 @endsection

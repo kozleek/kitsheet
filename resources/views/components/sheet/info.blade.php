@@ -10,7 +10,7 @@
             </div>
         </div>
         <div>
-            <p class="text-xs text-neutral-400 font-sometype">
+            <p class="text-xs font-sometype">
                 @if($sheet->fingerprint != '')
                     {{ route('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
                 @else
