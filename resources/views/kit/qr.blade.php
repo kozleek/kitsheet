@@ -10,26 +10,14 @@
         </div>
 
         <div class="mb-8">
+            <div class="border-b border-neutral-300 border-dashed relative">
+                <div class="size-6 absolute right-4 -bottom-3.5">
+                    <x-heroicon-o-scissors class="text-neutral-400" />
+                </div>
+            </div>
             @foreach ($kit->sheets as $sheet)
-                <div class="border-b border-neutral-300 border-dashed py-4 first:border-t flex gap-8 relative">
-                    <div>
-                        {!! QrCode::size(150)->generate(route('sheet.show', $sheet)) !!}
-                    </div>
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <h2 class="font-bold text-xl">Pracovní list č. {{ $sheet->code }}</h2>
-                            <x-info.sheet :kit="$sheet->kit" />
-                        </div>
-                        <div>
-                            <p class="text-xs text-neutral-400 font-sometype">
-                                @if($sheet->fingerprint != '')
-                                    {{ route('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
-                                @else
-                                    {{ route('sheet.show', $sheet) }}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
+                <x-sheet.info :sheet="$sheet" />
+                <div class="border-b border-neutral-300 border-dashed relative">
                     <div class="size-6 absolute right-4 -bottom-3.5">
                         <x-heroicon-o-scissors class="text-neutral-400" />
                     </div>

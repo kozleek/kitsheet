@@ -83,5 +83,5 @@
 @endsection
 
 @section('modals')
-    <x-modals.sheet.check :sheet="$sheet" />
+    <x-modals.sheet.check id="modal-sheet-check" :sheet="$sheet" />
 @endsection

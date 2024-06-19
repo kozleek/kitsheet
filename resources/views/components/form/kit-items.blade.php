@@ -1,10 +1,12 @@
 @props(['kit' => null])
 
 <div class="space-y-4">
-    <x-form.section label="Základní informace">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <x-form.section label="Základní informace" description="Jméno učitele a e-mail jsou nepovinné údaje. Pokud zadáte e-mail, tak Vám příjde automatická zpráva s informacemi o Vaši sadě pracovních listů.">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8">
             <x-form.input type="text" label="Název sady" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
             <x-form.input type="text" label="Stručný popis sady" name="description" value="{{ $kit ? $kit->description : '' }}" />
+            <x-form.input type="text" label="Učitel" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
+            <x-form.input type="text" label="E-mail" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
         </div>
     </x-form.section>
 
@@ -38,13 +40,6 @@
             <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem." name="settingsExamplesOnlyPositive" value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}" />
             <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojice čísel." name="settingsExamplesWithParentheses" value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}" />
             <x-form.checkbox label="Přiřazení výsledku" description="Výběr z existujících výsledků." name="settingsExamplesSelectionOfResults" value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}" />
-        </div>
-    </x-form.section>
-
-    <x-form.section label="Učitel" description="Jméno a e-mail jsou nepovinné údaje. Pokud zadáte e-mail, tak Vám příjde automatická zpráva s informacemi o Vaši sadě pracovních listů.">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <x-form.input type="text" label="Jméno" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
-            <x-form.input type="text" label="E-mail" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
         </div>
     </x-form.section>
 </div>
