@@ -276,9 +276,18 @@ class KitSupport
         $kit->sheets()->delete(); // Smažeme staré listy, pokud existují
 
         foreach (range(1, $data['countSheets']) as $i) {
+
+            // generate random example and result
+            $example = ExampleSupport::getExample(
+                $data['countNumbers'],
+                $rangeNumbers,
+                $rangeOperations,
+                $settingsExamples
+            );
+
             $sheet = $kit->sheets()->create([
                 'code' => $i,
-                'result' => RandomSupport::getRandomNumber($rangeNumbers),
+                'result' => $example['result']
             ]);
 
             // Create examples for the sheet
