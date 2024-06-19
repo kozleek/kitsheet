@@ -27,9 +27,9 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
                 <div class="sm:flex sm:items-start">
-                    <div class="mt-3 sm:mt-0">
+                    <div>
                         @if ($title)
-                            <h3 class="text-xl font-semibold leading-6 text-gray-900 mb-4" id="modal-title">{{ $title }}</h3>
+                            <h3 class="mt-3 sm:mt-0 text-xl font-semibold leading-6 text-gray-900 mb-4" id="modal-title">{{ $title }}</h3>
                         @endif
 
                         @if ($text)

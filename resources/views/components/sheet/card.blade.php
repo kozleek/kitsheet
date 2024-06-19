@@ -7,7 +7,7 @@
                     x-on:click="modal='modal-sheet-info-{{ $sheet->id }}'"
                     class="size-8 flex items-center justify-center cursor-pointer text-slate-300 hover:text-slate-400 -ms-2"
                 >
-                    <x-heroicon-m-information-circle class="!w-6 !h-6 text-inherit" />
+                    <x-heroicon-m-qr-code class="!w-6 !h-6 text-inherit" />
                 </div>
 
                 <h3 class="font-semibold text-lg">

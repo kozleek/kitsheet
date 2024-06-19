@@ -1,8 +1,13 @@
-<div class="py-4 flex gap-8 relative">
+<div class="py-4 flex justify-center md:justify-start print:justify-start gap-8 relative">
     <div>
-        {!! QrCode::size(150)->generate(route('sheet.show', $sheet)) !!}
+        <div class="block md:hidden print:hidden">
+            {!! QrCode::size(250)->generate(route('sheet.show', $sheet)) !!}
+        </div>
+        <div class="hidden md:block print:block">
+            {!! QrCode::size(150)->generate(route('sheet.show', $sheet)) !!}
+        </div>
     </div>
-    <div class="flex flex-col justify-between">
+    <div class="hidden md:flex print:flex flex-col justify-between">
         <div>
             <h2 class="font-bold text-xl">Pracovní list č. {{ $sheet->code }}</h2>
             <div class="-mt-3">
