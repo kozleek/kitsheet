@@ -1,4 +1,6 @@
-<x-modals.default id="modal-kit-update">
+@props(['id' => ''])
+
+<x-modals.default id="{{ $id }}">
     <x-slot:title>
         Uložit změny a vytvořit nové pracovní listy?
     </x-slot:title>

@@ -1,6 +1,7 @@
 @props(['id' => '', 'title' => '', 'text' => '', 'actions' => ''])
 
 <div
+    id="{{ $id }}"
     aria-labelledby="{{ $id }}" role="dialog" aria-modal="true"
     x-cloak x-show="modal=='{{ $id }}'"
     class="z-10 fixed inset-0 bg-black bg-opacity-80"

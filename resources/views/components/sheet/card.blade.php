@@ -4,7 +4,7 @@
         <div class="">
             <div class="flex items-center gap-2">
                 <div
-                    class="size-8 flex items-center justify-center cursor-pointer text-slate-300 hover:text-slate-400"
+                    class="size-8 flex items-center justify-center cursor-pointer text-slate-300 hover:text-slate-400 -ms-2"
                 >
                     <x-heroicon-m-information-circle class="!w-6 !h-6 text-inherit" />
                 </div>

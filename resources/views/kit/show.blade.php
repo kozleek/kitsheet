@@ -27,5 +27,5 @@
 @endsection
 
 @section('modals')
-    <x-modals.kit.destroy :kit="$kit" />
+    <x-modals.kit.destroy id="modal-kit-destroy" :kit="$kit" />
 @endsection

@@ -1,6 +1,6 @@
-@props(['kit'])
+@props(['id' => '', 'kit'])
 
-<x-modals.default id="modal-kit-destroy">
+<x-modals.default id="{{ $id }}">
     <x-slot:title>
         Smazat tuto sadu pracovních listů?
     </x-slot:title>

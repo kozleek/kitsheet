@@ -28,5 +28,5 @@
 @endsection
 
 @section('modals')
-    <x-modals.kit.update />
+    <x-modals.kit.update id="modal-kit-update" />
 @endsection

@@ -1,6 +1,6 @@
-@props(['sheet'])
+@props(['id' => '', 'sheet'])
 
-<x-modals.default id="modal-sheet-check">
+<x-modals.default id="{{ $id }}">
     <x-slot:title>
         Zkontroloval/a si všechny výsledky?
     </x-slot:title>
