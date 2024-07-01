@@ -192,7 +192,7 @@ class KitController extends Controller
 
      public function qr(Kit $kit)
      {
-         $title = 'QR kódy pracovních listů';
+         $title = 'QR kódy pro sadu pracovních listů';
          $description = 'Tisková verze QR kódů pracovních listů';
          $pageTitle = SeoSupport::getPageTitle($title);
          $pageDescription = SeoSupport::getMetaDescription($description);

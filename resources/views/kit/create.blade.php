@@ -9,7 +9,7 @@
             <div class="mt-8 flex items-center gap-4">
                 <button type="submit" class="button button-primary">
                     <x-heroicon-o-check />
-                    Vytvořit pracovní listy
+                    {{ __('kit.create.button') }}
                 </button>
             </div>
         </form>
