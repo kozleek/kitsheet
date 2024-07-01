@@ -24,8 +24,8 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = config('kitsheet.name');
-        $description = config('kitsheet.description');
+        $title = config('app.name');
+        $description = __('app.description');
         $pageTitle = SeoSupport::getPageTitle();
         $pageDescription = SeoSupport::getMetaDescription($description);
         $disableEdit = false;
