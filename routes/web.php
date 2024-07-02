@@ -23,3 +23,5 @@ Route::patch('/kit/{kit}/update', [KitController::class, 'update'])->name('kit.u
 Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destroy');
 Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
 Route::post('/report/store', [ReportController::class, 'store'])->name('report.store');
+
+Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);

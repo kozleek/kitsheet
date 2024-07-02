@@ -5,7 +5,7 @@ return [
     /**
      * The locales you wish to support.
      */
-    'supported_locales' => ['cs', 'en', 'de'],
+    'supported_locales' => ['cs', 'en'],
 
     /**
      * The fallback locale to use when generating a route URL
@@ -24,7 +24,7 @@ return [
      * without a locale slug to their localized version.
      * You need to register the fallback route for this to work.
      */
-    'redirect_to_localized_urls' => false,
+    'redirect_to_localized_urls' => true,
 
     /**
      * The status code when redirecting to localized URLs.
