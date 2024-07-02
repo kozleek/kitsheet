@@ -1,10 +1,10 @@
 <div class="py-4 flex justify-center md:justify-start print:justify-start gap-8 relative">
     <div>
         <div class="block md:hidden print:hidden">
-            {!! QrCode::size(250)->generate(localizedRoute('sheet.show', $sheet)) !!}
+            {!! QrCode::size(250)->generate(Route::localizedUrl('sheet.show', $sheet)) !!}
         </div>
         <div class="hidden md:block print:block">
-            {!! QrCode::size(150)->generate(localizedRoute('sheet.show', $sheet)) !!}
+            {!! QrCode::size(150)->generate(Route::localizedUrl('sheet.show', $sheet)) !!}
         </div>
     </div>
     <div class="hidden md:flex print:flex flex-col justify-between">
@@ -17,9 +17,9 @@
         <div>
             <p class="text-xs font-sometype">
                 @if($sheet->fingerprint != '')
-                    {{ localizedRoute('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
+                    {{ Route::localizedUrl('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
                 @else
-                    {{ localizedRoute('sheet.show', $sheet) }}
+                    {{ Route::localizedUrl('sheet.show', $sheet) }}
                 @endif
             </p>
         </div>

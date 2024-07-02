@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('actions')
-    <x-action icon="heroicon-o-chevron-left" href="{{ localizedRoute('kit.show', ['kit' => $kit]) }}">
+    <x-action icon="heroicon-o-chevron-left" href="{{ Route::localizedUrl('kit.show', ['kit' => $kit]) }}">
         {{ __('kit.form.back_button') }}
     </x-action>
 @endsection
@@ -12,7 +12,7 @@
 
 @section('content')
     <x-page.content>
-        <form action="{{ localizedRoute('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
+        <form action="{{ Route::localizedUrl('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
             @csrf
             @method('patch')
             <x-form.kit-items :kit="$kit" />

@@ -29,7 +29,7 @@
 
             @if ($sheet->is_finished == false)
                 <div class="mt-8">
-                    <form action="{{ localizedRoute('sheet.check', ['sheet' => $sheet]) }}" method="POST" id="form-sheet-check">
+                    <form action="{{ Route::localizedUrl('sheet.check', ['sheet' => $sheet]) }}" method="POST" id="form-sheet-check">
                         @csrf
                         <a href="#" class="button button-primary" x-on:click="modal='modal-sheet-check'">
                             <x-heroicon-o-check />

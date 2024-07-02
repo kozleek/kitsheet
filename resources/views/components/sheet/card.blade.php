@@ -11,7 +11,7 @@
                 </div>
 
                 <h3 class="font-semibold text-lg">
-                    <a href="{{ localizedRoute('sheet.show', ['sheet' => $sheet]) }}" class="group flex items-center gap-2">
+                    <a href="{{ Route::localizedUrl('sheet.show', ['sheet' => $sheet]) }}" class="group flex items-center gap-2">
                         <div class="group-hover:underline">
                             @if ($sheet->name)
                                 {{ $sheet->name }}

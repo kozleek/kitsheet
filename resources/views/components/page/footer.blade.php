@@ -9,7 +9,7 @@
     </div>
     <div class="mt-4">
         @if (Route::is('report.*') === false)
-            <a href="{{ localizedRoute('report.create') }}" target="_blank" class="button button-small bg-slate-800 text-gray-300">
+            <a href="{{ Route::localizedUrl('report.create') }}" target="_blank" class="button button-small bg-slate-800 text-gray-300">
                 <x-heroicon-o-bug-ant class="h-4 w-4 text-rose-500" />
                 <span class="text-xs">
                     {{ __('footer.report_bug') }}
