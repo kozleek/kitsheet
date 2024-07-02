@@ -9,7 +9,9 @@
     </div>
     <div class="hidden md:flex print:flex flex-col justify-between">
         <div>
-            <h2 class="font-bold text-xl">Pracovní list č. {{ $sheet->code }}</h2>
+            <h2 class="font-bold text-xl">
+                {{ __('sheet.header.title')}} {{ $sheet->code }}
+            </h2>
             <div class="-mt-3">
                 <x-info.sheet :kit="$sheet->kit" />
             </div>

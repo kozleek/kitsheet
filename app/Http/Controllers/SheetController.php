@@ -16,7 +16,7 @@ class SheetController extends Controller
 
     public function show(Sheet $sheet)
     {
-        $title = 'Pracovní list č. ' . $sheet->code;
+        $title = __('sheet.header.title') . ' ' . $sheet->code;
         $description = '';
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($sheet->kit, $showCountSheets = false);

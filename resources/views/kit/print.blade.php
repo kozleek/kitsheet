@@ -45,7 +45,9 @@
             <div class="print-page">
                 <div class="flex justify-between items-center mb-8">
                     <div>
-                        <h2 class="font-bold text-2xl">Pracovní list č. {{ $sheet->code }}</h2>
+                        <h2 class="font-bold text-2xl">
+                            {{ __('sheet.header.title')}} {{ $sheet->code }}
+                        </h2>
                         <x-info.sheet :kit="$sheet->kit" />
                     </div>
                     <div class="min-w-[200px] border-b border-neutral-300 pb-2 text-center">

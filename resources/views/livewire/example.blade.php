@@ -15,7 +15,7 @@
                             @if ($example->answer == '?')
                                 <span class="underline underline-offset-4 decoration-red-300 decoration-wavy">
                                     <span class="block lg:hidden">?</span>
-                                    <span class="hidden lg:block">Neodpovězeno</span>
+                                    <span class="hidden lg:block">{{ __('app.unanswered') }}</span>
                                 </span>
                                 <span class="text-rose-500">{{ $example->result }}</span>
                             @else
