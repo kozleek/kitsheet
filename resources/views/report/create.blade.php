@@ -8,7 +8,7 @@
 
 @section('content')
     <x-page.content>
-        <form action="{{ Route::localizedUrl('report.store') }}" method="post">
+        <form action="{{ route('report.store') }}" method="post">
             @csrf
             <x-form.report-items />
 

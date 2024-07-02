@@ -12,7 +12,7 @@
 
 @section('content')
     <x-page.content>
-        <form action="{{ Route::localizedUrl('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
+        <form action="{{ route('kit.update', ['kit' => $kit]) }}" method="POST" id="form-kit-update">
             @csrf
             @method('patch')
             <x-form.kit-items :kit="$kit" />

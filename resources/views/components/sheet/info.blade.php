@@ -1,10 +1,10 @@
 <div class="py-4 flex justify-center md:justify-start print:justify-start gap-8 relative">
     <div>
         <div class="block md:hidden print:hidden">
-            {!! QrCode::size(250)->generate(Route::localizedUrl('sheet.show', $sheet)) !!}
+            {!! QrCode::size(250)->generate(route('sheet.show', $sheet)) !!}
         </div>
         <div class="hidden md:block print:block">
-            {!! QrCode::size(150)->generate(Route::localizedUrl('sheet.show', $sheet)) !!}
+            {!! QrCode::size(150)->generate(route('sheet.show', $sheet)) !!}
         </div>
     </div>
     <div class="hidden md:flex print:flex flex-col justify-between">
