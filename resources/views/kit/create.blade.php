@@ -9,7 +9,7 @@
             <div class="mt-8 flex items-center gap-4">
                 <button type="submit" class="button button-primary">
                     <x-heroicon-o-check />
-                    {{ __('kit.form.create_button') }}
+                    {{ __('form.save_button') }}
                 </button>
             </div>
         </form>
