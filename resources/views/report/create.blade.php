@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('actions')
-    <x-action icon="heroicon-o-chevron-left" href="{{ Route::localizedUrl('kit.create') }}">
+    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
         Zpět na hlavní stránku
     </x-action>
 @endsection

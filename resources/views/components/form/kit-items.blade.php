@@ -1,7 +1,7 @@
 @props(['kit' => null])
 
 <div class="space-y-4">
-    <x-form.section label="{{ __('kit.form.section_1.label') }}" description="{{ __('kit.form.section_1.description') }}">
+    <x-form.section label="{{ __('kit.form.section_1.label') }}" description="{!! __('kit.form.section_1.description') !!}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8">
             <x-form.input type="text" label="{{ __('kit.form.kit_title') }}" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
             <x-form.input type="text" label="{{ __('kit.form.kit_description') }}" name="description" value="{{ $kit ? $kit->description : '' }}" />

@@ -19,6 +19,20 @@
         @endif
         <header class="py-10">
             <div class="content-container">
+                @if (Route::isLocalized() || Route::isFallback())
+                    <ul class="mb-4">
+                        @foreach(LocaleConfig::getLocales() as $locale)
+                            @if ( ! App::isLocale($locale))
+                                <li>
+                                    <a href="{{ Route::localizedUrl($locale) }}" class="bg-pink-400 rounded text-white text-xs p-2">
+                                        {{ strtoupper($locale) }}
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
+
                 @if ($title)
                     <h1 class="text-3xl font-bold tracking-tight text-white">{{ $title }}</h1>
                 @endif

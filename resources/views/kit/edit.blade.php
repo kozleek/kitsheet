@@ -1,7 +1,7 @@
 @extends('layouts.kit')
 
 @section('actions')
-    <x-action icon="heroicon-o-chevron-left" href="{{ Route::localizedUrl('kit.show', ['kit' => $kit]) }}">
+    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
         {{ __('kit.form.back_button') }}
     </x-action>
 @endsection

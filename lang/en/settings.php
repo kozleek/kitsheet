@@ -7,7 +7,7 @@ return [
     ],
     'with_parentheses' => [
         'label' => 'Operator precedence',
-        'description' => 'Parentheses are added to the examples for pairs of numbers.',
+        'description' => 'Parentheses are added to the examples.',
     ],
     'selection_of_results' => [
         'label' => 'Result assignment',

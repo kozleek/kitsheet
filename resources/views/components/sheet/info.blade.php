@@ -17,9 +17,9 @@
         <div>
             <p class="text-xs font-sometype">
                 @if($sheet->fingerprint != '')
-                    {{ Route::localizedUrl('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
+                    {{ route('sheet.fingerprint', ['fingerprint' => $sheet->fingerprint]) }}
                 @else
-                    {{ Route::localizedUrl('sheet.show', $sheet) }}
+                    {{ route('sheet.show', $sheet) }}
                 @endif
             </p>
         </div>
