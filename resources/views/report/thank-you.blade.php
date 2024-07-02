@@ -20,7 +20,7 @@
             @endif
         @endif
 
-        <x-button icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
+        <x-button icon="heroicon-o-chevron-left" href="{{ localizedRoute('kit.create') }}">
             Zpět na hlavní stránku
         </x-button>
     </x-page.content>

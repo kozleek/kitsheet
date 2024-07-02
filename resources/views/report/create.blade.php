@@ -1,14 +1,14 @@
 @extends('layouts.kit')
 
 @section('actions')
-    <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.create') }}">
+    <x-action icon="heroicon-o-chevron-left" href="{{ localizedRoute('kit.create') }}">
         Zpět na hlavní stránku
     </x-action>
 @endsection
 
 @section('content')
     <x-page.content>
-        <form action="{{ route('report.store') }}" method="post">
+        <form action="{{ localizedRoute('report.store') }}" method="post">
             @csrf
             <x-form.report-items />
 

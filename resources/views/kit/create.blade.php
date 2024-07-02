@@ -2,7 +2,7 @@
 
 @section('content')
     <x-page.content>
-        <form action="{{ route('kit.store') }}" method="post">
+        <form action="{{ localizedRoute('kit.store') }}" method="post">
             @csrf
             <x-form.kit-items />
 

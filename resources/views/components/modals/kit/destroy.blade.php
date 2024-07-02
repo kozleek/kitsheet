@@ -10,7 +10,7 @@
     </x-slot:text>
 
     <x-slot:actions>
-        <form method="POST" action="{{ route('kit.destroy', ['kit' => $kit]) }}">
+        <form method="POST" action="{{ localizedRoute('kit.destroy', ['kit' => $kit]) }}">
             @csrf
             @method('DELETE')
 
