@@ -18,8 +18,8 @@ class ReportController extends Controller
 
     public function create()
     {
-        $title = 'Hlášení chyby';
-        $description = 'Formulář pro hlášení chyby v aplikaci '. config('app.name');
+        $title = __('report.header.title');
+        $description = __('report.header.description'). ' ' . config('app.name');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
         $disableEdit = false;

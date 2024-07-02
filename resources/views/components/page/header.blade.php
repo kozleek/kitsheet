@@ -2,23 +2,23 @@
 
 <div class="min-h-full">
     <div class="bg-slate-800">
-        @if ($actions != '')
-            <nav class="bg-slate-800">
-                <div class="content-container">
-                    <div class="border-b border-gray-700">
-                        <div class="flex h-16 items-center justify-between">
+        <nav class="bg-slate-800">
+            <div class="content-container">
+                <div class="border-b border-gray-700">
+                    <div class="flex h-16 items-center justify-between">
+                        @if ($actions != '')
                             <div class="flex items-center">
                                 <div class="flex items-baseline gap-4">
                                     {{ $actions }}
                                 </div>
                             </div>
+                        @endif
 
-                            <x-page.langs />
-                        </div>
+                        <x-page.langs />
                     </div>
                 </div>
-            </nav>
-        @endif
+            </div>
+        </nav>
         <header class="py-10">
             <div class="content-container">
                 @if ($title)
