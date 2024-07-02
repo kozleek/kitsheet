@@ -16,12 +16,12 @@ Route::localized(function () {
     Route::get('/s/{fingerprint}', [SheetController::class, 'showByFingerprint'])->name('sheet.fingerprint');
     Route::get('/report', [ReportController::class, 'create'])->name('report.create');
     Route::get('/report/{id}/thank-you', [ReportController::class, 'thankYou'])->name('report.thankYou');
-});
 
-Route::post('/kit/store', [KitController::class, 'store'])->name('kit.store');
-Route::patch('/kit/{kit}/update', [KitController::class, 'update'])->name('kit.update');
-Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destroy');
-Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
-Route::post('/report/store', [ReportController::class, 'store'])->name('report.store');
+    Route::post('/kit/store', [KitController::class, 'store'])->name('kit.store');
+    Route::patch('/kit/{kit}/update', [KitController::class, 'update'])->name('kit.update');
+    Route::delete('/kit/{kit}', [KitController::class, 'destroy'])->name('kit.destroy');
+    Route::post('/sheet/{sheet}/check', [SheetController::class, 'check'])->name('sheet.check');
+    Route::post('/report/store', [ReportController::class, 'store'])->name('report.store');
+});
 
 Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
