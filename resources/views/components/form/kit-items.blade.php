@@ -28,30 +28,30 @@
 
     <x-form.section label="{{ __('kit.form.section_4.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <x-form.checkbox label="{{ __('kit.form.operation_add') }}" name="operationAdd" value="{{ $kit ? in_array('add', $kit->range_operations) : 'true' }}" />
-            <x-form.checkbox label="{{ __('kit.form.operation_subtract') }}" name="operationSubtract" value="{{ $kit ? in_array('subtract', $kit->range_operations) : 'true' }}" />
-            <x-form.checkbox label="{{ __('kit.form.operation_multiply') }}" name="operationMultiply" value="{{ $kit ? in_array('multiply', $kit->range_operations) : 'false' }}" />
-            <x-form.checkbox label="{{ __('kit.form.operation_divide') }}" name="operationDivide" value="{{ $kit ? in_array('divide', $kit->range_operations) : 'false' }}" />
+            <x-form.checkbox label="{{ __('operations.add') }}" name="operationAdd" value="{{ $kit ? in_array('add', $kit->range_operations) : 'true' }}" />
+            <x-form.checkbox label="{{ __('operations.subtract') }}" name="operationSubtract" value="{{ $kit ? in_array('subtract', $kit->range_operations) : 'true' }}" />
+            <x-form.checkbox label="{{ __('operations.multiply') }}" name="operationMultiply" value="{{ $kit ? in_array('multiply', $kit->range_operations) : 'false' }}" />
+            <x-form.checkbox label="{{ __('operations.divide') }}" name="operationDivide" value="{{ $kit ? in_array('divide', $kit->range_operations) : 'false' }}" />
         </div>
     </x-form.section>
 
     <x-form.section label="{{ __('kit.form.section_5.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
             <x-form.checkbox
-                label="{{ __('kit.form.settings_examples_only_positive.label') }}"
-                description="{{ __('kit.form.settings_examples_only_positive.description') }}"
+                label="{{ __('settings.only_positive.label') }}"
+                description="{{ __('settings.only_positive.description') }}"
                 name="settingsExamplesOnlyPositive"
                 value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}"
             />
             <x-form.checkbox
-                label="{{ __('kit.form.settings_examples_with_parentheses.label') }}"
-                description="{{ __('kit.form.settings_examples_with_parentheses.description') }}"
+                label="{{ __('settings.with_parentheses.label') }}"
+                description="{{ __('settings.with_parentheses.description') }}"
                 name="settingsExamplesWithParentheses"
                 value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}"
             />
             <x-form.checkbox
-                label="{{ __('kit.form.settings_examples_selection_of_results.label') }}"
-                description="{{ __('kit.form.settings_examples_selection_of_results.description') }}"
+                label="{{ __('settings.selection_of_results.label') }}"
+                description="{{ __('settings.selection_of_results.description') }}"
                 name="settingsExamplesSelectionOfResults"
                 value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}"
             />

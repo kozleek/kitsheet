@@ -66,7 +66,7 @@ class KitController extends Controller
     public function show(Kit $kit)
     {
         $title = KitSupport::getKitName($kit);
-        $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
+        $description = $kit->description ? $kit->description : __('kit.header.description');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
         $disableEdit = !$kit->canEdit;

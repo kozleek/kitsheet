@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'header' => [
+        'title' => 'Sada pracovních listů',
+        'description' => 'Seznam pracovních listů v sadě.',
+    ],
     'form' => [
         'section_1' => [
             'label' => 'Základní informace',
@@ -28,22 +32,6 @@ return [
         'range_min' => 'Minimum',
         'range_max' => 'Maximum',
         'range_decimals' => 'Počet desetinných míst',
-        'operation_add' => 'Sčítání',
-        'operation_subtract' => 'Odčítání',
-        'operation_multiply' => 'Násobení',
-        'operation_divide' => 'Dělení',
-        'settings_examples_only_positive' => [
-            'label' => 'Pouze kladné výsledky',
-            'description' => 'Negenerují se příklady se záporným výsledkem.',
-        ],
-        'settings_examples_with_parentheses' => [
-            'label' => 'Priority operátorů',
-            'description' => 'Do příkladů se přidají závorky pro dvojice čísel.',
-        ],
-        'settings_examples_selection_of_results' => [
-            'label' => 'Přiřazení výsledku',
-            'description' => 'Výběr z existujících výsledků.',
-        ],
         'back_button' => 'Zpět na sadu',
         'create_button' => 'Vytvořit pracovní listy',
         'edit_button' => 'Uložit sadu',

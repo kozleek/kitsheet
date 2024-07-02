@@ -15,7 +15,7 @@ class KitSupport
     public static function getKitName($kit): string
     {
         // default title
-        $title = 'Sada pracovních listů';
+        $title = __('kit.header.title');
 
         // if title is set, use it
         if ($kit->title) {
@@ -39,13 +39,13 @@ class KitSupport
         foreach ($settings as $setting) {
             switch ($setting) {
                 case 'onlyPositive':
-                    $settingsNames[] = 'Pouze kladné výsledky';
+                    $settingsNames[] = __('settings.only_positive.label');
                     break;
                 case 'withParentheses':
-                    $settingsNames[] = 'Priority operátorů';
+                    $settingsNames[] = __('settings.with_parentheses.label');
                     break;
                 case 'selectionOfResults':
-                    $settingsNames[] = 'Přiřazení výsledku';
+                    $settingsNames[] = __('settings.selection_of_results.label');
                     break;
             }
         }
