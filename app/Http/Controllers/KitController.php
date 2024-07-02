@@ -157,8 +157,8 @@ class KitController extends Controller
 
     public function print(Kit $kit)
     {
-        $title = KitSupport::getKitName($kit);
-        $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $title = __('print.header.title');
+        $description = $kit->description ? $kit->description : __('print.header.description');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
@@ -192,8 +192,8 @@ class KitController extends Controller
 
      public function qr(Kit $kit)
      {
-         $title = 'QR kódy pro sadu pracovních listů';
-         $description = 'Tisková verze QR kódů pracovních listů';
+         $title = __('qr.header.title');
+         $description = __('qr.header.description');
          $pageTitle = SeoSupport::getPageTitle($title);
          $pageDescription = SeoSupport::getMetaDescription($description);
 
