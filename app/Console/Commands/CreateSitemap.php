@@ -31,8 +31,12 @@ class CreateSitemap extends Command
         $path = public_path('sitemap.xml');
 
         Sitemap::create()
-        ->add(Url::create(route('kit.create')))
-        ->add(Url::create(route('report.create')))
+        ->add(Url::create(route('cs.kit.create')))
+        ->add(Url::create(route('en.kit.create')))
+        ->add(Url::create(route('de.kit.create')))
+        ->add(Url::create(route('cs.report.create')))
+        ->add(Url::create(route('en.report.create')))
+        ->add(Url::create(route('de.report.create')))
         ->writeToFile($path);
 
     }
