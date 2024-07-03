@@ -2,7 +2,7 @@
 
 return [
     'header' => [
-        'title' => 'Sheet no.',
+        'title' => 'Worksheet #',
     ],
     'form' => [
         'save_button' => 'Send for review',

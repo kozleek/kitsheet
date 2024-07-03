@@ -6,11 +6,11 @@
         {{ $kit->count_numbers }}
         <span class="hidden md:block">
             @if ($kit->count_numbers === 1)
-                číslo
+                {{ __('info.numbers.level_1') }}
             @elseif ($kit->count_numbers > 1 && $kit->count_numbers < 5)
-                čísla
+                {{ __('info.numbers.level_2') }}
             @else
-                čísel
+                {{ __('info.numbers.level_3') }}
             @endif
         </span>
     </div>
