@@ -24,5 +24,13 @@ return [
         'browser' => 'Navegador:',
         'resolution' => 'Resolución de pantalla:',
         'window_size' => 'Tamaño de la ventana:',
-    ]
+    ],
+    'thank_you' => [
+        'title' => 'Gracias por tus comentarios',
+        'description' => 'Gracias por tus comentarios sobre la aplicación KitSheet.',
+        'back_button' => 'Volver a la página principal',
+        'wrote' => 'escribió',
+        'text' => '<p>Gracias por informar del error. Intentaré solucionarlo lo antes posible.</p><p>A continuación se muestra un resumen de tu informe:</p>',
+        'tech_info' => 'Información técnica',
+    ],
 ];

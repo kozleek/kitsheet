@@ -24,5 +24,13 @@ return [
         'browser' => 'Browser:',
         'resolution' => 'Auflösung:',
         'window_size' => 'Fenstergröße:',
-    ]
+    ],
+    'thank_you' => [
+        'title' => 'Danke für Ihr Feedback',
+        'description' => 'Danke für Ihr Feedback zur KitSheet-Anwendung.',
+        'back_button' => 'Zurück zur Startseite',
+        'wrote' => 'schrieb',
+        'text' => '<p>Danke für die Fehlerberichterstattung. Ich werde versuchen, es so schnell wie möglich zu beheben.</p><p>Unten finden Sie eine Zusammenfassung Ihres Berichts:</p>',
+        'tech_info' => 'Technische Informationen',
+    ],
 ];

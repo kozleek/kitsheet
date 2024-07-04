@@ -60,10 +60,11 @@ class ReportController extends Controller
 
     public function thankYou()
     {
-        $title = 'Děkuji za zpětnou vazbu';
-        $description = 'Poděkování za zpětnou vazbu k aplikaci KitSheet.';
+        $title = __('report.thank_you.title');
+        $description = __('report.thank_you.description');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
+        $disableEdit = false;
 
         $report = Report::findOrFail(request('id'));
 
@@ -73,6 +74,7 @@ class ReportController extends Controller
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
             'report' => $report,
+            'disableEdit' => $disableEdit,
         ]);
     }
 }

@@ -24,5 +24,13 @@ return [
         'browser' => 'Browser:',
         'resolution' => 'Resolution:',
         'window_size' => 'Window size:',
-    ]
+    ],
+    'thank_you' => [
+        'title' => 'Thank you for your feedback',
+        'description' => 'Thank you for your feedback on the KitSheet application.',
+        'back_button' => 'Back to the homepage',
+        'wrote' => 'wrote',
+        'text' => '<p>Thank you for reporting the bug. I will try to fix it as soon as possible.</p><p>Below is a summary of your report:</p>',
+        'tech_info' => 'Technical information',
+    ],
 ];

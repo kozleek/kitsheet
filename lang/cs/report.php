@@ -24,5 +24,13 @@ return [
         'browser' => 'Prohlížeč:',
         'resolution' => 'Rozlišení obrazovky:',
         'window_size' => 'Velikost okna:',
-    ]
+    ],
+    'thank_you' => [
+        'title' => 'Děkuji za zpětnou vazbu',
+        'description' => 'Poděkování za zpětnou vazbu k aplikaci KitSheet.',
+        'back_button' => 'Zpět na hlavní stránku',
+        'wrote' => 'napsal(a)',
+        'text' => '<p>Děkuji za nahlášení chyby. Budu se snažit ji co nejdříve opravit.</p><p>Níže je shrnutí Vašeho hlášení:</p>',
+        'tech_info' => 'Technické informace',
+    ],
 ];
