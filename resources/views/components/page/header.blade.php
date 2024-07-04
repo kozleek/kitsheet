@@ -14,7 +14,9 @@
                             </div>
                         @endif
 
-                        <x-page.langs />
+                        @if(Str::contains(Route::currentRouteName(), 'kit.create'))
+                            <x-page.langs />
+                        @endif
                     </div>
                 </div>
             </div>
