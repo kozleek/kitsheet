@@ -6,11 +6,11 @@
         {{ $kit->count_examples }}
         <span class="hidden md:block">
             @if ($kit->count_examples === 1)
-                příklad
+                {{ __('info.examples.level_1') }}
             @elseif ($kit->count_examples > 1 && $kit->count_examples < 5)
-                příklady
+                {{ __('info.examples.level_2') }}
             @else
-                příkladů
+                {{ __('info.examples.level_3') }}
             @endif
         </span>
     </div>

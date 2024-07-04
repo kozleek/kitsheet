@@ -2,21 +2,27 @@
 
 <div class="min-h-full">
     <div class="bg-slate-800">
-        @if ($actions != '')
-            <nav class="bg-slate-800">
-                <div class="content-container">
+        <nav class="bg-slate-800">
+            <div class="content-container">
+                @if ($actions != '' || Str::contains(Route::currentRouteName(), 'kit.create'))
                     <div class="border-b border-gray-700">
                         <div class="flex h-16 items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="flex items-baseline gap-4">
-                                    {{ $actions }}
+                            @if ($actions != '')
+                                <div class="flex items-center">
+                                    <div class="flex items-baseline gap-4">
+                                        {{ $actions }}
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
+
+                            @if(Str::contains(Route::currentRouteName(), 'kit.create'))
+                                <x-page.langs />
+                            @endif
                         </div>
                     </div>
-                </div>
-            </nav>
-        @endif
+                @endif
+            </div>
+        </nav>
         <header class="py-10">
             <div class="content-container">
                 @if ($title)

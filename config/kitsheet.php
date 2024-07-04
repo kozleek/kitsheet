@@ -4,27 +4,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Author
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
-    |
+    | Author of the application.
     */
 
-    'name' => env('APP_NAME', 'KitSheet.cz'),
+    'author' => 'Tomáš Musiol',
+    'author_url' => 'https://www.musiol.cz',
+    'author_email' => 'tomas.musiol@gmail.com',
 
     /*
     |--------------------------------------------------------------------------
-    | Application description
+    | Default year
     |--------------------------------------------------------------------------
     |
-    | Default description of the application.
-    |
+    | Default year of the application.
     */
 
-    'description' => 'KitSheet je jednoduchý (ale promyšlený) generátor pracovních listů do matematiky.',
-
+    'year' => '2021',
 
 ];

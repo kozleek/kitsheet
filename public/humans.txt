@@ -1,0 +1,15 @@
+/* TEAM */
+    Author (Developer): Tomáš Musiol
+    Contact: tomas.musiol@gmail.com
+    LinkedIn: https://www.linkedin.com/in/tomasmusiol/
+    Site: https://www.musiol.cz
+    From: Trnávka, Czechia.
+
+/* SITE */
+    URL: https://www.kitsheet.cz
+    Technologies: PHP 8, Laravel, Blade, Livewire, TailwindCSS
+	Language: Czech / English / Deutch
+	Doctype:HTML5
+	IDE: VSCode, GitHub
+
+KitSheet is a simple (but well-thought-out) generator of math worksheets.

@@ -2,7 +2,7 @@
 
 @section('actions')
     <x-action icon="heroicon-o-chevron-left" href="{{ route('kit.show', ['kit' => $kit]) }}">
-        Zpět na výpis
+        {{ __('kit.header.back_button') }}
     </x-action>
 @endsection
 
@@ -20,7 +20,7 @@
             <div class="mt-6 flex items-center gap-4">
                 <a href="#" class="button button-primary" x-on:click="modal='modal-kit-update'" >
                     <x-heroicon-o-check class="h-5 w-5" />
-                    Uložit sadu
+                    {{ __('kit.form.edit_button') }}
                 </a>
             </div>
         </form>

@@ -33,7 +33,7 @@
                         @csrf
                         <a href="#" class="button button-primary" x-on:click="modal='modal-sheet-check'">
                             <x-heroicon-o-check />
-                            Odeslat ke kontrole
+                            {{ __('sheet.form.save_button') }}
                         </a>
                     </form>
                 </div>

@@ -24,8 +24,8 @@ class KitController extends Controller
 
     public function create()
     {
-        $title = config('kitsheet.name');
-        $description = config('kitsheet.description');
+        $title = config('app.name');
+        $description = __('app.description');
         $pageTitle = SeoSupport::getPageTitle();
         $pageDescription = SeoSupport::getMetaDescription($description);
         $disableEdit = false;
@@ -66,7 +66,7 @@ class KitController extends Controller
     public function show(Kit $kit)
     {
         $title = KitSupport::getKitName($kit);
-        $description = $kit->description ? $kit->description : 'Seznam pracovních listů v sadě.';
+        $description = $kit->description ? $kit->description : __('kit.header.description');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaInfo($kit);
         $disableEdit = !$kit->canEdit;
@@ -157,8 +157,8 @@ class KitController extends Controller
 
     public function print(Kit $kit)
     {
-        $title = KitSupport::getKitName($kit);
-        $description = $kit->description ? $kit->description : 'Tisková verze sady pracovních listů';
+        $title = __('print.header.title');
+        $description = $kit->description ? $kit->description : __('print.header.description');
         $pageTitle = SeoSupport::getPageTitle($title);
         $pageDescription = SeoSupport::getMetaDescription($description);
 
@@ -192,8 +192,8 @@ class KitController extends Controller
 
      public function qr(Kit $kit)
      {
-         $title = 'QR kódy pracovních listů';
-         $description = 'Tisková verze QR kódů pracovních listů';
+         $title = __('qr.header.title');
+         $description = __('qr.header.description');
          $pageTitle = SeoSupport::getPageTitle($title);
          $pageDescription = SeoSupport::getMetaDescription($description);
 

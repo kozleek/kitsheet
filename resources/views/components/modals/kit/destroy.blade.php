@@ -2,11 +2,11 @@
 
 <x-modals.default id="{{ $id }}">
     <x-slot:title>
-        Smazat tuto sadu pracovních listů?
+        {{ __('modals.kit.destroy.title') }}
     </x-slot:title>
 
     <x-slot:text>
-        <p>Všechny existující pracovní listy a jejich související příklady budou smazány.</p>
+        {!! __('modals.kit.destroy.text') !!}
     </x-slot:text>
 
     <x-slot:actions>
@@ -16,7 +16,7 @@
 
             <button type="submit" class="button button-danger">
                 <x-heroicon-o-trash />
-                Smazat sadu
+                {{ __('modals.kit.destroy.submit') }}
             </button>
         </form>
     </x-slot:actions>

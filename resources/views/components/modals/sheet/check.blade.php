@@ -2,17 +2,17 @@
 
 <x-modals.default id="{{ $id }}">
     <x-slot:title>
-        Zkontroloval/a si všechny výsledky?
+        {{ __('modals.sheet.check.title') }}
     </x-slot:title>
 
     <x-slot:text>
-        <p>Pracovní list bude odeslán učiteli k vyhodnocení. Po odeslání už nebude možné ho upravit.</p>
+        {!! __('modals.sheet.check.text') !!}
     </x-slot:text>
 
     <x-slot:actions>
         <button x-on:click="document.getElementById('form-sheet-check').submit()" class="button button-danger">
             <x-heroicon-o-check />
-            Odeslat ke kontrole
+            {{ __('modals.sheet.check.submit') }}
         </button>
     </x-slot:actions>
 </x-modals.default>

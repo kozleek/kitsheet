@@ -16,7 +16,7 @@
     <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 w-full md:w-auto px-4 md:px-0">
             <div
-                class="relative transform overflow-hidden rounded-lg bg-white px-5 pb-4 pt-5 text-left shadow-xl transition-all w-full sm:max-w-xl sm:p-6 md:min-w-[700px]"
+                class="relative transform rounded-lg bg-white px-5 pb-4 pt-5 text-left shadow-xl transition-all w-full sm:max-w-xl sm:p-6 md:min-w-[700px]"
                 x-on:click.outside="modal = null"
                 x-show="modal=='{{ $id }}'"
                 x-transition:enter="transition ease-out duration-300"
@@ -43,7 +43,9 @@
                 @if ($actions)
                     <div class="mt-4 sm:mt-8 sm:flex flex items-center gap-4">
                         {{ $actions }}
-                        <span x-on:click="modal=null" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">Zrušit</span>
+                        <span x-on:click="modal=null" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">
+                            {{ __('app.cancel') }}
+                        </span>
                     </div>
                 @endif
             </div>

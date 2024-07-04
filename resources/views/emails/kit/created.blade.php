@@ -20,6 +20,8 @@ Jméno učitele: {{ $kit->teacher_name }}
 E-mail: {{ $kit->teacher_email }}
 @endif
 
+Jazyk: {{ $kit->locale }}
+
 Počet pracovních listů: {{ $kit->count_sheets }}
 
 Počet příkladů v pracovním listu: {{ $kit->count_examples }}

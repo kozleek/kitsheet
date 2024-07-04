@@ -7,9 +7,10 @@
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="theme-color" content="#444E5D"/>
+    <link rel="author" href="/humans.txt" />
 
     <!-- HTML Meta Tags -->
-    <title>{{ $pageTitle }} </title>
+    <title>{{ $pageTitle }}</title>
     <meta name="description" content="{{ $pageDescription }}">
 
     <!-- Facebook Meta Tags -->
@@ -55,7 +56,7 @@
     <div class="bg-slate-800">
         @if ($disableEdit)
             <x-page.announcement>
-                <strong class="font-semibold">Sadu již nelze editovat</strong>, <span class="text-white">byl vyplněný min. jeden příklad. <br />V případě potřeby si <a href="{{ route('kit.create') }}" target="_blank" class="underline hover:no-underline">vytvořte novou sadu</a>.</span>
+                {!! __('announcement.edit_disabled') !!}
             </x-page.announcement>
         @endif
 

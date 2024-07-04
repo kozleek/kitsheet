@@ -9,7 +9,7 @@ class SeoSupport
      */
     public static function getPageTitle($title = ''): string
     {
-        return $title != '' ? ucfirst($title) . ' - ' . config('kitsheet.name') : config('kitsheet.name');
+        return $title != '' ? ucfirst($title) . ' - ' . config('app.name') : config('app.name')  .' - '. __('app.description_short');
     }
 
     /**
@@ -73,6 +73,6 @@ class SeoSupport
      */
     public static function getMetaDescription($description = ''): string
     {
-        return $description != '' ? $description : config('kitsheet.description');
+        return $description != '' ? $description : __('app.description');
     }
 }

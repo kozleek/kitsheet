@@ -1,45 +1,60 @@
 @props(['kit' => null])
 
 <div class="space-y-4">
-    <x-form.section label="Základní informace" description="Jméno učitele a e-mail jsou nepovinné údaje. Pokud zadáte e-mail, tak Vám příjde automatická zpráva s informacemi o Vaši sadě pracovních listů.">
+    <x-form.section label="{{ __('kit.form.section_1.label') }}" description="{!! __('kit.form.section_1.description') !!}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-8">
-            <x-form.input type="text" label="Název sady" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
-            <x-form.input type="text" label="Stručný popis sady" name="description" value="{{ $kit ? $kit->description : '' }}" />
-            <x-form.input type="text" label="Učitel" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
-            <x-form.input type="text" label="E-mail" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
+            <x-form.input type="text" label="{{ __('kit.form.kit_title') }}" name="title" value="{{ $kit ? $kit->title : '' }}" autofocus />
+            <x-form.input type="text" label="{{ __('kit.form.kit_description') }}" name="description" value="{{ $kit ? $kit->description : '' }}" />
+            <x-form.input type="text" label="{{ __('kit.form.teacher_name') }}" name="teacherName" value="{{ $kit ? $kit->teacher_name : '' }}" />
+            <x-form.input type="text" label="{{ __('kit.form.teacher_email') }}" name="teacherEmail" value="{{ $kit ? $kit->teacher_email : '' }}" />
         </div>
     </x-form.section>
 
-    <x-form.section label="Pracovní listy">
+    <x-form.section label="{{ __('kit.form.section_2.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <x-form.input type="number" label="Počet pracovních listů" name="countSheets" value="{{ $kit ? $kit->count_sheets : '10' }}" min="1" max="50" required />
-            <x-form.input type="number" label="Počet příkladů v pracovním listu" name="countExamples" value="{{ $kit ? $kit->count_examples : '10' }}" min="1" max="50" required />
+            <x-form.input type="number" label="{{ __('kit.form.count_sheets') }}" name="countSheets" value="{{ $kit ? $kit->count_sheets : '10' }}" min="1" max="50" required />
+            <x-form.input type="number" label="{{ __('kit.form.count_examples') }}" name="countExamples" value="{{ $kit ? $kit->count_examples : '10' }}" min="1" max="50" required />
         </div>
     </x-form.section>
 
-    <x-form.section label="Číselné hodnoty">
+    <x-form.section label="{{ __('kit.form.section_3.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <x-form.input type="number" label="Minimum" name="rangeMin" value="{{ $kit ? $kit->range_numbers['min'] : '1' }}" min="-1000000" max="1000000" required />
-            <x-form.input type="number" label="Maximum" name="rangeMax" value="{{ $kit ? $kit->range_numbers['max'] : '50' }}" min="-1000000" max="1000000" required />
-            <x-form.input type="number" label="Počet čísel v příkladu" name="countNumbers" value="{{ $kit ? $kit->count_numbers : '2' }}" min="2" max="5" required />
-            <x-form.input type="number" label="Počet desetinných míst" name="rangeDecimals" value="{{ $kit ? $kit->range_numbers['decimals'] : '0' }}" min="0" max="3" required />
+            <x-form.input type="number" label="{{ __('kit.form.range_min') }}" name="rangeMin" value="{{ $kit ? $kit->range_numbers['min'] : '1' }}" min="-1000000" max="1000000" required />
+            <x-form.input type="number" label="{{ __('kit.form.range_max') }}" name="rangeMax" value="{{ $kit ? $kit->range_numbers['max'] : '50' }}" min="-1000000" max="1000000" required />
+            <x-form.input type="number" label="{{ __('kit.form.count_numbers') }}" name="countNumbers" value="{{ $kit ? $kit->count_numbers : '2' }}" min="2" max="5" required />
+            <x-form.input type="number" label="{{ __('kit.form.range_decimals') }}" name="rangeDecimals" value="{{ $kit ? $kit->range_numbers['decimals'] : '0' }}" min="0" max="3" required />
         </div>
     </x-form.section>
 
-    <x-form.section label="Matematické operace">
+    <x-form.section label="{{ __('kit.form.section_4.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <x-form.checkbox label="Sčítání" name="operationAdd" value="{{ $kit ? in_array('add', $kit->range_operations) : 'true' }}" />
-            <x-form.checkbox label="Odčítání" name="operationSubtract" value="{{ $kit ? in_array('subtract', $kit->range_operations) : 'true' }}" />
-            <x-form.checkbox label="Násobení" name="operationMultiply" value="{{ $kit ? in_array('multiply', $kit->range_operations) : 'false' }}" />
-            <x-form.checkbox label="Dělení" name="operationDivide" value="{{ $kit ? in_array('divide', $kit->range_operations) : 'false' }}" />
+            <x-form.checkbox label="{{ __('operations.add') }}" name="operationAdd" value="{{ $kit ? in_array('add', $kit->range_operations) : 'true' }}" />
+            <x-form.checkbox label="{{ __('operations.subtract') }}" name="operationSubtract" value="{{ $kit ? in_array('subtract', $kit->range_operations) : 'true' }}" />
+            <x-form.checkbox label="{{ __('operations.multiply') }}" name="operationMultiply" value="{{ $kit ? in_array('multiply', $kit->range_operations) : 'false' }}" />
+            <x-form.checkbox label="{{ __('operations.divide') }}" name="operationDivide" value="{{ $kit ? in_array('divide', $kit->range_operations) : 'false' }}" />
         </div>
     </x-form.section>
 
-    <x-form.section label="Nastavení">
+    <x-form.section label="{{ __('kit.form.section_5.label') }}">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <x-form.checkbox label="Pouze kladné výsledky" description="Negenerují se příklady se záporným výsledkem." name="settingsExamplesOnlyPositive" value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}" />
-            <x-form.checkbox label="Priority operátorů" description="Do příkladů se přidají závorky pro dvojice čísel." name="settingsExamplesWithParentheses" value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}" />
-            <x-form.checkbox label="Přiřazení výsledku" description="Výběr z existujících výsledků." name="settingsExamplesSelectionOfResults" value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}" />
+            <x-form.checkbox
+                label="{{ __('settings.only_positive.label') }}"
+                description="{{ __('settings.only_positive.description') }}"
+                name="settingsExamplesOnlyPositive"
+                value="{{ $kit ? in_array('onlyPositive', $kit->settings_examples) : 'true' }}"
+            />
+            <x-form.checkbox
+                label="{{ __('settings.with_parentheses.label') }}"
+                description="{{ __('settings.with_parentheses.description') }}"
+                name="settingsExamplesWithParentheses"
+                value="{{ $kit ? in_array('withParentheses', $kit->settings_examples) : 'false' }}"
+            />
+            <x-form.checkbox
+                label="{{ __('settings.selection_of_results.label') }}"
+                description="{{ __('settings.selection_of_results.description') }}"
+                name="settingsExamplesSelectionOfResults"
+                value="{{ $kit ? in_array('selectionOfResults', $kit->settings_examples) : 'false' }}"
+            />
         </div>
     </x-form.section>
 </div>

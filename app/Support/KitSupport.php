@@ -15,7 +15,7 @@ class KitSupport
     public static function getKitName($kit): string
     {
         // default title
-        $title = 'Sada pracovních listů';
+        $title = __('kit.header.title');
 
         // if title is set, use it
         if ($kit->title) {
@@ -39,13 +39,13 @@ class KitSupport
         foreach ($settings as $setting) {
             switch ($setting) {
                 case 'onlyPositive':
-                    $settingsNames[] = 'Pouze kladné výsledky';
+                    $settingsNames[] = __('settings.only_positive.label');
                     break;
                 case 'withParentheses':
-                    $settingsNames[] = 'Priority operátorů';
+                    $settingsNames[] = __('settings.with_parentheses.label');
                     break;
                 case 'selectionOfResults':
-                    $settingsNames[] = 'Přiřazení výsledku';
+                    $settingsNames[] = __('settings.selection_of_results.label');
                     break;
             }
         }
@@ -208,6 +208,9 @@ class KitSupport
 
     public static function saveKitData($data, $kit = null): Kit
     {
+        // Get locale
+        $locale = app()->getLocale();
+
         // Set ranges array
         $rangeNumbers = [
             'min'      => $data['rangeMin'],
@@ -246,6 +249,7 @@ class KitSupport
         // if kit is not set, create new kit
         if (is_null($kit)) {
             $kit = Kit::create([
+                'locale'              => $locale,
                 'title'               => ucfirst($data['title']),
                 'description'         => $data['description'],
                 'teacher_name'        => $data['teacherName'],
@@ -259,6 +263,7 @@ class KitSupport
             ]);
         } else {
             $kit->update([
+                'locale'              => $locale,
                 'title'               => ucfirst($data['title']),
                 'description'         => $data['description'],
                 'teacher_name'        => $data['teacherName'],
@@ -286,6 +291,7 @@ class KitSupport
             );
 
             $sheet = $kit->sheets()->create([
+                'locale' => $locale,
                 'code' => $i,
                 'result' => $example['result']
             ]);
