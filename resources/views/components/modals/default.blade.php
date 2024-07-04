@@ -43,7 +43,9 @@
                 @if ($actions)
                     <div class="mt-4 sm:mt-8 sm:flex flex items-center gap-4">
                         {{ $actions }}
-                        <span x-on:click="modal=null" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">Zrušit</span>
+                        <span x-on:click="modal=null" class="text-sm text-gray-400 underline hover:text-gray-600 hover:no-underline cursor-pointer">
+                            {{ __('app.cancel') }}
+                        </span>
                     </div>
                 @endif
             </div>
