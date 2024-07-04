@@ -34,7 +34,7 @@
             @else
                 <div
                     class="size-6 bg-red-200 flex items-center justify-center flex-shrink-0 text-center border border-red-400 rounded cursor-help"
-                    data-tippy-content="Správný výsledek: {{ $example->result }}"
+                    data-tippy-content="{{ __('example.correct_answer') }} {{ $example->result }}"
                 >
                     <x-heroicon-o-x-mark class="text-red-500" />
                 </div>
