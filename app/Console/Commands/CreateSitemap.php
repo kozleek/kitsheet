@@ -36,11 +36,13 @@ class CreateSitemap extends Command
         ->add(Url::create(route('de.kit.create')))
         ->add(Url::create(route('pl.kit.create')))
         ->add(Url::create(route('es.kit.create')))
+        ->add(Url::create(route('ua.kit.create')))
         ->add(Url::create(route('cs.report.create')))
         ->add(Url::create(route('en.report.create')))
         ->add(Url::create(route('de.report.create')))
         ->add(Url::create(route('pl.report.create')))
         ->add(Url::create(route('es.report.create')))
+        ->add(Url::create(route('ua.report.create')))
         ->writeToFile($path);
 
     }

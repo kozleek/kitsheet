@@ -6,7 +6,7 @@
     </x-slot:title>
 
     <x-slot:text>
-        {{ __('modals.kit.update.text') }}
+        {!! __('modals.kit.update.text') !!}
     </x-slot:text>
 
     <x-slot:actions>
