@@ -5,7 +5,7 @@ return [
     /**
      * The locales you wish to support.
      */
-    'supported_locales' => ['cs', 'en', 'de'],
+    'supported_locales' => ['cs', 'en', 'de', 'pl'],
 
     /**
      * The fallback locale to use when generating a route URL
