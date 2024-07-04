@@ -2,7 +2,7 @@
     <div class="space-y-1 text-xs">
         <p>
             {{ config('app.name') }} &copy; {{ config('kitsheet.year')}} - {{ now()->year }}
-            <a href="{{ config('kitsheet.author_url') }}" target="_blank" class="hover:underline text-neutral-100">{{ config('kitsheet.author') }}</a> ({{ config('kitsheet.author_email') }}).
+            <a href="{{ config('kitsheet.author_url') }}" target="_blank" class="hover:underline text-neutral-100">{{ config('kitsheet.author') }}</a> (<a href="mailto:{{ config('kitsheet.author_email') }}" class="hover:underline text-neutral-100">{{ config('kitsheet.author_email') }}</a>).
         </p>
         <p>{!! __('footer.text_1') !!}</p>
         <p>{!! __('footer.text_2') !!}</p>
