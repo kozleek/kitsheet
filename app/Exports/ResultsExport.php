@@ -22,12 +22,12 @@ class ResultsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'Číslo',
-            'Jméno',
-            'Správně',
-            'Špatně',
-            'Neodpovězeno',
-            'URL',
+            __('export.number'),
+            __('export.name'),
+            __('export.correct'),
+            __('export.wrong'),
+            __('export.empty'),
+            __('export.url'),
         ];
     }
 
@@ -38,7 +38,7 @@ class ResultsExport implements FromCollection, WithHeadings
         foreach ($this->kit->sheets()->finished()->get() as $sheet) {
         //foreach ($this->kit->sheets as $sheet) {
             $results[] = [
-                'number' => 'Pracovní list č. ' . $sheet->code,
+                'number' => __('sheet.header.title') . ' ' . $sheet->code,
                 'name' => '',
                 'correct' => $sheet->correct_answers_counter ? $sheet->correct_answers_counter : '0',
                 'wrong' => $sheet->wrong_answers_counter ? $sheet->wrong_answers_counter : '0',
