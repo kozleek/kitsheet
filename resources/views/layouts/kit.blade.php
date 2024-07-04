@@ -10,7 +10,7 @@
     <link rel="author" href="/humans.txt" />
 
     <!-- HTML Meta Tags -->
-    <title>{{ $pageTitle }} </title>
+    <title>{{ $pageTitle }}</title>
     <meta name="description" content="{{ $pageDescription }}">
 
     <!-- Facebook Meta Tags -->

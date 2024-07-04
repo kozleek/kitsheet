@@ -9,7 +9,7 @@ class SeoSupport
      */
     public static function getPageTitle($title = ''): string
     {
-        return $title != '' ? ucfirst($title) . ' - ' . config('app.name') : config('app.name');
+        return $title != '' ? ucfirst($title) . ' - ' . config('app.name') : config('app.name')  .' - '. __('app.description_short');
     }
 
     /**
