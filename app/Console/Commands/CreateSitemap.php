@@ -28,22 +28,20 @@ class CreateSitemap extends Command
     */
     public function handle()
     {
+        // set the path where the sitemap will be saved
         $path = public_path('sitemap.xml');
 
-        Sitemap::create()
-        ->add(Url::create(route('cs.kit.create')))
-        ->add(Url::create(route('en.kit.create')))
-        ->add(Url::create(route('de.kit.create')))
-        ->add(Url::create(route('pl.kit.create')))
-        ->add(Url::create(route('es.kit.create')))
-        ->add(Url::create(route('ua.kit.create')))
-        ->add(Url::create(route('cs.report.create')))
-        ->add(Url::create(route('en.report.create')))
-        ->add(Url::create(route('de.report.create')))
-        ->add(Url::create(route('pl.report.create')))
-        ->add(Url::create(route('es.report.create')))
-        ->add(Url::create(route('ua.report.create')))
-        ->writeToFile($path);
+        // create a new sitemap object
+        $sitemap = Sitemap::create();
 
+        // loop through all locales and add URLs to the sitemap
+        $locales = config('localized-routes.supported_locales');
+        foreach ($locales as $locale) {
+            $sitemap->add(Url::create(route($locale . '.kit.create')));
+            $sitemap->add(Url::create(route($locale . '.report.create')));
+            $this->info('Added URLs for ' . $locale . ' locale.');
+        }
+        $sitemap->writeToFile($path);
+        $this->info('👍 Sitemap created successfully.');
     }
 }
