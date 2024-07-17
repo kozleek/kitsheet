@@ -57,7 +57,7 @@ class KitUpdated extends Mailable
             markdown: 'emails.kit.updated',
             with: [
                 'kit' => $this->kit,
-                'url' => route('cs.kit.show', ['kit' => $this->kit]),
+                'url' => route('kit.show', ['kit' => $this->kit], true, $this->kit->locale),
                 'operations' => OperationSupport::getOperationsNames($this->kit->range_operations),
                 'settings' => KitSupport::getSettingsNames($settings),
             ],
