@@ -50,8 +50,9 @@ class KitController extends Controller
         // Store the kit to the database
         $kit = KitSupport::saveKitData($validateData);
         // Send email notification to the admin
-        Mail::to(config('mail.to.address'))->queue(new KitCreated($kit));
+        Mail::to('tomas.musiol@gmail.com')->queue(new KitCreated($kit));
         // Send email notification to the teacher
+        ray($kit->teacher_email);
         if($kit->teacher_email) {
             Mail::to($kit->teacher_email)->queue(new KitCreated($kit));
         }
