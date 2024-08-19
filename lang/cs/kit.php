@@ -12,6 +12,7 @@ return [
         'create' => 'Vytvořit novou sadu',
         'qr_codes' => 'QR kódy',
         'export_excel' => 'Export do MS Excel',
+        'export_pdf' => 'Export do PDF',
         'print' => 'Tisková verze',
     ],
     'form' => [

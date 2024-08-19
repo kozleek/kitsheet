@@ -12,6 +12,7 @@ return [
         'create' => 'Utwórz nowy zestaw',
         'qr_codes' => 'Kody QR',
         'export_excel' => 'Eksportuj do MS Excel',
+        'export_pdf' => 'Eksportuj do PDF',
         'print' => 'Wersja do druku',
     ],
     'form' => [
