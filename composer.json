@@ -14,6 +14,7 @@
         "livewire/livewire": "^3.4",
         "maatwebsite/excel": "^3.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
+        "spatie/laravel-pdf": "^1.5",
         "spatie/laravel-ray": "^1.35",
         "spatie/laravel-sitemap": "^7.2",
         "vormkracht10/laravel-open-graph-image": "^0.7.2"

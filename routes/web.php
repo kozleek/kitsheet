@@ -12,6 +12,7 @@ Route::localized(function () {
     Route::get('/kit/{kit}/print', [KitController::class, 'print'])->name('kit.print');
     Route::get('/kit/{kit}/qr', [KitController::class, 'qr'])->name('kit.qr');
     Route::get('/kit/{kit}/excel', [KitController::class, 'excel'])->name('kit.excel');
+    Route::get('/kit/{kit}/pdf', [KitController::class, 'pdf'])->name('kit.pdf');
     Route::get('/sheet/{sheet}', [SheetController::class, 'show'])->name('sheet.show');
     Route::get('/s/{fingerprint}', [SheetController::class, 'showByFingerprint'])->name('sheet.fingerprint');
     Route::get('/report', [ReportController::class, 'create'])->name('report.create');

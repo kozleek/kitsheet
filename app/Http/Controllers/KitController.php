@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Kit;
 use App\Mail\KitCreated;
 use App\Mail\KitUpdated;
 use App\Mail\KitDestroyed;
 use App\Support\KitSupport;
 use App\Support\SeoSupport;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Exports\ResultsExport;
 use App\Http\Requests\KitRequest;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+
 use Maatwebsite\Excel\Facades\Excel;
+use function Spatie\LaravelPdf\Support\pdf;
 
 class KitController extends Controller
 {
@@ -215,7 +218,48 @@ class KitController extends Controller
 
      public function excel(Kit $kit)
      {
-        $filename = 'kitsheet-hodnoceni-' . Carbon::now()->format('Y-m-d-H-i') . '.xlsx';
+        $filename = 'kitsheet-hodnoceni-' . Carbon::now()->format('j-n-Y') . '.xlsx';
         return Excel::download(new ResultsExport($kit), $filename );
      }
+
+    /**
+     * Export kit to PDF.
+     * Export the kit to PDF file.
+     */
+
+    public function pdf(Kit $kit)
+    {
+        $filename = 'kitsheet-' . Str::slug($kit->title, '-') . '-' . Carbon::now()->format('j-n-Y') . '.pdf';
+
+        $title = __('print.header.title');
+        $description = $kit->description ? $kit->description : __('print.header.description');
+        $pageTitle = SeoSupport::getPageTitle($title);
+        $pageDescription = SeoSupport::getMetaDescription($description);
+
+        $results = [];
+
+        $index = 0;
+        foreach ($kit->sheets as $sheet) {
+            $results[$index][] = $sheet->result;
+            foreach ($sheet->examples as $example) {
+                $results[$index][] = $example->result;
+            }
+            $results[$index] = collect($results[$index])->shuffle();
+            $index++;
+        }
+
+        return pdf()
+            ->view('kit.print', [
+                'title' => $title,
+                'description' => $description,
+                'pageTitle' => $pageTitle,
+                'pageDescription' => $pageDescription,
+                'kit' => $kit,
+                'results' => $results,
+                'settings' => KitSupport::getSettingsNames($kit->settings_examples),
+            ])
+            ->name($filename)
+            ->margins("10", "10", "10", "10")
+            ->download();
+    }
 }

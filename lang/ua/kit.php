@@ -12,6 +12,7 @@ return [
         'create' => 'Створити новий набір',
         'qr_codes' => 'QR-коди',
         'export_excel' => 'Експорт до MS Excel',
+        'export_pdf' => 'Експорт до PDF',
         'print' => 'Версія для друку',
     ],
     'form' => [

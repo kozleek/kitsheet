@@ -12,6 +12,7 @@ return [
         'create' => 'Create new set',
         'qr_codes' => 'QR codes',
         'export_excel' => 'Export to MS Excel',
+        'export_pdf' => 'Export to PDF',
         'print' => 'Print version',
     ],
     'form' => [

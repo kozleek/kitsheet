@@ -30,12 +30,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     @vite(['resources/css/app.css'])
-
-    <script>
-        window.onload = function() {
-          window.print();
-        };
-    </script>
 </head>
 
 <body class="min-h-full antialiased">
