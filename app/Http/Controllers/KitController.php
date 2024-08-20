@@ -12,9 +12,10 @@ use App\Support\SeoSupport;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Exports\ResultsExport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Requests\KitRequest;
-use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use function Spatie\LaravelPdf\Support\pdf;
 
@@ -248,8 +249,21 @@ class KitController extends Controller
             $index++;
         }
 
-        return pdf()
-            ->view('kit.print', [
+        // return pdf()
+        //     ->view('kit.print', [
+        //         'title' => $title,
+        //         'description' => $description,
+        //         'pageTitle' => $pageTitle,
+        //         'pageDescription' => $pageDescription,
+        //         'kit' => $kit,
+        //         'results' => $results,
+        //         'settings' => KitSupport::getSettingsNames($kit->settings_examples),
+        //     ])
+        //     ->name($filename)
+        //     ->margins("10", "10", "10", "10")
+        //     ->download();
+
+        $pdf = Pdf::loadView('kit.print', [
                 'title' => $title,
                 'description' => $description,
                 'pageTitle' => $pageTitle,
@@ -257,9 +271,7 @@ class KitController extends Controller
                 'kit' => $kit,
                 'results' => $results,
                 'settings' => KitSupport::getSettingsNames($kit->settings_examples),
-            ])
-            ->name($filename)
-            ->margins("10", "10", "10", "10")
-            ->download();
+            ]);
+        return $pdf->download($filename);
     }
 }
