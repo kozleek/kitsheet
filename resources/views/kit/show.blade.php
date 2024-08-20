@@ -17,6 +17,7 @@
     <x-action icon="heroicon-o-document-plus" tooltip="{{ __('kit.toolbar.create') }}" href="{{ route('kit.create') }}" target="_blank" />
     <x-action icon="heroicon-o-qr-code" tooltip="{{ __('kit.toolbar.qr_codes') }}" x-on:click="printThis('{{ route('kit.qr', ['kit' => $kit]) }}');" />
     <x-action icon="heroicon-o-table-cells" tooltip="{{ __('kit.toolbar.export_excel') }}" href="{{ route('kit.excel', ['kit' => $kit]) }}" />
+    <x-action icon="heroicon-o-document-arrow-down" tooltip="{{ __('kit.toolbar.export_pdf') }}" href="{{ route('kit.pdf', ['kit' => $kit]) }}" />
     <x-action icon="heroicon-o-printer" tooltip="{{ __('kit.toolbar.print') }}" x-on:click="printThis('{{ route('kit.print', ['kit' => $kit]) }}');" />
 @endsection
 
