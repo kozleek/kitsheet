@@ -10,6 +10,7 @@
     <x-page.content>
         <form action="{{ route('report.store') }}" method="post">
             @csrf
+            <x-honeypot />
             <x-form.report-items />
 
             <div class="mt-8 flex items-center gap-4">
